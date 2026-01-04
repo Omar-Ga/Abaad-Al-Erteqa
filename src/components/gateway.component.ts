@@ -7,7 +7,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
   standalone: true,
   imports: [CommonModule, NgOptimizedImage],
   template: `
-    <section class="relative z-30 px-6 -mt-32 pb-24">
+    <section class="relative z-30 px-6 -mt-20 pb-16">
       <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <!-- Card A: Abaad Al-Erteqaa (Blue/Technical Tone) -->

@@ -34,8 +34,7 @@ import { CommonModule } from '@angular/common';
                     ></div>
                     
                     <h3 class="text-xl font-bold text-[#1A1A1A] mb-3">{{ service.title }}</h3>
-                    <p class="text-[#4A4A4A] text-sm leading-relaxed opacity-80 min-h-[40px]">
-                        {{ service.desc }}
+                    <p class="text-[#4A4A4A] text-sm leading-relaxed opacity-80 min-h-[40px]" [innerHTML]="service.desc">
                     </p>
                     
                     <div class="mt-6 flex items-center text-xs font-bold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0"
@@ -57,29 +56,29 @@ export class ServicesComponent {
     { 
       id: 1, 
       type: 'abaad',
-      title: 'Integrated Design', 
-      desc: 'Architectural, Structural, and Electromechanical (MEP) planning for modern infrastructures.',
+      title: 'Architectural & MEP Design', 
+      desc: 'Comprehensive structural, electrical, and mechanical planning for complex facilities.',
       iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" /></svg>`
     },
     { 
       id: 2, 
       type: 'abaad',
-      title: 'Project Supervision', 
-      desc: 'Technical oversight, quantity surveying, and rigorous quality control protocols.',
-      iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" /></svg>`
+      title: 'Surveying & Unit Sorting', 
+      desc: 'Precision land surveying and <strong>Real Estate Unit Sorting (Farz)</strong> for property development.',
+      iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" /></svg>`
     },
     { 
       id: 3, 
       type: 'sama',
       title: 'General Contracting', 
-      desc: 'Full-scale construction for residential and commercial complexes.',
+      desc: 'Execution of public and private buildings, including water and sanitation <strong>infrastructure</strong>.',
       iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M6 3v2.25M18 3v2.25M6 15v6.375m12-6.375v6.375m-12-3.375h12m-9-6.375h6m-9-6.375h6" /></svg>`
     },
     { 
       id: 4, 
       type: 'sama',
-      title: 'Finishing & Restoration', 
-      desc: 'High-end interior finishing, electrical works, and facility maintenance.',
+      title: 'Restoration & Landscaping', 
+      desc: 'Building restoration, interior finishing, and the development of gardens and parks.',
       iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.703.127 1.543.9 2.456 3.022 1.204 4.038m-2.907-4.165c.81-1.182 1.5-3.133.454-4.187-1.614-1.612-4.25-1.558-5.69 0-.646.698-2.654 3.535-3.536 4.606.398.397.798.815 1.15 1.25l2.05-1.92 2.05 1.92.51-.483z" /></svg>`
     },
   ];

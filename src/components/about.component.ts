@@ -13,17 +13,17 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
         <!-- Text Content (Left) -->
         <div class="lg:w-1/3 relative z-10">
           <span class="text-[#8B5E3C] font-semibold tracking-wider text-sm uppercase mb-2 block">Our Mission</span>
-          <h3 class="text-4xl font-bold text-[#1A1A1A] mb-6 leading-tight">One Vision, <br/><span class="text-[#8B5E3C]">Two Dimensions</span>.</h3>
+          <h3 class="text-4xl font-bold text-[#1A1A1A] mb-6 leading-tight">Integrated Engineering <span class="text-[#8B5E3C]">Leadership</span>.</h3>
           
           <div class="prose text-[#4A4A4A] leading-relaxed mb-6">
             <p class="mb-4">
-              We combine scientific precision with on-site expertise. 
+              We bridge the gap between concept and reality. 
             </p>
             <p class="mb-4">
-              <strong class="text-[#1A1A1A]">Abaad Al-Erteqaa</strong> provides the architectural roadmap through comprehensive design and supervision.
+              <strong class="text-[#1A1A1A]">Abaad Al-Erteqaa</strong> provides distinct engineering studies, urban planning, and real estate unit sorting (Farz).
             </p>
             <p>
-              <strong class="text-[#1A1A1A]">Sama Al-Mamaria</strong> transforms these blueprints into reality through expert general contracting, restoration, and finishing works.
+              Simultaneously, <strong class="text-[#1A1A1A]">Sama Al-Mamaria</strong> delivers general contracting, restoration, and infrastructure works. Together, we ensure quality from the first survey to the final finish.
             </p>
           </div>
 

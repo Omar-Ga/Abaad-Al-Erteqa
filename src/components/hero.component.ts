@@ -7,7 +7,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
   standalone: true,
   imports: [CommonModule, NgOptimizedImage],
   template: `
-    <section class="relative h-screen min-h-[800px] w-full overflow-hidden flex items-center justify-center">
+    <section class="relative h-screen min-h-[900px] w-full overflow-hidden flex items-center justify-center pb-40">
       
       <!-- Background Slideshow -->
       <div class="absolute inset-0 z-0 bg-gray-900">
@@ -29,10 +29,10 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
       <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/50 via-transparent to-black/30 pointer-events-none"></div>
 
       <!-- Bottom Gradient Blend -->
-      <div class="absolute bottom-0 left-0 w-full h-48 z-20 bg-gradient-to-b from-transparent to-[#F9F8F6]"></div>
+      <div class="absolute bottom-0 left-0 w-full h-64 z-20 bg-gradient-to-b from-transparent to-[#F9F8F6]"></div>
 
       <!-- Content -->
-      <div class="relative z-30 text-center max-w-5xl px-6 animate-fade-in-up">
+      <div class="relative z-30 text-center max-w-5xl px-6 animate-fade-in-up mt-10">
         <div class="inline-block mb-4 px-3 py-1 border border-white/30 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium tracking-widest text-white uppercase">
           Abaad & Sama
         </div>
@@ -40,7 +40,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
           Precision in Design. <br/> Quality in Execution.
         </h1>
         <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md">
-          Integrating Abaad's engineering vision with Sama's contracting power.
+          Since 2000. Upgrading the urban landscape through precise design and perfected execution.
         </p>
         
         <div class="mt-10 flex flex-col md:flex-row gap-4 justify-center">
