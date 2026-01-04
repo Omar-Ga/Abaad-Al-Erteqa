@@ -1,67 +1,83 @@
 
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { TranslatePipe } from '../pipes/translate.pipe';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, TranslatePipe],
   template: `
-    <section class="py-24 bg-[#F9F8F6] overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+    <section class="py-32 bg-[#EFE7DD] overflow-hidden relative">
+      <!-- Background Abstract Shape -->
+      <div class="absolute top-0 right-0 w-1/2 h-full bg-white skew-x-[-12deg] origin-top opacity-100 -mr-20 z-0"></div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
         
-        <!-- Text Content (Left) -->
-        <div class="lg:w-1/3 relative z-10">
-          <span class="text-[#8B5E3C] font-semibold tracking-wider text-sm uppercase mb-2 block">Our Mission</span>
-          <h3 class="text-4xl font-bold text-[#1A1A1A] mb-6 leading-tight">Integrated Engineering <span class="text-[#8B5E3C]">Leadership</span>.</h3>
+        <div class="flex flex-col lg:flex-row items-center gap-20">
           
-          <div class="prose text-[#4A4A4A] leading-relaxed mb-6">
-            <p class="mb-4">
-              We bridge the gap between concept and reality. 
-            </p>
-            <p class="mb-4">
-              <strong class="text-[#1A1A1A]">Abaad Al-Erteqaa</strong> provides distinct engineering studies, urban planning, and real estate unit sorting (Farz).
-            </p>
-            <p>
-              Simultaneously, <strong class="text-[#1A1A1A]">Sama Al-Mamaria</strong> delivers general contracting, restoration, and infrastructure works. Together, we ensure quality from the first survey to the final finish.
-            </p>
+          <!-- Text Content (Left) -->
+          <div class="lg:w-1/2">
+            <div class="inline-block px-3 py-1 bg-[#4A3728]/10 text-[#4A3728] font-bold text-xs uppercase tracking-widest mb-6">{{ 'HOME.ABOUT.LABEL' | translate }}</div>
+            <h3 class="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8 leading-tight" [innerHTML]="'HOME.ABOUT.TITLE' | translate">
+            </h3>
+            
+            <div class="prose text-[#4A4A4A] leading-relaxed mb-8 text-lg">
+              <p class="mb-6">
+                {{ 'HOME.ABOUT.DESC' | translate }}
+              </p>
+              <div class="flex gap-6 mb-6">
+                  <div class="w-1 bg-[#4A3728]"></div>
+                  <div>
+                      <strong class="block text-[#1A1A1A] text-xl mb-1">{{ 'HOME.ABOUT.ABAAD_TITLE' | translate }}</strong>
+                      <p class="text-sm">{{ 'HOME.ABOUT.ABAAD_DESC' | translate }}</p>
+                  </div>
+              </div>
+              <div class="flex gap-6">
+                  <div class="w-1 bg-[#EBC934]"></div>
+                  <div>
+                      <strong class="block text-[#1A1A1A] text-xl mb-1">{{ 'HOME.ABOUT.SAMA_TITLE' | translate }}</strong>
+                      <p class="text-sm">{{ 'HOME.ABOUT.SAMA_DESC' | translate }}</p>
+                  </div>
+              </div>
+            </div>
+
+            <a href="#" class="inline-flex items-center px-8 py-4 bg-[#1A1A1A] text-white font-semibold hover:bg-[#4A3728] transition-colors shadow-lg">
+              {{ 'HOME.ABOUT.BTN' | translate }}
+            </a>
           </div>
 
-          <a href="#" class="inline-flex items-center text-[#1A1A1A] font-semibold hover:text-[#8B5E3C] transition-colors group mt-4">
-            Learn More
-            <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-          </a>
-        </div>
-
-        <!-- Visuals (Right - Stacked) -->
-        <div class="lg:w-2/3 relative h-[500px] w-full mt-10 lg:mt-0">
-            <!-- Back Image (Architectural Sketch - Faded) -->
-            <div class="absolute top-0 right-0 w-3/4 h-3/4 grayscale opacity-80 rounded-md overflow-hidden shadow-sm">
+          <!-- Visuals (Right - Asymmetric Grid) -->
+          <div class="lg:w-1/2 relative h-[600px] w-full mt-12 lg:mt-0">
+              
+              <!-- Image 1: Engineering -->
+              <div class="absolute top-0 right-0 w-3/4 h-3/5 shadow-2xl overflow-hidden z-10 border-4 border-white">
                  <img 
-                    ngSrc="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2070&auto=format&fit=crop" 
+                    ngSrc="assets/images/architecture_hero.png" 
                     fill 
-                    class="object-cover" 
-                    alt="Blueprint"
+                    class="object-cover hover:scale-105 transition-transform duration-700" 
+                    alt="Abaad Engineering"
                 >
-            </div>
-            
-            <!-- Front Image (Inspector - Sharp & Color) -->
-            <div class="absolute bottom-0 left-0 lg:left-12 w-3/5 h-3/5 shadow-2xl rounded-md overflow-hidden border-4 border-[#F9F8F6]">
+              </div>
+              
+              <!-- Image 2: Safety/Construction -->
+              <div class="absolute bottom-0 left-0 w-3/4 h-1/2 shadow-2xl overflow-hidden z-20 border-4 border-white">
                  <img 
-                    ngSrc="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?q=80&w=2070&auto=format&fit=crop" 
+                    ngSrc="assets/images/safety_construction.png" 
                     fill 
-                    class="object-cover" 
-                    alt="Safety Inspector"
+                    class="object-cover hover:scale-105 transition-transform duration-700" 
+                    alt="Sama Safety"
                 >
-            </div>
+              </div>
 
-            <!-- Decorative Box -->
-            <div class="absolute bottom-10 right-10 w-24 h-24 bg-[#8B5E3C]/10 -z-10 rounded-full blur-2xl"></div>
+              <!-- Decorative Square -->
+              <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-[#EBC934] -z-0 mix-blend-multiply opacity-80 animate-pulse"></div>
+          </div>
+
         </div>
-
       </div>
     </section>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AboutComponent {}
+export class AboutComponent { }

@@ -1,0 +1,131 @@
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../pipes/translate.pipe';
+
+@Component({
+  selector: 'app-synergy',
+  standalone: true,
+  imports: [CommonModule, TranslatePipe],
+  template: `
+    <section class="relative pt-6 pb-16 md:py-16 overflow-hidden bg-[#1A1A1A]">
+      <!-- Background Image with Dark Overlay -->
+      <div class="absolute inset-0 z-0">
+        <img 
+          src="assets/images/stats_background.png" 
+          alt="" 
+          class="w-full h-full object-cover opacity-50"
+        />
+      </div>
+
+      <!-- Content Container -->
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+          <span class="inline-block px-6 py-2 bg-[#4A3728]/30 text-[#EBC934] text-sm font-semibold tracking-widest uppercase rounded-full mb-6 backdrop-blur-sm border border-[#4A3728]/40">
+            {{ 'HOME.SYNERGY.BADGE' | translate }}
+          </span>
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            {{ 'HOME.SYNERGY.HEADER' | translate }}
+          </h2>
+          <div class="w-32 h-1 bg-gradient-to-r from-[#4A3728] via-[#EBC934] to-[#4A3728] mx-auto"></div>
+          <p class="text-[#A0A0A0] mt-6 max-w-3xl mx-auto text-lg leading-relaxed">
+            {{ 'HOME.SYNERGY.SUBHEADER' | translate }}
+          </p>
+        </div>
+
+        <!-- Two Column Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          <!-- Abaad Column -->
+          <div class="group relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#4A3728]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div class="relative bg-[#1A1A1A]/60 backdrop-blur-md border border-[#4A3728]/30 rounded-2xl p-8 h-full hover:border-[#4A3728]/60 transition-all duration-500">
+              <!-- Company Header -->
+              <div class="flex items-center gap-4 mb-6 pb-4 border-b border-[#4A3728]/30">
+                <div class="w-14 h-14 bg-gradient-to-br from-[#4A3728] to-[#6B4D3B] rounded-xl flex items-center justify-center shadow-lg shadow-[#4A3728]/30">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-white">{{ 'HOME.SYNERGY.ABAAD.TITLE' | translate }}</h3>
+                  <p class="text-[#A0A0A0] text-sm">{{ 'HOME.SYNERGY.ABAAD.SUBTITLE' | translate }}</p>
+                </div>
+              </div>
+
+              <!-- Services List -->
+              <ul class="space-y-4">
+                @for (service of abaadServices; track service.key) {
+                  <li class="group/item flex items-start gap-4">
+                    <div class="w-2 h-2 bg-[#4A3728] rounded-full mt-2.5 shrink-0 group-hover/item:scale-150 transition-transform duration-300"></div>
+                    <div>
+                      <h4 class="text-white font-semibold text-lg mb-1">{{ 'HOME.SYNERGY.ABAAD.SERVICES.' + service.key + '.TITLE' | translate }}</h4>
+                      <p class="text-[#8A8A8A] text-sm leading-relaxed">{{ 'HOME.SYNERGY.ABAAD.SERVICES.' + service.key + '.DESC' | translate }}</p>
+                    </div>
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+
+          <!-- Sama Column -->
+          <div class="group relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#EBC934]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div class="relative bg-[#1A1A1A]/60 backdrop-blur-md border border-[#EBC934]/30 rounded-2xl p-8 h-full hover:border-[#EBC934]/60 transition-all duration-500">
+              <!-- Company Header -->
+              <div class="flex items-center gap-4 mb-6 pb-4 border-b border-[#EBC934]/30">
+                <div class="w-14 h-14 bg-gradient-to-br from-[#EBC934] to-[#B89C28] rounded-xl flex items-center justify-center shadow-lg shadow-[#EBC934]/30">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#1A1A1A]" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-white">{{ 'HOME.SYNERGY.SAMA.TITLE' | translate }}</h3>
+                  <p class="text-[#A0A0A0] text-sm">{{ 'HOME.SYNERGY.SAMA.SUBTITLE' | translate }}</p>
+                </div>
+              </div>
+
+              <!-- Services List -->
+              <ul class="space-y-4">
+                @for (service of samaServices; track service.key) {
+                  <li class="group/item flex items-start gap-4">
+                    <div class="w-2 h-2 bg-[#EBC934] rounded-full mt-2.5 shrink-0 group-hover/item:scale-150 transition-transform duration-300"></div>
+                    <div>
+                      <h4 class="text-white font-semibold text-lg mb-1">{{ 'HOME.SYNERGY.SAMA.SERVICES.' + service.key + '.TITLE' | translate }}</h4>
+                      <p class="text-[#8A8A8A] text-sm leading-relaxed">{{ 'HOME.SYNERGY.SAMA.SERVICES.' + service.key + '.DESC' | translate }}</p>
+                    </div>
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Decorative Elements -->
+      <div class="absolute top-1/4 left-0 w-px h-32 bg-gradient-to-b from-transparent via-[#4A3728]/50 to-transparent"></div>
+      <div class="absolute top-1/3 right-0 w-px h-40 bg-gradient-to-b from-transparent via-[#EBC934]/50 to-transparent"></div>
+      <div class="absolute bottom-20 left-10 w-24 h-24 border border-[#4A3728]/20 rounded-full"></div>
+      <div class="absolute top-20 right-10 w-16 h-16 border border-[#EBC934]/20 rounded-full"></div>
+    </section>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SynergyComponent {
+  abaadServices = [
+    { key: 'ARCHITECTURAL' },
+    { key: 'SAFETY_DESIGN' },
+    { key: 'SUPERVISION' },
+    { key: 'URBAN' },
+    { key: 'TRAFFIC' },
+  ];
+
+  samaServices = [
+    { key: 'FIREFIGHTING' },
+    { key: 'WARNING' },
+    { key: 'MAINTENANCE' },
+    { key: 'EQUIPMENT' },
+  ];
+}

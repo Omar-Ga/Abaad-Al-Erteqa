@@ -1,0 +1,204 @@
+{
+    "HOME": {
+        "BADGE": "Abaad & Sama",
+        "LOGO": "Abaad | Sama",
+        "LOGO_TEXT": {
+            "TITLE": "Abaad Al-Erteqaa",
+            "SUBTITLE": "Engineering Consultations & Executions"
+        },
+        "HERO": {
+            "CTA": "Start Your Project"
+        },
+        "TITLE": "Integrated Engineering Excellence & <br/> Advanced Safety Solutions",
+        "SUBTITLE": "From architectural vision to operational safety. We provide comprehensive engineering consultation and certified fire protection systems under one roof.",
+        "SERVICES_BTN": "Explore Engineering Services",
+        "PORTFOLIO_BTN": "Explore Safety Solutions",
+        "STATS": {
+            "PROJECTS": "Projects Completed",
+            "CLIENTS": "Happy Clients",
+            "DESIGNS": "Unique Designs"
+        },
+        "ABAAD": "ABAAD",
+        "SAMA": "SAMA",
+        "NAV": {
+            "HOME": "Home",
+            "CONSULTANTS": "Consultants",
+            "PROJECTS": "Projects",
+            "EXECUTIONS": "Executions",
+            "CONTACT": "Contact",
+            "ABAAD_PROJECTS": "Abaad Projects",
+            "ABAAD_DESC": "Engineering & Design",
+            "SAMA_PROJECTS": "Sama Projects",
+            "SAMA_DESC": "Safety & Execution"
+        },
+        "GATEWAY": {
+            "ABAAD": {
+                "TITLE": "Engineering Consultation",
+                "SUBTITLE": "Abaad Al-Erteqaa",
+                "DESC": "Design, Supervision & Surveying. We draft the blueprints of tomorrow with scientific precision.",
+                "BTN": "Explore Design"
+            },
+            "SAMA": {
+                "TITLE": "Sama Contracting & Safety",
+                "SUBTITLE": "Sama Al-Mamaria",
+                "DESC": "Construction, Finishing & Maintenance. Executing visions with rigorous safety standards.",
+                "BTN": "View Contracting"
+            }
+        },
+        "ABOUT": {
+            "LABEL": "Our Vision",
+            "TITLE": "Two Companies. <br/> <span class=\"text-[#4A3728] italic\">One Vision</span> for a Safer Future.",
+            "DESC": "We are a premier alliance dedicated to the development and protection of Saudi Arabia’s infrastructure.",
+            "ABAAD_TITLE": "Abaad Al-Erteqaa",
+            "ABAAD_DESC": "World-class engineering consultation, urban planning, and certified safety designs.",
+            "SAMA_TITLE": "Sama Safety",
+            "SAMA_DESC": "Leader in supply, installation, and maintenance of cutting-edge firefighting systems.",
+            "BTN": "Learn About Our Alliance"
+        },
+        "VALUES": {
+            "VAL1": {
+                "TITLE": "Accuracy & Speed",
+                "DESC": "Delivering precision results utilizing the latest engineering methods."
+            },
+            "VAL2": {
+                "TITLE": "Honesty & Integrity",
+                "DESC": "Transparent dealings and trusted partnerships are our foundation."
+            },
+            "VAL3": {
+                "TITLE": "Technical Development",
+                "DESC": "Continuous upgrade of our engineering assets and software."
+            },
+            "VAL4": {
+                "TITLE": "Time Commitment",
+                "DESC": "Strict adherence to project schedules and delivery milestones."
+            }
+        },
+        "PHILOSOPHY": {
+            "LABEL": "A Legacy of Technical Precision",
+            "QUOTE": "Since 2000, our goal has been to upgrade the level of engineering services by combining technical accuracy with speed in performance.",
+            "TEXT": "We invest continuously in our technical assets to maintain the highest standards of engineering excellence."
+        },
+        "SERVICES": {
+            "HEADER": "Our Core Capabilities",
+            "SUBHEADER": "We combine <span class=\"text-[#4A3728] font-bold\">Abaad's</span> engineering precision with <span class=\"text-[#EBC934] font-bold text-darker\">Sama's</span> execution excellence.",
+            "ITEMS": {
+                "ABAAD_DESIGN": {
+                    "TITLE": "Architectural & MEP Design",
+                    "DESC": "Comprehensive structural, electrical, and mechanical planning for complex facilities."
+                },
+                "ABAAD_SURVEY": {
+                    "TITLE": "Surveying & Unit Sorting",
+                    "DESC": "Precision land surveying and <strong>Real Estate Unit Sorting (Farz)</strong> for property development."
+                },
+                "SAMA_CONTRACTING": {
+                    "TITLE": "General Contracting",
+                    "DESC": "Execution of public and private buildings, including water and sanitation <strong>infrastructure</strong>."
+                },
+                "SAMA_RESTORATION": {
+                    "TITLE": "Restoration & Landscaping",
+                    "DESC": "Building restoration, interior finishing, and the development of gardens and parks."
+                }
+            }
+        },
+        "WORKFLOW": {
+            "HEADER": "The Integrated Workflow",
+            "SUBHEADER": "From concept to completion.",
+            "STEPS": {
+                "STEP1": {
+                    "TITLE": "Surveying & Planning",
+                    "DESC": "Topographical surveys and real estate unit sorting (Farz) to establish the ground truth."
+                },
+                "STEP2": {
+                    "TITLE": "Design & Engineering",
+                    "DESC": "Architectural, structural, and MEP design for robust and efficient facilities."
+                },
+                "STEP3": {
+                    "TITLE": "Execution & Contracting",
+                    "DESC": "General contracting, sanitation works, and infrastructure implementation."
+                },
+                "STEP4": {
+                    "TITLE": "Operation & Maintenance",
+                    "DESC": "Facility management, building restoration, and high-end finishing."
+                }
+            }
+        },
+        "SYNERGY": {
+            "BADGE": "The Synergy",
+            "HEADER": "Our Services",
+            "SUBHEADER": "Discover how Abaad Al-Erteqaa's engineering expertise and Sama's safety solutions work together to deliver comprehensive project excellence.",
+            "ABAAD": {
+                "TITLE": "Engineering & Consulting",
+                "SUBTITLE": "Abaad Al-Erteqaa",
+                "SERVICES": {
+                    "ARCHITECTURAL": {
+                        "TITLE": "Architectural & Interior Design",
+                        "DESC": "Creative concepts for residential, commercial, and hospitality projects."
+                    },
+                    "SAFETY_DESIGN": {
+                        "TITLE": "Safety Engineering Design",
+                        "DESC": "Creating security and safety plans compliant with Civil Defense regulations (Safety 1 & 2)."
+                    },
+                    "SUPERVISION": {
+                        "TITLE": "Supervision & Project Management",
+                        "DESC": "Ensuring on-site execution matches the highest quality standards."
+                    },
+                    "URBAN": {
+                        "TITLE": "Urban Planning & Surveying",
+                        "DESC": "Topographical surveys, infrastructure planning, and contour mapping."
+                    },
+                    "TRAFFIC": {
+                        "TITLE": "Traffic & Environmental Studies",
+                        "DESC": "Specialized impact studies for major developments."
+                    }
+                }
+            },
+            "SAMA": {
+                "TITLE": "Safety Systems & Implementation",
+                "SUBTITLE": "SAMA",
+                "SERVICES": {
+                    "FIREFIGHTING": {
+                        "TITLE": "Fire Fighting Systems",
+                        "DESC": "Installation of automatic sprinkler systems (wet & dry), fire pumps, and FM200/CO2 suppression systems."
+                    },
+                    "WARNING": {
+                        "TITLE": "Early Warning Systems",
+                        "DESC": "Advanced fire alarm installation and programming."
+                    },
+                    "MAINTENANCE": {
+                        "TITLE": "Maintenance Contracts",
+                        "DESC": "Annual maintenance for hotels, hospitals, and commercial towers to ensure continuous Civil Defense compliance."
+                    },
+                    "EQUIPMENT": {
+                        "TITLE": "Safety Equipment Supply",
+                        "DESC": "Generators, air pressure fans, and professional safety tools."
+                    }
+                }
+            }
+        },
+        "FOOTER": {
+            "BRAND_DESC": "Unifying architectural brilliance with safety assurance. We are your partners in building a secure future.",
+            "LINKS": {
+                "HEADER": "Quick Links",
+                "ABOUT": "About Us",
+                "CAREERS": "Careers"
+            },
+            "SERVICES": {
+                "HEADER": "Services",
+                "DESIGN": "Design Consultancy",
+                "SAFETY": "Safety Contracting",
+                "MGMT": "Project Management",
+                "URBAN": "Urban Planning"
+            },
+            "CONTACT": {
+                "HEADER": "Contact",
+                "ADDRESS": "Makkah Al-Mukarramah, Bathaa Quraysh <br> Next to Taif Alharam Center.",
+                "ADDRESS_DESC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "INQUIRIES": "Inquiries",
+                "PHONE": "+966 11 000 0000",
+                "EMAIL": "engineering@abaadsama.com"
+            },
+            "COPYRIGHT": "© 2024 Abaad Al-erteqaa Engineering & Sama Safety. All rights reserved.",
+            "TAGLINE": "Designed for Excellence."
+        }
+    }
+}
