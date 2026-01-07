@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { LucideAngularModule, Building2, ShieldAlert } from 'lucide-angular';
@@ -8,15 +8,16 @@ import { LucideAngularModule, Building2, ShieldAlert } from 'lucide-angular';
 @Component({
   selector: 'app-synergy',
   standalone: true,
-  imports: [CommonModule, TranslatePipe, LucideAngularModule],
+  imports: [CommonModule, TranslatePipe, LucideAngularModule, NgOptimizedImage],
   template: `
     <section class="relative pt-6 pb-16 md:py-16 overflow-hidden bg-[#1A1A1A]">
       <!-- Background Image with Dark Overlay -->
       <div class="absolute inset-0 z-0">
         <img 
-          src="assets/images/stats_background.png" 
+          ngSrc="assets/images/stats_background.png" 
+          fill
           alt="" 
-          class="w-full h-full object-cover opacity-50"
+          class="object-cover opacity-50"
         />
       </div>
 

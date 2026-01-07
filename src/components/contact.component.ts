@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslationService } from '../services/translation.service';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-angular';
 
@@ -13,10 +14,10 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
         <!-- Header -->
         <div class="text-center mb-16 space-y-4">
           <h1 class="text-4xl md:text-5xl font-bold text-[#4A3728] font-serif">
-            {{ 'HOME.CONTACT_PAGE.TITLE' | translate }}
+            {{ 'CONTACT_PAGE.TITLE' | translate }}
           </h1>
           <p class="text-[#4A4A4A] max-w-2xl mx-auto text-lg">
-            {{ 'HOME.CONTACT_PAGE.SUBTITLE' | translate }}
+            {{ 'CONTACT_PAGE.SUBTITLE' | translate }}
           </p>
         </div>
 
@@ -29,9 +30,9 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
               <div class="w-16 h-16 rounded-full bg-[#25D366]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <lucide-icon [name]="'message-circle'" [size]="32" class="text-[#25D366]"></lucide-icon>
               </div>
-              <h3 class="text-xl font-bold text-[#4A3728] mb-2">{{ 'HOME.CONTACT_PAGE.WHATSAPP.TITLE' | translate }}</h3>
-              <p class="text-[#4A4A4A]/80 mb-4">{{ 'HOME.CONTACT_PAGE.WHATSAPP.DESC' | translate }}</p>
-              <span class="text-[#4A3728] font-semibold group-hover:underline decoration-1 underline-offset-4">{{ 'HOME.CONTACT_PAGE.WHATSAPP.ACTION' | translate }}</span>
+              <h3 class="text-xl font-bold text-[#4A3728] mb-2">{{ 'CONTACT_PAGE.WHATSAPP.TITLE' | translate }}</h3>
+              <p class="text-[#4A4A4A]/80 mb-4">{{ 'CONTACT_PAGE.WHATSAPP.DESC' | translate }}</p>
+              <span class="text-[#4A3728] font-semibold group-hover:underline decoration-1 underline-offset-4">{{ 'CONTACT_PAGE.WHATSAPP.ACTION' | translate }}</span>
             </div>
           </a>
 
@@ -41,10 +42,10 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
               <div class="w-16 h-16 rounded-full bg-[#EBC934]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <lucide-icon [name]="'mail'" [size]="32" class="text-[#D4AF37]"></lucide-icon>
               </div>
-              <h3 class="text-xl font-bold text-[#4A3728] mb-2">{{ 'HOME.CONTACT_PAGE.EMAIL.TITLE' | translate }}</h3>
+              <h3 class="text-xl font-bold text-[#4A3728] mb-2">{{ 'CONTACT_PAGE.EMAIL.TITLE' | translate }}</h3>
               <p class="text-[#4A4A4A] font-medium mb-1 break-all">engineering@abaadsama.com</p>
-              <p class="text-[#4A4A4A]/60 text-sm mb-4">{{ 'HOME.CONTACT_PAGE.EMAIL.DESC' | translate }}</p>
-              <span class="text-[#4A3728] font-semibold group-hover:underline decoration-1 underline-offset-4">{{ 'HOME.CONTACT_PAGE.EMAIL.ACTION' | translate }}</span>
+              <p class="text-[#4A4A4A]/60 text-sm mb-4">{{ 'CONTACT_PAGE.EMAIL.DESC' | translate }}</p>
+              <span class="text-[#4A3728] font-semibold group-hover:underline decoration-1 underline-offset-4">{{ 'CONTACT_PAGE.EMAIL.ACTION' | translate }}</span>
             </div>
           </a>
 
@@ -54,10 +55,10 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
               <div class="w-16 h-16 rounded-full bg-[#4A3728]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                  <lucide-icon [name]="'phone'" [size]="32" class="text-[#4A3728]"></lucide-icon>
               </div>
-              <h3 class="text-xl font-bold text-[#4A3728] mb-2">{{ 'HOME.CONTACT_PAGE.PHONE.TITLE' | translate }}</h3>
+              <h3 class="text-xl font-bold text-[#4A3728] mb-2">{{ 'CONTACT_PAGE.PHONE.TITLE' | translate }}</h3>
               <p class="text-[#4A4A4A] font-medium mb-1" dir="ltr">+966 11 000 0000</p>
-              <p class="text-[#4A4A4A]/60 text-sm mb-4">{{ 'HOME.CONTACT_PAGE.PHONE.DESC' | translate }}</p>
-              <span class="text-[#4A3728] font-semibold group-hover:underline decoration-1 underline-offset-4">{{ 'HOME.CONTACT_PAGE.PHONE.ACTION' | translate }}</span>
+              <p class="text-[#4A4A4A]/60 text-sm mb-4">{{ 'CONTACT_PAGE.PHONE.DESC' | translate }}</p>
+              <span class="text-[#4A3728] font-semibold group-hover:underline decoration-1 underline-offset-4">{{ 'CONTACT_PAGE.PHONE.ACTION' | translate }}</span>
             </div>
           </a>
         </div>
@@ -65,55 +66,55 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           <!-- Contact Form -->
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-[#4A3728]/10">
-            <h2 class="text-2xl font-bold text-[#4A3728] mb-2">{{ 'HOME.CONTACT_PAGE.FORM.TITLE' | translate }}</h2>
-            <p class="text-[#4A4A4A]/70 mb-8">{{ 'HOME.CONTACT_PAGE.FORM.SUBTITLE' | translate }}</p>
+            <h2 class="text-2xl font-bold text-[#4A3728] mb-2">{{ 'CONTACT_PAGE.FORM.TITLE' | translate }}</h2>
+            <p class="text-[#4A4A4A]/70 mb-8">{{ 'CONTACT_PAGE.FORM.SUBTITLE' | translate }}</p>
             
             <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
               <!-- Web3Forms Access Key will go here -->
               <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
 
               <div class="space-y-2">
-                <label class="block text-sm font-semibold text-[#4A3728]">{{ 'HOME.CONTACT_PAGE.FORM.NAME' | translate }}</label>
+                <label class="block text-sm font-semibold text-[#4A3728]">{{ 'CONTACT_PAGE.FORM.NAME' | translate }}</label>
                 <input 
                   type="text" 
                   name="name"
                   required
                   class="w-full px-4 py-3 rounded-xl border border-[#4A3728]/10 focus:border-[#4A3728] focus:ring-1 focus:ring-[#4A3728] outline-none transition-all"
-                  [placeholder]="'HOME.CONTACT_PAGE.FORM.NAME' | translate"
+                  [placeholder]="'CONTACT_PAGE.FORM.NAME' | translate"
                 >
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-2">
-                  <label class="block text-sm font-semibold text-[#4A3728]">{{ 'HOME.CONTACT_PAGE.FORM.EMAIL' | translate }}</label>
+                  <label class="block text-sm font-semibold text-[#4A3728]">{{ 'CONTACT_PAGE.FORM.EMAIL' | translate }}</label>
                   <input 
                     type="email" 
                     name="email"
                     required
                     class="w-full px-4 py-3 rounded-xl border border-[#4A3728]/10 focus:border-[#4A3728] focus:ring-1 focus:ring-[#4A3728] outline-none transition-all"
-                    [placeholder]="'HOME.CONTACT_PAGE.FORM.EMAIL' | translate"
+                    [placeholder]="'CONTACT_PAGE.FORM.EMAIL' | translate"
                   >
                 </div>
                 <div class="space-y-2">
-                  <label class="block text-sm font-semibold text-[#4A3728]">{{ 'HOME.CONTACT_PAGE.FORM.SUBJECT' | translate }}</label>
+                  <label class="block text-sm font-semibold text-[#4A3728]">{{ 'CONTACT_PAGE.FORM.SUBJECT' | translate }}</label>
                   <input 
                     type="text" 
                     name="subject"
                     required
                     class="w-full px-4 py-3 rounded-xl border border-[#4A3728]/10 focus:border-[#4A3728] focus:ring-1 focus:ring-[#4A3728] outline-none transition-all"
-                    [placeholder]="'HOME.CONTACT_PAGE.FORM.SUBJECT' | translate"
+                    [placeholder]="'CONTACT_PAGE.FORM.SUBJECT' | translate"
                   >
                 </div>
               </div>
 
               <div class="space-y-2">
-                <label class="block text-sm font-semibold text-[#4A3728]">{{ 'HOME.CONTACT_PAGE.FORM.MESSAGE' | translate }}</label>
+                <label class="block text-sm font-semibold text-[#4A3728]">{{ 'CONTACT_PAGE.FORM.MESSAGE' | translate }}</label>
                 <textarea 
                   name="message"
                   required
                   rows="4"
                   class="w-full px-4 py-3 rounded-xl border border-[#4A3728]/10 focus:border-[#4A3728] focus:ring-1 focus:ring-[#4A3728] outline-none transition-all resize-none"
-                  [placeholder]="'HOME.CONTACT_PAGE.FORM.MESSAGE' | translate"
+                  [placeholder]="'CONTACT_PAGE.FORM.MESSAGE' | translate"
                 ></textarea>
               </div>
 
@@ -121,7 +122,7 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
                 type="submit"
                 class="w-full py-4 bg-[#4A3728] text-white font-bold rounded-xl hover:bg-[#3A2B20] transition-colors shadow-lg shadow-[#4A3728]/20 transform hover:scale-[1.02] active:scale-[0.98]"
               >
-                {{ 'HOME.CONTACT_PAGE.FORM.SUBMIT' | translate }}
+                {{ 'CONTACT_PAGE.FORM.SUBMIT' | translate }}
               </button>
             </form>
           </div>
@@ -132,7 +133,7 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
                   <div class="absolute inset-0 flex items-center justify-center bg-[#F3F0EB]">
                       <div class="text-center p-6">
                           <lucide-icon [name]="'map-pin'" [size]="48" class="mx-auto mb-3 opacity-50 text-[#4A3728]"></lucide-icon>
-                          <span class="text-[#4A3728]/60 font-medium">{{ 'HOME.CONTACT_PAGE.MAP_PLACEHOLDER' | translate }}</span>
+                          <span class="text-[#4A3728]/60 font-medium">{{ 'CONTACT_PAGE.MAP_PLACEHOLDER' | translate }}</span>
                       </div>
                   </div>
                   <img 
@@ -149,4 +150,10 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContactComponent { }
+export class ContactComponent {
+  private translationService = inject(TranslationService);
+
+  constructor() {
+    this.translationService.loadModule('Contact');
+  }
+}

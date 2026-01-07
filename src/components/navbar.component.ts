@@ -1,6 +1,6 @@
 
 import { Component, ChangeDetectionStrategy, signal, HostListener, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { LanguageSwitcherComponent } from './language-switcher.component';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { TranslationService } from '../services/translation.service';
@@ -14,7 +14,7 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, LanguageSwitcherComponent, TranslatePipe, RouterLink, LucideAngularModule],
+  imports: [CommonModule, LanguageSwitcherComponent, TranslatePipe, RouterLink, LucideAngularModule, NgOptimizedImage],
   template: `
     <nav 
       class="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out border-b"
@@ -23,7 +23,7 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
       <div class="max-w-7xl mx-auto px-3 md:px-6 h-20 flex items-center justify-between">
         <!-- Logo Area -->
         <a routerLink="/" class="flex items-center gap-1 md:gap-2 decoration-none group">
-            <img src="assets/Logos/logo.png" alt="Logo" class="h-10 md:h-16 w-auto object-contain transition-all duration-300 group-hover:scale-105" />
+            <img ngSrc="assets/Logos/logo.png" alt="Logo" width="64" height="64" priority class="h-10 md:h-16 w-auto object-contain transition-all duration-300 group-hover:scale-105" />
             
             <div 
               class="flex flex-col leading-tight border-r pr-1 md:pr-2 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-1 md:rtl:pl-2 transition-colors duration-300"
@@ -87,7 +87,7 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
         <!-- Right Side Utils -->
         <div class="flex items-center gap-2 md:gap-4">
            <!-- Language Switcher -->
-           <app-language-switcher [isScrolled]="isScrolled()"></app-language-switcher>
+           <app-language-switcher [isScrolled]="showDarkText()"></app-language-switcher>
 
            <!-- Desktop CTA -->
            <a 
@@ -105,7 +105,7 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
            <button 
              class="md:hidden p-2 rounded-md hover:bg-white/10 transition-colors focus:outline-none" 
              [class.text-white]="!showDarkText() && !mobileMenuOpen()" 
-             [class.text-[#1A1A1A]]="showDarkText() || mobileMenuOpen()"
+             [class.text-[#4A3728]]="showDarkText() || mobileMenuOpen()"
              (click)="toggleMobileMenu()"
              aria-label="Toggle mobile menu"
            >
@@ -139,7 +139,7 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
       <div class="h-20 flex items-center justify-between px-6 border-b border-[#4A3728]/10 bg-white">
         <div class="flex items-center gap-2">
            <!-- Optional: Mobile Logo -->
-           <img src="assets/Logos/logo.png" alt="Logo" class="h-8 w-auto" />
+           <img ngSrc="assets/Logos/logo.png" alt="Logo" width="32" height="32" class="h-8 w-auto" />
            <span class="font-bold text-[#4A3728] text-lg">{{ 'HOME.LOGO_TEXT.TITLE' | translate }}</span>
         </div>
         <button 

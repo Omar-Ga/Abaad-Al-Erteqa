@@ -21,9 +21,12 @@ export class TranslationService {
 
     isLoaded = this.loaded.asReadonly();
 
+    // Track loaded modules
+    private loadedModules = new Set<string>(['Home']);
+
     // Initialize translations - returns a Promise for APP_INITIALIZER
     async initTranslations(): Promise<void> {
-        await this.loadTranslations(this.currentLang());
+        await this.loadModule('Home');
         this.updateDirection(this.currentLang());
     }
 
@@ -34,26 +37,42 @@ export class TranslationService {
 
     setLanguage(lang: Language) {
         this.currentLang.set(lang);
-        this.loadTranslations(lang);
+        this.translations.set({}); // Clear current translations
+        this.reloadAllModules();
         this.updateDirection(lang);
     }
 
-    private async loadTranslations(lang: Language): Promise<void> {
+    async loadModule(moduleName: string): Promise<void> {
+        this.loadedModules.add(moduleName);
+        await this.fetchAndMerge(moduleName, this.currentLang());
+    }
+
+    private async reloadAllModules() {
+        const promises = Array.from(this.loadedModules).map(mod => 
+            this.fetchAndMerge(mod, this.currentLang())
+        );
+        await Promise.all(promises);
+    }
+
+    private async fetchAndMerge(moduleName: string, lang: Language) {
         try {
+            // Path construction: e.g., /assets/locale/EN/Home/home.json
+            const path = `/assets/locale/${lang}/${moduleName}/${moduleName.toLowerCase()}.json`;
+            
             const data = await firstValueFrom(
-                this.http.get(`/assets/locale/${lang}/Home/home.json`).pipe(
+                this.http.get(path).pipe(
                     catchError(err => {
-                        console.error('Error loading translations', err);
+                        console.error(`Error loading translations for ${moduleName}`, err);
                         return of({});
                     })
                 )
             );
-            this.translations.set(data);
+            
+            this.translations.update(current => ({ ...current, ...data }));
             this.loaded.set(true);
         } catch (err) {
-            console.error('Error loading translations', err);
-            this.translations.set({});
-            this.loaded.set(true);
+            console.error(`Error loading translations for ${moduleName}`, err);
+            // Don't reset loaded state here, just log
         }
     }
 

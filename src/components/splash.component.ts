@@ -1,11 +1,11 @@
 
 import { Component, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 @Component({
     selector: 'app-splash',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, NgOptimizedImage],
     template: `
     @if (showSplash()) {
       <div 
@@ -18,8 +18,11 @@ import { CommonModule } from '@angular/common';
         >
           <!-- Logo -->
           <img 
-            src="assets/Logos/logo.png" 
+            ngSrc="assets/Logos/logo.png" 
             alt="Logo" 
+            width="128" 
+            height="128" 
+            priority
             class="w-24 md:w-32 h-auto object-contain drop-shadow-2xl animate-logo-reveal mb-6 mx-auto" 
           />
           

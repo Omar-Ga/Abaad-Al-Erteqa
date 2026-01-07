@@ -9,13 +9,16 @@ import { TranslationService } from '../services/translation.service';
   template: `
     <button 
       (click)="toggle()"
-      class="flex items-center gap-1.5 px-2 py-1 rounded-md text-xs font-medium transition-colors border"
-      [class.bg-white]="!isScrolled"
-      [class.text-[#1A1A1A]]="!isScrolled"
-      [class.bg-[#4A3728]]="isScrolled"
-      [class.text-white]="isScrolled"
-      [class.border-transparent]="isScrolled"
-      [class.border-white]="!isScrolled"
+      class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 border"
+      [class.bg-white/10]="!isScrolled"
+      [class.backdrop-blur-sm]="!isScrolled"
+      [class.text-white]="!isScrolled"
+      [class.border-white/30]="!isScrolled"
+      [class.bg-transparent]="isScrolled"
+      [class.text-[#4A3728]]="isScrolled"
+      [class.border-[#4A3728]/30]="isScrolled"
+      [class.hover:bg-white/20]="!isScrolled"
+      [class.hover:bg-[#4A3728]/5]="isScrolled"
     >
       <span class="uppercase">{{ currentLang() }}</span>
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

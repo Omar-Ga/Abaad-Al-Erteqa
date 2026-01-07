@@ -1,6 +1,6 @@
 
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { LucideAngularModule, MapPin, Phone, Mail } from 'lucide-angular';
 
@@ -8,7 +8,7 @@ import { LucideAngularModule, MapPin, Phone, Mail } from 'lucide-angular';
 @Component({
     selector: 'app-footer',
     standalone: true,
-    imports: [CommonModule, TranslatePipe, LucideAngularModule],
+    imports: [CommonModule, TranslatePipe, LucideAngularModule, NgOptimizedImage],
     template: `
     <footer class="relative overflow-hidden text-white pt-[65px] pb-10 bg-[linear-gradient(165deg,#121212_50%,#2A1E12_50%)]">
       <div class="max-w-7xl mx-auto px-6">
@@ -17,7 +17,7 @@ import { LucideAngularModule, MapPin, Phone, Mail } from 'lucide-angular';
             <!-- Col 1: Brand -->
             <div>
                 <div class="flex items-center gap-3 mb-6">
-                    <img src="assets/Logos/logo.png" alt="Logo" class="h-12 w-auto brightness-0 invert" />
+                    <img ngSrc="assets/Logos/logo.png" alt="Logo" width="48" height="48" class="h-12 w-auto brightness-0 invert" />
                     <div class="flex flex-col leading-tight">
                         <span class="text-lg font-bold tracking-tight text-white" [innerHTML]="'HOME.LOGO_TEXT.TITLE' | translate"></span>
                         <span class="text-[10px] font-medium text-white/60 uppercase tracking-widest mt-0.5" [innerHTML]="'HOME.LOGO_TEXT.SUBTITLE' | translate"></span>
