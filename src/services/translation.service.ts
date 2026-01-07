@@ -1,7 +1,6 @@
-import { Injectable, signal, computed, inject } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, map, of, tap } from 'rxjs';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { catchError, firstValueFrom, of, tap } from 'rxjs';
 
 export type Language = 'EN' | 'AR';
 
@@ -17,8 +16,15 @@ export class TranslationService {
     // Loaded translations signal
     private translations = signal<any>({});
 
-    constructor() {
-        this.loadTranslations(this.currentLang());
+    // Flag to track if translations are loaded
+    private loaded = signal(false);
+
+    isLoaded = this.loaded.asReadonly();
+
+    // Initialize translations - returns a Promise for APP_INITIALIZER
+    async initTranslations(): Promise<void> {
+        await this.loadTranslations(this.currentLang());
+        this.updateDirection(this.currentLang());
     }
 
     toggleLanguage() {
@@ -32,18 +38,23 @@ export class TranslationService {
         this.updateDirection(lang);
     }
 
-    private loadTranslations(lang: Language) {
-        console.log(`Attempting to load translations for ${lang} from /assets/locale/${lang}/Home/home.json`);
-        this.http.get(`/assets/locale/${lang}/Home/home.json`).pipe(
-            tap(data => {
-                console.log('Translations loaded successfully:', data);
-                this.translations.set(data);
-            }),
-            catchError(err => {
-                console.error('Error loading translations', err);
-                return of({});
-            })
-        ).subscribe();
+    private async loadTranslations(lang: Language): Promise<void> {
+        try {
+            const data = await firstValueFrom(
+                this.http.get(`/assets/locale/${lang}/Home/home.json`).pipe(
+                    catchError(err => {
+                        console.error('Error loading translations', err);
+                        return of({});
+                    })
+                )
+            );
+            this.translations.set(data);
+            this.loaded.set(true);
+        } catch (err) {
+            console.error('Error loading translations', err);
+            this.translations.set({});
+            this.loaded.set(true);
+        }
     }
 
     private updateDirection(lang: Language) {
@@ -65,3 +76,4 @@ export class TranslationService {
         return value || key;
     }
 }
+

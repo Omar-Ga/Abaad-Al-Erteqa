@@ -1,16 +1,9 @@
 
 import { Component, ChangeDetectionStrategy, OnInit, OnDestroy } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar.component';
-import { HeroComponent } from './components/hero.component';
-import { GatewayComponent } from './components/gateway.component';
-import { ValuesComponent } from './components/values.component';
-import { PhilosophyComponent } from './components/philosophy.component';
-import { ServicesComponent } from './components/services.component';
-import { SynergyComponent } from './components/synergy.component';
-import { WorkflowComponent } from './components/workflow.component';
 import { FooterComponent } from './components/footer.component';
-import { StatisticsComponent } from './components/statistics.component';
-import { AboutComponent } from './components/about.component';
+import { SplashComponent } from './components/splash.component';
 import Lenis from 'lenis';
 
 @Component({
@@ -18,28 +11,14 @@ import Lenis from 'lenis';
   standalone: true,
   imports: [
     NavbarComponent,
-    HeroComponent,
-    GatewayComponent,
-    ValuesComponent,
-    PhilosophyComponent,
-    ServicesComponent,
-    SynergyComponent,
-    WorkflowComponent,
     FooterComponent,
-    StatisticsComponent,
-    AboutComponent
+    RouterOutlet,
+    SplashComponent
   ],
   template: `
+    <app-splash></app-splash>
     <app-navbar></app-navbar>
-    <app-hero></app-hero>
-    <app-gateway></app-gateway>
-    <app-statistics></app-statistics>
-    <app-about></app-about>
-    <app-services></app-services>
-    <app-synergy></app-synergy>
-    <app-workflow></app-workflow>
-    <app-values></app-values>
-    <app-philosophy></app-philosophy>
+    <router-outlet></router-outlet>
     <app-footer></app-footer>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

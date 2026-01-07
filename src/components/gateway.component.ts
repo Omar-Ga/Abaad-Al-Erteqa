@@ -2,11 +2,12 @@
 import { Component, ChangeDetectionStrategy, ElementRef, ViewChildren, QueryList, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { TranslatePipe } from '../pipes/translate.pipe';
+import { LucideAngularModule, ArrowRight } from 'lucide-angular';
 
 @Component({
   selector: 'app-gateway',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, TranslatePipe],
+  imports: [CommonModule, NgOptimizedImage, TranslatePipe, LucideAngularModule],
   template: `
     <section class="relative z-30 px-6 pt-24 pb-24 mt-0 bg-[#121212]">
       <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -37,9 +38,9 @@ import { TranslatePipe } from '../pipes/translate.pipe';
             <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 group-[.in-view]:opacity-100 transform translate-y-4 group-hover:translate-y-0 group-[.in-view]:translate-y-0 transition-all duration-500 delay-100 max-w-sm">
                 {{ 'HOME.GATEWAY.ABAAD.DESC' | translate }}
             </p>
-            <div class="mt-6 flex items-center text-white font-medium opacity-0 group-hover:opacity-100 group-[.in-view]:opacity-100 transition-opacity duration-500 delay-200">
+            <div class="mt-6 flex items-center gap-2 text-white font-medium opacity-0 group-hover:opacity-100 group-[.in-view]:opacity-100 transition-opacity duration-500 delay-200">
                 <span>{{ 'HOME.GATEWAY.ABAAD.BTN' | translate }}</span>
-                <svg class="w-4 h-4 ml-2 rtl:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                <lucide-icon [name]="'arrow-right'" [size]="18" class="rtl:rotate-180 transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1"></lucide-icon>
             </div>
           </div>
         </div>
@@ -70,9 +71,9 @@ import { TranslatePipe } from '../pipes/translate.pipe';
             <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 group-[.in-view]:opacity-100 transform translate-y-4 group-hover:translate-y-0 group-[.in-view]:translate-y-0 transition-all duration-500 delay-100 max-w-sm">
                 {{ 'HOME.GATEWAY.SAMA.DESC' | translate }}
             </p>
-             <div class="mt-6 flex items-center text-white font-medium opacity-0 group-hover:opacity-100 group-[.in-view]:opacity-100 transition-opacity duration-500 delay-200">
+             <div class="mt-6 flex items-center gap-2 text-white font-medium opacity-0 group-hover:opacity-100 group-[.in-view]:opacity-100 transition-opacity duration-500 delay-200">
                 <span>{{ 'HOME.GATEWAY.SAMA.BTN' | translate }}</span>
-                <svg class="w-4 h-4 ml-2 text-[#EBC934] rtl:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                <lucide-icon [name]="'arrow-right'" [size]="18" class="text-[#EBC934] rtl:rotate-180 transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1"></lucide-icon>
             </div>
           </div>
         </div>

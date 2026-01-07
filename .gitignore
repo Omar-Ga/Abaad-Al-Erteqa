@@ -7,21 +7,35 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Build and Tooling
 node_modules
 dist
 dist-ssr
+.angular/
+.agent/
+.vite/
+
+# Environment and Secrets
+.env
+.env.*
+!.env.example
 *.local
 
-# Editor directories and files
+# Testing
+coverage/
+
+# TypeScript
+*.tsbuildinfo
+
+# Editor and OS
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
+Thumbs.db
+desktop.ini
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-
-.angular/
-.agent/

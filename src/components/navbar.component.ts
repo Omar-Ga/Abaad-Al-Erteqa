@@ -5,11 +5,16 @@ import { LanguageSwitcherComponent } from './language-switcher.component';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { TranslationService } from '../services/translation.service';
 import { inject } from '@angular/core';
+import { Router, NavigationEnd, RouterLink } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+
+import { filter, map } from 'rxjs/operators';
+import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, LanguageSwitcherComponent, TranslatePipe],
+  imports: [CommonModule, LanguageSwitcherComponent, TranslatePipe, RouterLink, LucideAngularModule],
   template: `
     <nav 
       class="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out border-b"
@@ -17,18 +22,18 @@ import { inject } from '@angular/core';
     >
       <div class="max-w-7xl mx-auto px-3 md:px-6 h-20 flex items-center justify-between">
         <!-- Logo Area -->
-        <a href="#" class="flex items-center gap-1 md:gap-2 decoration-none group">
+        <a routerLink="/" class="flex items-center gap-1 md:gap-2 decoration-none group">
             <img src="assets/Logos/logo.png" alt="Logo" class="h-10 md:h-16 w-auto object-contain transition-all duration-300 group-hover:scale-105" />
             
             <div 
               class="flex flex-col leading-tight border-r pr-1 md:pr-2 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-1 md:rtl:pl-2 transition-colors duration-300"
-              [class.border-[#4A3728]/20]="isScrolled()"
-              [class.border-white/20]="!isScrolled()"
+              [class.border-[#4A3728]/20]="showDarkText()"
+              [class.border-white/20]="!showDarkText()"
             >
               <span 
                 class="font-bold tracking-tight whitespace-nowrap transition-colors duration-300" 
-                [class.text-[#4A3728]]="isScrolled()"
-                [class.text-white]="!isScrolled()"
+                [class.text-[#4A3728]]="showDarkText()"
+                [class.text-white]="!showDarkText()"
                 [class.text-lg]="currentLang() === 'AR'"
                 [class.md:text-[24px]]="currentLang() === 'AR'"
                 [class.text-sm]="currentLang() === 'EN'"
@@ -37,8 +42,8 @@ import { inject } from '@angular/core';
               ></span>
               <span 
                 class="font-medium uppercase tracking-widest mt-0.5 whitespace-nowrap transition-colors duration-300" 
-                [class.text-[#4A3728]/70]="isScrolled()"
-                [class.text-white/70]="!isScrolled()"
+                [class.text-[#4A3728]/70]="showDarkText()"
+                [class.text-white/70]="!showDarkText()"
                 [class.text-[10px]]="currentLang() === 'AR'"
                 [class.md:text-[13px]]="currentLang() === 'AR'"
                 [class.text-[8px]]="currentLang() === 'EN'"
@@ -49,15 +54,15 @@ import { inject } from '@angular/core';
         </a>
 
         <!-- Desktop Links -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!isScrolled()" [class.text-[#4A4A4A]]="isScrolled()">{{ 'HOME.NAV.HOME' | translate }}</a>
-          <a href="#" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!isScrolled()" [class.text-[#4A4A4A]]="isScrolled()">{{ 'HOME.NAV.CONSULTANTS' | translate }}</a>
+        <div class="hidden md:flex items-center gap-8">
+          <a routerLink="/" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">{{ 'HOME.NAV.HOME' | translate }}</a>
+          <a href="#" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">{{ 'HOME.NAV.CONSULTANTS' | translate }}</a>
           
           <!-- Projects Dropdown -->
           <div class="relative group h-full flex items-center">
-            <button class="flex items-center gap-1 text-sm font-medium hover:text-[#4A3728] transition-colors focus:outline-none" [class.text-white]="!isScrolled()" [class.text-[#4A4A4A]]="isScrolled()">
+            <button class="flex items-center gap-1 text-sm font-medium hover:text-[#4A3728] transition-colors focus:outline-none" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">
               {{ 'HOME.NAV.PROJECTS' | translate }}
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:rotate-180 transition-transform duration-200"><path d="m6 9 6 6 6-6"/></svg>
+              <lucide-icon [name]="'chevron-down'" [size]="16" class="group-hover:rotate-180 transition-transform duration-200"></lucide-icon>
             </button>
             
             <!-- Dropdown Menu -->
@@ -75,8 +80,8 @@ import { inject } from '@angular/core';
             </div>
           </div>
 
-          <a href="#" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!isScrolled()" [class.text-[#4A4A4A]]="isScrolled()">{{ 'HOME.NAV.EXECUTIONS' | translate }}</a>
-          <a href="#" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!isScrolled()" [class.text-[#4A4A4A]]="isScrolled()">{{ 'HOME.NAV.CONTACT' | translate }}</a>
+          <a href="#" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">{{ 'HOME.NAV.EXECUTIONS' | translate }}</a>
+          <a routerLink="/contact" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">{{ 'HOME.NAV.CONTACT' | translate }}</a>
         </div>
 
         <!-- Right Side Utils -->
@@ -88,10 +93,10 @@ import { inject } from '@angular/core';
            <a 
              href="#" 
              class="hidden md:block px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#4A3728]/20"
-             [class.bg-white]="!isScrolled()"
-             [class.text-[#4A3728]]="!isScrolled()"
-             [class.bg-[#4A3728]]="isScrolled()"
-             [class.text-white]="isScrolled()"
+             [class.bg-white]="!showDarkText()"
+             [class.text-[#4A3728]]="!showDarkText()"
+             [class.bg-[#4A3728]]="showDarkText()"
+             [class.text-white]="showDarkText()"
            >
              {{ 'HOME.HERO.CTA' | translate }}
            </a>
@@ -99,12 +104,12 @@ import { inject } from '@angular/core';
            <!-- Mobile Menu Button -->
            <button 
              class="md:hidden p-2 rounded-md hover:bg-white/10 transition-colors focus:outline-none" 
-             [class.text-white]="!isScrolled() && !mobileMenuOpen()" 
-             [class.text-[#1A1A1A]]="isScrolled() || mobileMenuOpen()"
+             [class.text-white]="!showDarkText() && !mobileMenuOpen()" 
+             [class.text-[#1A1A1A]]="showDarkText() || mobileMenuOpen()"
              (click)="toggleMobileMenu()"
              aria-label="Toggle mobile menu"
            >
-             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+             <lucide-icon [name]="'menu'" [size]="24"></lucide-icon>
            </button>
         </div>
       </div>
@@ -141,13 +146,13 @@ import { inject } from '@angular/core';
           (click)="toggleMobileMenu()"
           class="p-2 rounded-full hover:bg-black/5 text-[#4A3728] transition-colors focus:outline-none"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          <lucide-icon [name]="'x'" [size]="24"></lucide-icon>
         </button>
       </div>
 
       <!-- Scrollable Content -->
       <div class="flex-1 overflow-y-auto py-6 px-6 flex flex-col gap-2">
-        <a href="#" (click)="toggleMobileMenu()" class="block px-4 py-3 text-lg font-medium text-[#4A4A4A] hover:bg-[#4A3728]/5 hover:text-[#4A3728] rounded-lg transition-colors">
+        <a routerLink="/" (click)="toggleMobileMenu()" class="block px-4 py-3 text-lg font-medium text-[#4A4A4A] hover:bg-[#4A3728]/5 hover:text-[#4A3728] rounded-lg transition-colors">
           {{ 'HOME.NAV.HOME' | translate }}
         </a>
         <a href="#" (click)="toggleMobileMenu()" class="block px-4 py-3 text-lg font-medium text-[#4A4A4A] hover:bg-[#4A3728]/5 hover:text-[#4A3728] rounded-lg transition-colors">
@@ -161,21 +166,12 @@ import { inject } from '@angular/core';
             class="w-full flex items-center justify-between px-4 py-3 text-lg font-medium text-[#4A4A4A] hover:text-[#4A3728] transition-colors focus:outline-none"
           >
             {{ 'HOME.NAV.PROJECTS' | translate }}
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="20" 
-              height="20" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              stroke-width="2" 
-              stroke-linecap="round" 
-              stroke-linejoin="round" 
+            <lucide-icon 
+              [name]="'chevron-down'" 
+              [size]="20"
               class="transition-transform duration-300 text-[#4A3728]/60"
               [class.rotate-180]="mobileProjectsOpen()"
-            >
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
+            ></lucide-icon>
           </button>
           
           <div 
@@ -196,7 +192,7 @@ import { inject } from '@angular/core';
         <a href="#" (click)="toggleMobileMenu()" class="block px-4 py-3 text-lg font-medium text-[#4A4A4A] hover:bg-[#4A3728]/5 hover:text-[#4A3728] rounded-lg transition-colors">
           {{ 'HOME.NAV.EXECUTIONS' | translate }}
         </a>
-        <a href="#" (click)="toggleMobileMenu()" class="block px-4 py-3 text-lg font-medium text-[#4A4A4A] hover:bg-[#4A3728]/5 hover:text-[#4A3728] rounded-lg transition-colors">
+        <a routerLink="/contact" (click)="toggleMobileMenu()" class="block px-4 py-3 text-lg font-medium text-[#4A4A4A] hover:bg-[#4A3728]/5 hover:text-[#4A3728] rounded-lg transition-colors">
           {{ 'HOME.NAV.CONTACT' | translate }}
         </a>
       </div>
@@ -213,7 +209,22 @@ import { inject } from '@angular/core';
 })
 export class NavbarComponent {
   private translationService = inject(TranslationService);
+  private router = inject(Router);
   currentLang = this.translationService.currentLang;
+
+  // Track URL for route-aware styling
+  url = toSignal(
+    this.router.events.pipe(
+      filter((e) => e instanceof NavigationEnd),
+      map(() => this.router.url)
+    ),
+    { initialValue: this.router.url }
+  );
+
+  isHomePage = computed(() => {
+    const currentUrl = this.url();
+    return currentUrl === '/' || currentUrl === '/home' || currentUrl === '';
+  });
 
   scrollY = signal(0);
   mobileMenuOpen = signal(false);
@@ -222,9 +233,12 @@ export class NavbarComponent {
   // Computed signal to determine if we are scrolled past a threshold
   isScrolled = computed(() => this.scrollY() > 50);
 
+  // Show dark text if scrolled OR not on homepage
+  showDarkText = computed(() => !this.isHomePage() || this.isScrolled());
+
   // Dynamic classes for the navbar container
   navClasses = computed(() => {
-    if (this.isScrolled()) {
+    if (this.showDarkText()) {
       return 'bg-[#F9F8F6]/80 backdrop-blur-md border-[#4A3728]/20 shadow-sm';
     } else {
       return 'bg-white/5 backdrop-blur-md border-[#4A3728]/20 border-opacity-30';
@@ -239,7 +253,7 @@ export class NavbarComponent {
   @HostListener('window:resize')
   onResize() {
     if (window.innerWidth >= 768 && this.mobileMenuOpen()) {
-        this.toggleMobileMenu(); // Close if we resize to desktop
+      this.toggleMobileMenu(); // Close if we resize to desktop
     }
   }
 

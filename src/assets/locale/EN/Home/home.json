@@ -36,13 +36,13 @@
                 "TITLE": "Engineering Consultation",
                 "SUBTITLE": "Abaad Al-Erteqaa",
                 "DESC": "Design, Supervision & Surveying. We draft the blueprints of tomorrow with scientific precision.",
-                "BTN": "Explore Design"
+                "BTN": "Explore Projects"
             },
             "SAMA": {
                 "TITLE": "Sama Contracting & Safety",
                 "SUBTITLE": "Sama Al-Mamaria",
                 "DESC": "Construction, Finishing & Maintenance. Executing visions with rigorous safety standards.",
-                "BTN": "View Contracting"
+                "BTN": "Explore Projects"
             }
         },
         "ABOUT": {
@@ -199,6 +199,36 @@
             },
             "COPYRIGHT": "© 2024 Abaad Al-erteqaa Engineering & Sama Safety. All rights reserved.",
             "TAGLINE": "Designed for Excellence."
+        },
+        "CONTACT_PAGE": {
+            "TITLE": "Get in Touch",
+            "SUBTITLE": "Have a project in mind? Contact us for specialized consultation or safety compliance services.",
+            "WHATSAPP": {
+                "TITLE": "WhatsApp Us",
+                "DESC": "Chat with our team directly.",
+                "ACTION": "Open WhatsApp"
+            },
+            "EMAIL": {
+                "TITLE": "Email Us",
+                "DESC": "For RFPs and general inquiries.",
+                "ACTION": "Send Email"
+            },
+            "PHONE": {
+                "TITLE": "Call Us",
+                "DESC": "Sun-Thu, 9am - 5pm",
+                "ACTION": "Call Now"
+            },
+            "MAP_PLACEHOLDER": "Our Location in Makkah",
+            "FORM": {
+                "TITLE": "Send us a Message",
+                "NAME": "Full Name",
+                "EMAIL": "Email Address",
+                "SUBJECT": "Subject",
+                "MESSAGE": "Your Message",
+                "SUBMIT": "Send Message",
+                "SUCCESS": "Your message has been sent successfully!",
+                "SUBTITLE": "Fill out the form below and our team will get back to you within 24 hours."
+            }
         }
     }
 }
