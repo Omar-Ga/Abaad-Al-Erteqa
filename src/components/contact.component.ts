@@ -30,8 +30,7 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
               <div class="w-16 h-16 rounded-full bg-[#25D366]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <lucide-icon [name]="'message-circle'" [size]="32" class="text-[#25D366]"></lucide-icon>
               </div>
-              <h3 class="text-xl font-bold text-[#4A3728] mb-2">{{ 'CONTACT_PAGE.WHATSAPP.TITLE' | translate }}</h3>
-              <p class="text-[#4A4A4A]/80 mb-4">{{ 'CONTACT_PAGE.WHATSAPP.DESC' | translate }}</p>
+              <h3 class="text-xl font-bold text-[#4A3728] mb-4">{{ 'CONTACT_PAGE.WHATSAPP.TITLE' | translate }}</h3>
               <span class="text-[#4A3728] font-semibold group-hover:underline decoration-1 underline-offset-4">{{ 'CONTACT_PAGE.WHATSAPP.ACTION' | translate }}</span>
             </div>
           </a>
@@ -43,8 +42,7 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
                 <lucide-icon [name]="'mail'" [size]="32" class="text-[#D4AF37]"></lucide-icon>
               </div>
               <h3 class="text-xl font-bold text-[#4A3728] mb-2">{{ 'CONTACT_PAGE.EMAIL.TITLE' | translate }}</h3>
-              <p class="text-[#4A4A4A] font-medium mb-1 break-all">engineering@abaadsama.com</p>
-              <p class="text-[#4A4A4A]/60 text-sm mb-4">{{ 'CONTACT_PAGE.EMAIL.DESC' | translate }}</p>
+              <p class="text-[#4A4A4A] font-medium mb-4 break-all">engineering@abaadsama.com</p>
               <span class="text-[#4A3728] font-semibold group-hover:underline decoration-1 underline-offset-4">{{ 'CONTACT_PAGE.EMAIL.ACTION' | translate }}</span>
             </div>
           </a>
@@ -56,8 +54,7 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
                  <lucide-icon [name]="'phone'" [size]="32" class="text-[#4A3728]"></lucide-icon>
               </div>
               <h3 class="text-xl font-bold text-[#4A3728] mb-2">{{ 'CONTACT_PAGE.PHONE.TITLE' | translate }}</h3>
-              <p class="text-[#4A4A4A] font-medium mb-1" dir="ltr">+966 11 000 0000</p>
-              <p class="text-[#4A4A4A]/60 text-sm mb-4">{{ 'CONTACT_PAGE.PHONE.DESC' | translate }}</p>
+              <p class="text-[#4A4A4A] font-medium mb-4" dir="ltr">+966 11 000 0000</p>
               <span class="text-[#4A3728] font-semibold group-hover:underline decoration-1 underline-offset-4">{{ 'CONTACT_PAGE.PHONE.ACTION' | translate }}</span>
             </div>
           </a>
@@ -137,7 +134,7 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
                       </div>
                   </div>
                   <img 
-                      src="https://placehold.co/1200x800/F3F0EB/4A3728?text=Map+Location+Placeholder" 
+                      src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
                       alt="Map Location" 
                       class="absolute inset-0 w-full h-full object-cover opacity-90 transition-opacity duration-500 hover:opacity-100"
                   />

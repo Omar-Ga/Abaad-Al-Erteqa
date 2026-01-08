@@ -58,6 +58,8 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
           <a routerLink="/" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">{{ 'HOME.NAV.HOME' | translate }}</a>
           <a href="#" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">{{ 'HOME.NAV.CONSULTANTS' | translate }}</a>
           
+          <a href="#" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">{{ 'HOME.NAV.EXECUTIONS' | translate }}</a>
+
           <!-- Projects Dropdown -->
           <div class="relative group h-full flex items-center">
             <button class="flex items-center gap-1 text-sm font-medium hover:text-[#4A3728] transition-colors focus:outline-none" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">
@@ -80,7 +82,6 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
             </div>
           </div>
 
-          <a href="#" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">{{ 'HOME.NAV.EXECUTIONS' | translate }}</a>
           <a routerLink="/contact" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">{{ 'HOME.NAV.CONTACT' | translate }}</a>
         </div>
 
@@ -91,7 +92,7 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
 
            <!-- Desktop CTA -->
            <a 
-             href="#" 
+             routerLink="/contact" 
              class="hidden md:block px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#4A3728]/20"
              [class.bg-white]="!showDarkText()"
              [class.text-[#4A3728]]="!showDarkText()"
@@ -159,6 +160,10 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
           {{ 'HOME.NAV.CONSULTANTS' | translate }}
         </a>
         
+        <a href="#" (click)="toggleMobileMenu()" class="block px-4 py-3 text-lg font-medium text-[#4A4A4A] hover:bg-[#4A3728]/5 hover:text-[#4A3728] rounded-lg transition-colors">
+          {{ 'HOME.NAV.EXECUTIONS' | translate }}
+        </a>
+
         <!-- Mobile Projects Dropdown -->
         <div class="rounded-lg overflow-hidden transition-all duration-300" [class.bg-[#4A3728]/5]="mobileProjectsOpen()">
           <button 
@@ -189,9 +194,6 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
           </div>
         </div>
 
-        <a href="#" (click)="toggleMobileMenu()" class="block px-4 py-3 text-lg font-medium text-[#4A4A4A] hover:bg-[#4A3728]/5 hover:text-[#4A3728] rounded-lg transition-colors">
-          {{ 'HOME.NAV.EXECUTIONS' | translate }}
-        </a>
         <a routerLink="/contact" (click)="toggleMobileMenu()" class="block px-4 py-3 text-lg font-medium text-[#4A4A4A] hover:bg-[#4A3728]/5 hover:text-[#4A3728] rounded-lg transition-colors">
           {{ 'HOME.NAV.CONTACT' | translate }}
         </a>
@@ -199,7 +201,7 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
 
       <!-- Footer/Action Area -->
       <div class="p-6 border-t border-[#4A3728]/10 bg-white/50">
-        <a href="#" class="block w-full text-center py-3 bg-[#4A3728] text-white font-medium rounded-lg hover:bg-[#3A2B20] transition-colors shadow-lg shadow-[#4A3728]/20">
+        <a routerLink="/contact" (click)="toggleMobileMenu()" class="block w-full text-center py-3 bg-[#4A3728] text-white font-medium rounded-lg hover:bg-[#3A2B20] transition-colors shadow-lg shadow-[#4A3728]/20">
           {{ 'HOME.HERO.CTA' | translate }}
         </a>
       </div>

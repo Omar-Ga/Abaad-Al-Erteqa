@@ -9,15 +9,12 @@ import { TranslationService } from '../services/translation.service';
   template: `
     <button 
       (click)="toggle()"
-      class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 border"
-      [class.bg-white/10]="!isScrolled"
-      [class.backdrop-blur-sm]="!isScrolled"
+      class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 border bg-transparent"
       [class.text-white]="!isScrolled"
       [class.border-white/30]="!isScrolled"
-      [class.bg-transparent]="isScrolled"
       [class.text-[#4A3728]]="isScrolled"
       [class.border-[#4A3728]/30]="isScrolled"
-      [class.hover:bg-white/20]="!isScrolled"
+      [class.hover:bg-white/10]="!isScrolled"
       [class.hover:bg-[#4A3728]/5]="isScrolled"
     >
       <span class="uppercase">{{ currentLang() }}</span>

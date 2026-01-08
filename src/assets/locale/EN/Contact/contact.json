@@ -3,30 +3,27 @@
     "TITLE": "Get in Touch",
     "SUBTITLE": "Have a project in mind? Contact us for specialized consultation or safety compliance services.",
     "WHATSAPP": {
-        "TITLE": "WhatsApp Us",
-        "DESC": "Chat with our team directly.",
-        "ACTION": "Open WhatsApp"
+      "TITLE": "WhatsApp Us",
+      "ACTION": "Open WhatsApp"
     },
     "EMAIL": {
-        "TITLE": "Email Us",
-        "DESC": "For RFPs and general inquiries.",
-        "ACTION": "Send Email"
+      "TITLE": "Email Us",
+      "ACTION": "Send Email"
     },
     "PHONE": {
-        "TITLE": "Call Us",
-        "DESC": "Sun-Thu, 9am - 5pm",
-        "ACTION": "Call Now"
+      "TITLE": "Call Us",
+      "ACTION": "Call Now"
     },
     "MAP_PLACEHOLDER": "Our Location in Makkah",
     "FORM": {
-        "TITLE": "Send us a Message",
-        "NAME": "Full Name",
-        "EMAIL": "Email Address",
-        "SUBJECT": "Subject",
-        "MESSAGE": "Your Message",
-        "SUBMIT": "Send Message",
-        "SUCCESS": "Your message has been sent successfully!",
-        "SUBTITLE": "Fill out the form below and our team will get back to you within 24 hours."
+      "TITLE": "Send us a Message",
+      "NAME": "Full Name",
+      "EMAIL": "Email Address",
+      "SUBJECT": "Subject",
+      "MESSAGE": "Your Message",
+      "SUBMIT": "Send Message",
+      "SUCCESS": "Your message has been sent successfully!",
+      "SUBTITLE": "Fill out the form below and our team will get back to you within 24 hours."
     }
   }
 }

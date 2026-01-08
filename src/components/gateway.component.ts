@@ -10,6 +10,11 @@ import { LucideAngularModule, ArrowRight } from 'lucide-angular';
   imports: [CommonModule, NgOptimizedImage, TranslatePipe, LucideAngularModule],
   template: `
     <section class="relative z-30 px-6 pt-24 pb-24 mt-0 bg-[#121212]">
+      <div class="max-w-7xl mx-auto mb-16 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-wide">
+          {{ 'HOME.GATEWAY.HEADLINE' | translate }}
+        </h2>
+      </div>
       <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <!-- Card A: Abaad Al-Erteqaa (Blue/Technical Tone) -->

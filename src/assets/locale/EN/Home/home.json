@@ -22,7 +22,7 @@
         "SAMA": "SAMA",
         "NAV": {
             "HOME": "Home",
-            "CONSULTANTS": "Consultants",
+            "CONSULTANTS": "Consults",
             "PROJECTS": "Projects",
             "EXECUTIONS": "Executions",
             "CONTACT": "Contact",
@@ -32,6 +32,7 @@
             "SAMA_DESC": "Safety & Execution"
         },
         "GATEWAY": {
+            "HEADLINE": "Take a Look at Our Projects",
             "ABAAD": {
                 "TITLE": "Engineering Consultation",
                 "SUBTITLE": "Abaad Al-Erteqaa",
