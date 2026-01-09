@@ -1,0 +1,72 @@
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { ContentfulService } from '../services/contentful.service';
+import { TranslationService } from '../services/translation.service';
+import { RouterLink } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { TranslatePipe } from '../pipes/translate.pipe';
+
+@Component({
+  selector: 'app-sama-categories',
+  standalone: true,
+  imports: [CommonModule, RouterLink, TranslatePipe],
+  template: `
+    <div class="min-h-screen bg-gray-50 pt-24 pb-12 px-4 sm:px-6 lg:px-8" dir="auto">
+      
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+           {{ 'HOME.NAV.SAMA_PROJECTS' | translate }}
+        </h1>
+        <div class="mt-4 max-w-2xl mx-auto h-1 bg-indigo-600 rounded"></div>
+      </div>
+
+      <!-- Categories Grid -->
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div *ngFor="let category of categories()" 
+             [routerLink]="['/projects/sama', category.sys.id]"
+             class="group relative h-96 rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300">
+          
+          <!-- Background Image -->
+          <img [src]="category.coverImage" 
+               [alt]="category.title"
+               class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+          
+          <!-- Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-300"></div>
+          
+          <!-- Content -->
+          <div class="absolute inset-0 flex flex-col justify-end p-8">
+            <h2 class="text-3xl font-bold text-white mb-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+              {{ category.title }}
+            </h2>
+            <div class="w-16 h-1 bg-indigo-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Loading State -->
+      <div *ngIf="categories().length === 0" class="flex justify-center items-center h-64">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+      </div>
+
+    </div>
+  `,
+  styles: []
+})
+export class SamaCategoriesComponent {
+  private translationService = inject(TranslationService);
+  private contentfulService = inject(ContentfulService);
+
+  private lang$ = toObservable(this.translationService.currentLang);
+
+  categories = toSignal(
+    this.lang$.pipe(
+      switchMap(lang => this.contentfulService.getSamaCategories(lang))
+    ),
+    { initialValue: [] }
+  );
+}

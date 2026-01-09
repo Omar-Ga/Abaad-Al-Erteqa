@@ -2,12 +2,13 @@
 import { Component, ChangeDetectionStrategy, ElementRef, ViewChildren, QueryList, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { TranslatePipe } from '../pipes/translate.pipe';
+import { RouterLink } from '@angular/router';
 import { LucideAngularModule, ArrowRight } from 'lucide-angular';
 
 @Component({
   selector: 'app-gateway',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, TranslatePipe, LucideAngularModule],
+  imports: [CommonModule, NgOptimizedImage, TranslatePipe, LucideAngularModule, RouterLink],
   template: `
     <section class="relative z-30 px-6 pt-24 pb-24 mt-0 bg-[#121212]">
       <div class="max-w-7xl mx-auto mb-16 text-center">
@@ -51,7 +52,7 @@ import { LucideAngularModule, ArrowRight } from 'lucide-angular';
         </div>
 
         <!-- Card B: Sama Al-Mamaria (Warm Yellow/Construction Tone) -->
-        <div #card class="group relative h-[450px] overflow-hidden rounded-md shadow-2xl cursor-pointer">
+        <div #card routerLink="/projects/sama" class="group relative h-[450px] overflow-hidden rounded-md shadow-2xl cursor-pointer">
            <!-- Background Image -->
            <div class="absolute inset-0 w-full h-full">
             <img 
