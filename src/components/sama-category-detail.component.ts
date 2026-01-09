@@ -15,7 +15,7 @@ import { combineLatest } from 'rxjs';
     <div class="min-h-screen bg-gray-50 pt-24 pb-12 px-4 sm:px-6 lg:px-8" dir="auto">
       <!-- Loading State -->
       <div *ngIf="!pageConfig()" class="flex justify-center items-center h-64">
-        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#EBC934]"></div>
       </div>
 
       <!-- Main Content -->
@@ -26,7 +26,7 @@ import { combineLatest } from 'rxjs';
           <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
             {{ config.pageTitle }}
           </h1>
-          <div class="mt-4 max-w-2xl mx-auto h-1 bg-indigo-600 rounded"></div>
+          <div class="mt-4 max-w-2xl mx-auto h-1 bg-[#EBC934] rounded"></div>
         </div>
 
         <!-- Projects Grid -->
@@ -69,7 +69,7 @@ import { combineLatest } from 'rxjs';
                 <!-- Price -->
                 <div class="flex justify-between items-center pt-1">
                   <dt class="font-medium text-gray-500">{{ config.labelPrice }}</dt>
-                  <dd class="font-bold text-indigo-600 text-lg">{{ project.price }}</dd>
+                  <dd class="font-bold text-[#EBC934] text-lg">{{ project.price }}</dd>
                 </div>
               </dl>
             </div>

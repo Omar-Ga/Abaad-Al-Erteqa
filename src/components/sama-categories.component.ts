@@ -19,7 +19,7 @@ import { TranslatePipe } from '../pipes/translate.pipe';
         <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
            {{ 'HOME.NAV.SAMA_PROJECTS' | translate }}
         </h1>
-        <div class="mt-4 max-w-2xl mx-auto h-1 bg-indigo-600 rounded"></div>
+        <div class="mt-4 max-w-2xl mx-auto h-1 bg-[#EBC934] rounded"></div>
       </div>
 
       <!-- Categories Grid -->
@@ -42,7 +42,7 @@ import { TranslatePipe } from '../pipes/translate.pipe';
             <h2 class="text-3xl font-bold text-white mb-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
               {{ category.title }}
             </h2>
-            <div class="w-16 h-1 bg-indigo-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+            <div class="w-16 h-1 bg-[#EBC934] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
           </div>
         </div>
 
