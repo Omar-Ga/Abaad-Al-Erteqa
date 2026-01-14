@@ -8,11 +8,11 @@ export const routes: Routes = [
         loadComponent: () => import('./components/contact.component').then(m => m.ContactComponent)
     },
     {
-        path: 'projects/sama',
+        path: 'projects/abaad',
         loadComponent: () => import('./components/sama-categories.component').then(m => m.SamaCategoriesComponent)
     },
     {
-        path: 'projects/sama/:id',
+        path: 'projects/abaad/:id',
         loadComponent: () => import('./components/sama-category-detail.component').then(m => m.SamaCategoryDetailComponent)
     },
     { path: '**', redirectTo: '' }

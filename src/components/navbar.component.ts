@@ -70,11 +70,11 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
             <!-- Dropdown Menu -->
             <div class="absolute top-12 left-1/2 -translate-x-1/2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top pt-4">
               <div class="bg-white/95 backdrop-blur-md border border-[#4A3728]/20 rounded-md shadow-xl overflow-hidden flex flex-col">
-                <a href="#" class="block px-4 py-3 text-sm text-[#4A4A4A] hover:bg-[#4A3728] hover:text-white transition-colors border-b border-gray-100">
+                <a routerLink="/projects/abaad" class="block px-4 py-3 text-sm text-[#4A4A4A] hover:bg-[#4A3728] hover:text-white transition-colors border-b border-gray-100">
                   <span class="block font-bold">{{ 'HOME.NAV.ABAAD_PROJECTS' | translate }}</span>
                   <span class="text-xs opacity-75">{{ 'HOME.NAV.ABAAD_DESC' | translate }}</span>
                 </a>
-                <a routerLink="/projects/sama" class="block px-4 py-3 text-sm text-[#4A4A4A] hover:bg-[#EBC934] hover:text-[#1A1A1A] transition-colors">
+                <a href="#" class="block px-4 py-3 text-sm text-[#4A4A4A] hover:bg-[#EBC934] hover:text-[#1A1A1A] transition-colors">
                   <span class="block font-bold">{{ 'HOME.NAV.SAMA_PROJECTS' | translate }}</span>
                   <span class="text-xs opacity-75">{{ 'HOME.NAV.SAMA_DESC' | translate }}</span>
                 </a>
@@ -184,10 +184,10 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
             [style.max-height]="mobileProjectsOpen() ? '300px' : '0px'"
           >
             <div class="pb-2 flex flex-col">
-                <a href="#" (click)="toggleMobileMenu()" class="block pl-8 pr-4 py-2 text-base text-[#4A4A4A]/80 hover:text-[#4A3728] transition-colors border-l-2 border-transparent hover:border-[#4A3728] ml-4">
+                <a routerLink="/projects/abaad" (click)="toggleMobileMenu()" class="block pl-8 pr-4 py-2 text-base text-[#4A4A4A]/80 hover:text-[#4A3728] transition-colors border-l-2 border-transparent hover:border-[#4A3728] ml-4">
                   {{ 'HOME.NAV.ABAAD_PROJECTS' | translate }}
                 </a>
-                <a routerLink="/projects/sama" (click)="toggleMobileMenu()" class="block pl-8 pr-4 py-2 text-base text-[#4A4A4A]/80 hover:text-[#4A3728] transition-colors border-l-2 border-transparent hover:border-[#4A3728] ml-4">
+                <a href="#" (click)="toggleMobileMenu()" class="block pl-8 pr-4 py-2 text-base text-[#4A4A4A]/80 hover:text-[#4A3728] transition-colors border-l-2 border-transparent hover:border-[#4A3728] ml-4">
                   {{ 'HOME.NAV.SAMA_PROJECTS' | translate }}
                 </a>
             </div>

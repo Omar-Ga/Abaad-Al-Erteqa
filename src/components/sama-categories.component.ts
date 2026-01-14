@@ -17,16 +17,16 @@ import { TranslatePipe } from '../pipes/translate.pipe';
       <!-- Header -->
       <div class="text-center mb-12">
         <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-           {{ 'HOME.NAV.SAMA_PROJECTS' | translate }}
+           {{ 'HOME.NAV.ABAAD_PROJECTS' | translate }}
         </h1>
-        <div class="mt-4 max-w-2xl mx-auto h-1 bg-[#EBC934] rounded"></div>
+        <div class="mt-4 max-w-2xl mx-auto h-1 bg-[#4A3728] rounded"></div>
       </div>
 
       <!-- Categories Grid -->
       <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <div *ngFor="let category of categories()" 
-             [routerLink]="['/projects/sama', category.sys.id]"
+             [routerLink]="['/projects/abaad', category.sys.id]"
              class="group relative h-96 rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300">
           
           <!-- Background Image -->
@@ -42,7 +42,7 @@ import { TranslatePipe } from '../pipes/translate.pipe';
             <h2 class="text-3xl font-bold text-white mb-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
               {{ category.title }}
             </h2>
-            <div class="w-16 h-1 bg-[#EBC934] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+            <div class="w-16 h-1 bg-[#4A3728] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
           </div>
         </div>
 
