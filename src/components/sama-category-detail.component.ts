@@ -12,14 +12,18 @@ import { combineLatest } from 'rxjs';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="min-h-screen bg-gray-50 pt-24 pb-12 px-4 sm:px-6 lg:px-8" dir="auto">
-      <!-- Loading State -->
-      <div *ngIf="!pageConfig()" class="flex justify-center items-center h-64">
-        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#4A3728]"></div>
-      </div>
+    <section class="min-h-screen py-32 bg-[#EFE7DD] overflow-hidden relative" dir="auto">
+      <!-- Background Abstract Shape -->
+      <div class="absolute top-0 right-0 w-1/2 h-full bg-white skew-x-[-12deg] origin-top opacity-100 -mr-20 z-0"></div>
+      
+      <div class="relative z-10 px-4 sm:px-6 lg:px-8">
+        <!-- Loading State -->
+        <div *ngIf="!pageConfig()" class="flex justify-center items-center h-64">
+          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#4A3728]"></div>
+        </div>
 
-      <!-- Main Content -->
-      <div *ngIf="pageConfig() as config" class="max-w-7xl mx-auto">
+        <!-- Main Content -->
+        <div *ngIf="pageConfig() as config" class="max-w-7xl mx-auto">
         
         <!-- Header -->
         <div class="text-center mb-12">
@@ -82,8 +86,9 @@ import { combineLatest } from 'rxjs';
            <p class="text-gray-500 text-lg">No projects found for this category.</p>
         </div>
 
+        </div>
       </div>
-    </div>
+    </section>
   `,
   styles: []
 })

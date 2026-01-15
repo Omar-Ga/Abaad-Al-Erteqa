@@ -4,6 +4,18 @@ import { HomeComponent } from './components/home.component';
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     {
+        path: 'consultants',
+        loadComponent: () => import('./components/consultants.component').then(m => m.ConsultantsComponent)
+    },
+    {
+        path: 'about/abaad',
+        loadComponent: () => import('./components/about-abaad.component').then(m => m.AboutAbaadComponent)
+    },
+    {
+        path: 'about/sama',
+        loadComponent: () => import('./components/about-sama.component').then(m => m.AboutSamaComponent)
+    },
+    {
         path: 'contact',
         loadComponent: () => import('./components/contact.component').then(m => m.ContactComponent)
     },

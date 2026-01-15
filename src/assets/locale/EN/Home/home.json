@@ -23,6 +23,11 @@
         "SAMA": "SAMA",
         "NAV": {
             "HOME": "Home",
+            "ABOUT_US": "About Us",
+            "ABOUT_ABAAD": "Abaad Al-Erteqaa Office",
+            "ABOUT_ABAAD_DESC": "Engineering Consultations",
+            "ABOUT_SAMA": "Sama Contracting",
+            "ABOUT_SAMA_DESC": "Contracting & Safety",
             "CONSULTANTS": "Consults",
             "PROJECTS": "Projects",
             "EXECUTIONS": "Executions",
@@ -201,6 +206,12 @@
             },
             "COPYRIGHT": "© 2024 Abaad Al-erteqaa Engineering & Sama Safety. All rights reserved.",
             "TAGLINE": "Designed for Excellence."
+        },
+        "PARTNERS": {
+            "TITLE": "Accredited Government Authorities"
+        },
+        "CLIENTS": {
+            "TITLE": "Abaad Al-Erteqaa Office Clients"
         }
     }
 }

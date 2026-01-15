@@ -1,0 +1,20 @@
+{
+    "ABOUT_SAMA": {
+        "TITLE": "Sama Contracting",
+        "DESC": "Sama Contracting and Safety is a leading company in general contracting and fire safety systems. We provide integrated services including construction, finishing, and maintenance, as well as supply, installation, and maintenance of certified fire suppression and alarm systems. We are committed to the highest quality and safety standards in all our projects.",
+        "FEATURES": {
+            "CONTRACTING": {
+                "TITLE": "General Contracting",
+                "DESC": "Execution of residential, commercial, and government buildings with the highest quality and craftsmanship standards."
+            },
+            "SAFETY": {
+                "TITLE": "Safety Systems",
+                "DESC": "Supply and installation of fire suppression and alarm systems certified by Civil Defense."
+            },
+            "MAINTENANCE": {
+                "TITLE": "Maintenance & Operations",
+                "DESC": "Periodic maintenance and operation services for buildings and safety systems to ensure optimal performance."
+            }
+        }
+    }
+}

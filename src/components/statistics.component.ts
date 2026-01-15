@@ -67,7 +67,7 @@ export class StatisticsComponent implements AfterViewInit, OnDestroy {
   stats = [
     { target: 348, displayValue: 0, prefix: '+', key: 'PROJECTS', color: 'text-[#EBC934]', bar: 'bg-white/30' },
     { target: 545, displayValue: 0, prefix: '+', key: 'CLIENTS', color: 'text-white', bar: 'bg-[#EBC934]/70' },
-    { target: 549, displayValue: 0, prefix: '+', key: 'DESIGNS', color: 'text-[#EBC934]', bar: 'bg-white/30' },
+    { target: 500, displayValue: 0, prefix: '+', key: 'DESIGNS', color: 'text-[#EBC934]', bar: 'bg-white/30' },
   ];
 
   private observer: IntersectionObserver | null = null;

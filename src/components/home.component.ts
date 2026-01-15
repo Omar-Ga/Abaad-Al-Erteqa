@@ -8,6 +8,8 @@ import { SynergyComponent } from './synergy.component';
 import { WorkflowComponent } from './workflow.component';
 import { StatisticsComponent } from './statistics.component';
 import { AboutComponent } from './about.component';
+import { PartnersMarqueeComponent } from './partners-marquee.component';
+import { ClientsMarqueeComponent } from './clients-marquee.component';
 
 @Component({
     selector: 'app-home',
@@ -21,7 +23,9 @@ import { AboutComponent } from './about.component';
         SynergyComponent,
         WorkflowComponent,
         StatisticsComponent,
-        AboutComponent
+        AboutComponent,
+        PartnersMarqueeComponent,
+        ClientsMarqueeComponent
     ],
     template: `
     <app-hero></app-hero>
@@ -29,6 +33,8 @@ import { AboutComponent } from './about.component';
     <app-statistics></app-statistics>
     <app-about></app-about>
     <app-services></app-services>
+    <app-partners-marquee></app-partners-marquee>
+    <app-clients-marquee></app-clients-marquee>
     <app-synergy></app-synergy>
     <app-workflow></app-workflow>
     <app-values></app-values>
