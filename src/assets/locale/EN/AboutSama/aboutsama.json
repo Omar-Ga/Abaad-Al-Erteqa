@@ -1,20 +1,84 @@
 {
     "ABOUT_SAMA": {
-        "TITLE": "Sama Contracting",
-        "DESC": "Sama Contracting and Safety is a leading company in general contracting and fire safety systems. We provide integrated services including construction, finishing, and maintenance, as well as supply, installation, and maintenance of certified fire suppression and alarm systems. We are committed to the highest quality and safety standards in all our projects.",
-        "FEATURES": {
-            "CONTRACTING": {
-                "TITLE": "General Contracting",
-                "DESC": "Execution of residential, commercial, and government buildings with the highest quality and craftsmanship standards."
+        "HERO": {
+            "OVERLINE": "EST. SAUDI ARABIA",
+            "HEADLINE": "Pioneering Excellence in Fire Safety",
+            "SUBHEADLINE": "We forge the shield that protects lives and assets.",
+            "SCROLL": "Scroll to Explore"
+        },
+        "MISSION": {
+            "TITLE": "Our Mission",
+            "DESC": "To provide comprehensive, state-of-the-art fire safety solutions that not only meet but exceed the most stringent international quality standards. We strive to eliminate traditional, less effective methods by embracing and implementing modern, globally recognized practices to combat fire hazards and ensure the utmost safety for companies and institutions."
+        },
+        "VISION": {
+            "TITLE": "Our Vision",
+            "DESC": "To be the undisputed leader and preferred partner for integrated fire safety and security solutions. We aspire to create a work environment where expertise, human competency, and cutting-edge technology converge to consistently meet and anticipate the evolving requirements and needs of the Saudi market."
+        },
+        "TIMELINE": {
+            "TITLE": "Our Legacy",
+            "SUBTITLE": "Forged in Experience",
+            "FOUNDATION": {
+                "YEAR": "Foundation",
+                "TITLE": "The Beginning",
+                "DESC": "Founded on the vision of expert Khalid Saleh Al-Moallim, to establish new standards in safety systems."
             },
-            "SAFETY": {
-                "TITLE": "Safety Systems",
-                "DESC": "Supply and installation of fire suppression and alarm systems certified by Civil Defense."
+            "GROWTH": {
+                "YEAR": "Expansion",
+                "TITLE": "Growth & Innovation",
+                "DESC": "Achieved Grade 4 Classification and Civil Defense accreditation for integrated projects."
+            },
+            "LEADERSHIP": {
+                "YEAR": "Today",
+                "TITLE": "Market Leadership",
+                "DESC": "Recognized as a trusted partner across Saudi Arabia, delivering excellence to government, commercial, and healthcare sectors."
+            }
+        },
+        "STANDARDS": {
+            "TITLE": "Uncompromised Quality",
+            "INTERNATIONAL": {
+                "TITLE": "International Standards",
+                "DESC": "Adherence to the highest global benchmarks in every project."
+            },
+            "RELIABILITY": {
+                "TITLE": "Reliability & Durability",
+                "DESC": "Equipment and services designed to perform under pressure."
+            },
+            "SATISFACTION": {
+                "TITLE": "Customer Satisfaction",
+                "DESC": "The driving force behind our operations and continued success."
+            }
+        },
+        "SERVICES": {
+            "TITLE": "Comprehensive Protection",
+            "FIREFIGHTING": {
+                "TITLE": "Fire Fighting Systems",
+                "DESC": "End-to-end suppression solutions including pumps, sprinklers, and specialized clean agents like FM200 and CO2."
+            },
+            "ALARM": {
+                "TITLE": "Alarm & Detection",
+                "DESC": "Advanced early warning systems using the latest detection technology for rapid response."
             },
             "MAINTENANCE": {
-                "TITLE": "Maintenance & Operations",
-                "DESC": "Periodic maintenance and operation services for buildings and safety systems to ensure optimal performance."
+                "TITLE": "Maintenance & Service",
+                "DESC": "Proactive maintenance contracts, regular inspections, and diagnostics to ensure system readiness."
+            },
+            "CONSULTANCY": {
+                "TITLE": "Consultancy & Support",
+                "DESC": "Expert guidance on safety strategies, system design, and regulatory compliance."
             }
+        },
+        "TRUST": {
+            "TITLE": "Certified Excellence",
+            "DESC": "Approved by Civil Defense and localized authorities.",
+            "BADGES": {
+                "CIVIL": "Civil Defense",
+                "HCIS": "HCIS License",
+                "SAFETY": "Safety Cert"
+            }
+        },
+        "CTA": {
+            "HEADLINE": "Ready to Secure Your Future?",
+            "BUTTON": "Partner with SAMA"
         }
     }
 }

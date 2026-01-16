@@ -5,6 +5,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
 import { AppComponent } from './src/app.component';
 import { provideZonelessChangeDetection, importProvidersFrom, APP_INITIALIZER, inject } from '@angular/core';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './src/app.routes';
 import { TranslationService } from './src/services/translation.service';
 import {
@@ -13,7 +14,8 @@ import {
   Phone, Mail, MessageCircle, MapPin,
   Zap, ShieldCheck, Cpu, Clock,
   PencilRuler, Map, Hammer, Trees,
-  Building2, ShieldAlert
+  Building2, ShieldAlert,
+  Globe, Users, Flame, Bell, Wrench, FileText
 } from 'lucide-angular';
 
 // Factory function for APP_INITIALIZER
@@ -27,6 +29,7 @@ bootstrapApplication(AppComponent, {
     provideZonelessChangeDetection(),
     provideHttpClient(),
     provideRouter(routes, withComponentInputBinding(), withViewTransitions()),
+    provideAnimations(),
     {
       provide: APP_INITIALIZER,
       useFactory: initializeApp,
@@ -38,7 +41,8 @@ bootstrapApplication(AppComponent, {
         Phone, Mail, MessageCircle, MapPin,
         Zap, ShieldCheck, Cpu, Clock,
         PencilRuler, Map, Hammer, Trees,
-        Building2, ShieldAlert
+        Building2, ShieldAlert,
+        Globe, Users, Flame, Bell, Wrench, FileText
       })
     )
   ]
