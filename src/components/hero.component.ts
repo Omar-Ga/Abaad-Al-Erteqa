@@ -65,6 +65,7 @@ import { TranslatePipe } from '../pipes/translate.pipe';
 })
 export class HeroComponent implements OnInit, OnDestroy {
   images = [
+    'assets/images/hero_luxury.png',
     'assets/images/architecture_hero.png',
     'assets/images/engineering_blueprint.png',
     'assets/images/urban_landscape.png',

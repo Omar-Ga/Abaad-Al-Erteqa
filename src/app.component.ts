@@ -1,6 +1,6 @@
 
 import { Component, ChangeDetectionStrategy, OnInit, OnDestroy } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { NavbarComponent } from './components/navbar.component';
 import { FooterComponent } from './components/footer.component';
 import { SplashComponent } from './components/splash.component';
@@ -26,11 +26,19 @@ import Lenis from 'lenis';
 export class AppComponent implements OnInit, OnDestroy {
   private lenis: Lenis | undefined;
 
+  constructor(private router: Router) { }
+
   ngOnInit() {
     this.lenis = new Lenis({
       autoRaf: true,
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.lenis?.scrollTo(0, { immediate: true });
+      }
     });
   }
 
