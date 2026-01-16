@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, AfterViewInit, ElementRef, ViewChildren, QueryList, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { TranslationService } from '../services/translation.service';
 import { LucideAngularModule, Globe, ShieldCheck, Users, Flame, Bell, Wrench, FileText, ArrowRight, Award, Factory } from 'lucide-angular';
@@ -8,7 +8,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 @Component({
   selector: 'app-about-sama',
   standalone: true,
-  imports: [CommonModule, TranslatePipe, LucideAngularModule],
+  imports: [CommonModule, TranslatePipe, LucideAngularModule, NgOptimizedImage],
   animations: [
     trigger('slideInSide', [
       state('hidden-left', style({ opacity: 0, transform: 'translateX(-100px)' })),
@@ -38,8 +38,13 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       
       <!-- SECTION 1: HERO - The Hook -->
       <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+          <img ngSrc="assets/images/hero_luxury.png" fill priority alt="Sama Hero Background" class="object-cover w-full h-full opacity-40">
+        </div>
+        
         <!-- Spotlight Effect -->
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1a1a1a] via-[#0A0A0A] to-[#0A0A0A] opacity-80 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1a1a1a]/80 via-[#0A0A0A]/90 to-[#0A0A0A] pointer-events-none z-0"></div>
         
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto" >
            <!-- Static fade in usage via simple CSS class or standard Angular setup, 
