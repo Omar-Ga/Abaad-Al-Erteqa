@@ -7,31 +7,28 @@ import { ServicesComponent } from './services.component';
 import { SynergyComponent } from './synergy.component';
 import { WorkflowComponent } from './workflow.component';
 import { StatisticsComponent } from './statistics.component';
-import { AboutComponent } from './about.component';
 import { PartnersMarqueeComponent } from './partners-marquee.component';
 import { ClientsMarqueeComponent } from './clients-marquee.component';
 
 @Component({
-    selector: 'app-home',
-    standalone: true,
-    imports: [
-        HeroComponent,
-        GatewayComponent,
-        ValuesComponent,
-        PhilosophyComponent,
-        ServicesComponent,
-        SynergyComponent,
-        WorkflowComponent,
-        StatisticsComponent,
-        AboutComponent,
-        PartnersMarqueeComponent,
-        ClientsMarqueeComponent
-    ],
-    template: `
+  selector: 'app-home',
+  standalone: true,
+  imports: [
+    HeroComponent,
+    GatewayComponent,
+    ValuesComponent,
+    PhilosophyComponent,
+    ServicesComponent,
+    SynergyComponent,
+    WorkflowComponent,
+    StatisticsComponent,
+    PartnersMarqueeComponent,
+    ClientsMarqueeComponent
+  ],
+  template: `
     <app-hero></app-hero>
     <app-gateway></app-gateway>
     <app-statistics></app-statistics>
-    <app-about></app-about>
     <app-services></app-services>
     <app-partners-marquee></app-partners-marquee>
     <app-clients-marquee></app-clients-marquee>
@@ -40,6 +37,6 @@ import { ClientsMarqueeComponent } from './clients-marquee.component';
     <app-values></app-values>
     <app-philosophy></app-philosophy>
   `,
-    changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent { }
