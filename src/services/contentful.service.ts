@@ -4,7 +4,7 @@ import { environment } from '../environments/environment';
 import { from, Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-export interface SamaPageConfig {
+export interface AbaadPageConfig {
   pageTitle: string;
   labelOwner: string;
   labelLocation: string;
@@ -12,13 +12,37 @@ export interface SamaPageConfig {
   labelPrice: string;
 }
 
-export interface SamaCategory {
+export interface AbaadCategory {
   sys: { id: string };
   title: string;
   coverImage: string;
 }
 
-export interface SamaProject {
+export interface AbaadProject {
+  title: string;
+  coverImage: string; // URL
+  ownerName: string;
+  location: string;
+  size: string;
+  price: string;
+  category?: { sys: { id: string } };
+}
+
+export interface SamaPortfolioPageConfig {
+  pageTitle: string;
+  labelOwner: string;
+  labelLocation: string;
+  labelSize: string;
+  labelPrice: string;
+}
+
+export interface SamaPortfolioCategory {
+  sys: { id: string };
+  title: string;
+  coverImage: string;
+}
+
+export interface SamaPortfolioProject {
   title: string;
   coverImage: string; // URL
   ownerName: string;
@@ -64,7 +88,7 @@ export class ContentfulService {
     return 'en-US';
   }
 
-  getSamaPageConfig(locale: string = 'en-US'): Observable<SamaPageConfig | null> {
+  getAbaadPageConfig(locale: string = 'en-US'): Observable<AbaadPageConfig | null> {
     const contentfulLocale = this.getContentfulLocale(locale);
 
     return from(this.client.getEntries({
@@ -87,13 +111,13 @@ export class ContentfulService {
         return null;
       }),
       catchError(error => {
-        console.error('Error fetching Sama Page Config:', error);
+        console.error('Error fetching Abaad Page Config:', error);
         return of(null);
       })
     );
   }
 
-  getSamaCategories(locale: string = 'en-US'): Observable<SamaCategory[]> {
+  getAbaadCategories(locale: string = 'en-US'): Observable<AbaadCategory[]> {
     const contentfulLocale = this.getContentfulLocale(locale);
 
     return from(this.client.getEntries({
@@ -120,13 +144,13 @@ export class ContentfulService {
         });
       }),
       catchError(error => {
-        console.error('Error fetching Sama Categories:', error);
+        console.error('Error fetching Abaad Categories:', error);
         return of([]);
       })
     );
   }
 
-  getSamaProjects(locale: string = 'en-US', categoryId?: string): Observable<SamaProject[]> {
+  getAbaadProjects(locale: string = 'en-US', categoryId?: string): Observable<AbaadProject[]> {
     const contentfulLocale = this.getContentfulLocale(locale);
 
     const query: any = {
@@ -164,7 +188,114 @@ export class ContentfulService {
         });
       }),
       catchError(error => {
-        console.error('Error fetching Sama Projects:', error);
+        console.error('Error fetching Abaad Projects:', error);
+        return of([]);
+      })
+    );
+  }
+
+  // SAMA PORTFOLIO METHODS
+
+  getSamaPortfolioPageConfig(locale: string = 'en-US'): Observable<SamaPortfolioPageConfig | null> {
+    const contentfulLocale = this.getContentfulLocale(locale);
+
+    return from(this.client.getEntries({
+      content_type: 'samaPortfolioPage',
+      locale: contentfulLocale,
+      include: 0,
+      limit: 1
+    } as any)).pipe(
+      map(response => {
+        if (response.items.length > 0) {
+          const fields = response.items[0].fields as any;
+          return {
+            pageTitle: fields.pageTitle,
+            labelOwner: fields.labelOwner,
+            labelLocation: fields.labelLocation,
+            labelSize: fields.labelSize,
+            labelPrice: fields.labelPrice
+          };
+        }
+        return null;
+      }),
+      catchError(error => {
+        console.error('Error fetching Sama Portfolio Page Config:', error);
+        return of(null);
+      })
+    );
+  }
+
+  getSamaPortfolioCategories(locale: string = 'en-US'): Observable<SamaPortfolioCategory[]> {
+    const contentfulLocale = this.getContentfulLocale(locale);
+
+    return from(this.client.getEntries({
+      content_type: 'samaPortfolioCategory',
+      locale: contentfulLocale,
+      include: 2
+    } as any)).pipe(
+      map(response => {
+        return response.items.map(item => {
+          const fields = item.fields as any;
+          let imageUrl = '';
+          if (fields.coverImage && fields.coverImage.fields && fields.coverImage.fields.file) {
+            imageUrl = fields.coverImage.fields.file.url;
+            if (!imageUrl.startsWith('http')) {
+              imageUrl = 'https:' + imageUrl;
+            }
+          }
+
+          return {
+            sys: item.sys,
+            title: fields.title,
+            coverImage: imageUrl
+          };
+        });
+      }),
+      catchError(error => {
+        console.error('Error fetching Sama Portfolio Categories:', error);
+        return of([]);
+      })
+    );
+  }
+
+  getSamaPortfolioProjects(locale: string = 'en-US', categoryId?: string): Observable<SamaPortfolioProject[]> {
+    const contentfulLocale = this.getContentfulLocale(locale);
+
+    const query: any = {
+      content_type: 'samaPortfolioProject',
+      locale: contentfulLocale,
+      include: 2
+    };
+
+    if (categoryId) {
+      query['fields.category.sys.id'] = categoryId;
+    }
+
+    return from(this.client.getEntries(query)).pipe(
+      map(response => {
+        return response.items.map(item => {
+          const fields = item.fields as any;
+          let imageUrl = '';
+          if (fields.coverImage && fields.coverImage.fields && fields.coverImage.fields.file) {
+            imageUrl = fields.coverImage.fields.file.url;
+            if (!imageUrl.startsWith('http')) {
+              imageUrl = 'https:' + imageUrl;
+            }
+          }
+
+          return {
+            title: fields.title,
+            coverImage: imageUrl,
+            ownerName: fields.ownerName,
+            location: fields.location,
+            size: fields.size,
+            price: fields.price,
+            category: fields.category
+          };
+        });
+      }),
+      catchError(error => {
+        console.error('Error fetching Sama Portfolio Projects:', error);
         return of([]);
       })
     );
