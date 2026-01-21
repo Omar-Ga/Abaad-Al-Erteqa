@@ -52,7 +52,7 @@ import { LucideAngularModule, ArrowRight } from 'lucide-angular';
         </div>
 
         <!-- Card B: Sama Al-Mamaria (Warm Yellow/Construction Tone) -->
-        <div #card class="group relative h-[450px] overflow-hidden rounded-md shadow-2xl cursor-pointer">
+        <div #card routerLink="/projects/sama" class="group relative h-[450px] overflow-hidden rounded-md shadow-2xl cursor-pointer">
            <!-- Background Image -->
            <div class="absolute inset-0 w-full h-full">
             <img 
