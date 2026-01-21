@@ -39,15 +39,6 @@ import { TranslatePipe } from '../pipes/translate.pipe';
         <p class="text-lg md:text-xl text-white/90 max-w-3xl font-light leading-relaxed drop-shadow-md">
           {{ 'HOME.SUBTITLE' | translate }}
         </p>
-        
-        <div class="mt-10 flex flex-col md:flex-row gap-4 justify-start">
-             <button class="px-8 py-3 bg-[#4A3728] text-white font-semibold rounded-sm hover:bg-[#3D2B1F] transition-colors shadow-lg hover:shadow-xl">
-                {{ 'HOME.SERVICES_BTN' | translate }}
-             </button>
-             <button class="px-8 py-3 bg-[#EBC934] border border-[#EBC934] text-black font-semibold rounded-sm hover:bg-[#D4B52F] transition-colors shadow-lg">
-                {{ 'HOME.PORTFOLIO_BTN' | translate }}
-             </button>
-        </div>
       </div>
 
     </section>

@@ -56,32 +56,6 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
         <!-- Desktop Links -->
         <div class="hidden md:flex items-center gap-8">
           <a routerLink="/" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">{{ 'HOME.NAV.HOME' | translate }}</a>
-          
-          <!-- About Us Dropdown -->
-          <div class="relative group h-full flex items-center">
-            <button class="flex items-center gap-1 text-sm font-medium hover:text-[#4A3728] transition-colors focus:outline-none" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">
-              {{ 'HOME.NAV.ABOUT_US' | translate }}
-              <lucide-icon [name]="'chevron-down'" [size]="16" class="group-hover:rotate-180 transition-transform duration-200"></lucide-icon>
-            </button>
-            
-            <!-- Dropdown Menu -->
-            <div class="absolute top-12 left-1/2 -translate-x-1/2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top pt-4">
-              <div class="bg-white/95 backdrop-blur-md border border-[#4A3728]/20 rounded-md shadow-xl overflow-hidden flex flex-col">
-                <a routerLink="/about/abaad" class="block px-4 py-3 text-sm text-[#4A4A4A] hover:bg-[#4A3728] hover:text-white transition-colors border-b border-gray-100">
-                  <span class="block font-bold">{{ 'HOME.NAV.ABOUT_ABAAD' | translate }}</span>
-                  <span class="text-xs opacity-75">{{ 'HOME.NAV.ABOUT_ABAAD_DESC' | translate }}</span>
-                </a>
-                <a routerLink="/about/sama" class="block px-4 py-3 text-sm text-[#4A4A4A] hover:bg-[#EBC934] hover:text-[#1A1A1A] transition-colors">
-                  <span class="block font-bold">{{ 'HOME.NAV.ABOUT_SAMA' | translate }}</span>
-                  <span class="text-xs opacity-75">{{ 'HOME.NAV.ABOUT_SAMA_DESC' | translate }}</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <a routerLink="/consultants" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">{{ 'HOME.NAV.CONSULTANTS' | translate }}</a>
-          
-          <a href="#" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">{{ 'HOME.NAV.EXECUTIONS' | translate }}</a>
 
           <!-- Projects Dropdown -->
           <div class="relative group h-full flex items-center">
@@ -178,44 +152,6 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
       <div class="flex-1 overflow-y-auto py-6 px-6 flex flex-col gap-2">
         <a routerLink="/" (click)="toggleMobileMenu()" class="block px-4 py-3 text-lg font-medium text-[#4A4A4A] hover:bg-[#4A3728]/5 hover:text-[#4A3728] rounded-lg transition-colors">
           {{ 'HOME.NAV.HOME' | translate }}
-        </a>
-
-        <!-- Mobile About Us Dropdown -->
-        <div class="rounded-lg overflow-hidden transition-all duration-300" [class.bg-[#4A3728]/5]="mobileAboutOpen()">
-          <button 
-            (click)="toggleMobileAbout()"
-            class="w-full flex items-center justify-between px-4 py-3 text-lg font-medium text-[#4A4A4A] hover:text-[#4A3728] transition-colors focus:outline-none"
-          >
-            {{ 'HOME.NAV.ABOUT_US' | translate }}
-            <lucide-icon 
-              [name]="'chevron-down'" 
-              [size]="20"
-              class="transition-transform duration-300 text-[#4A3728]/60"
-              [class.rotate-180]="mobileAboutOpen()"
-            ></lucide-icon>
-          </button>
-          
-          <div 
-            class="overflow-hidden transition-all duration-300"
-            [style.max-height]="mobileAboutOpen() ? '300px' : '0px'"
-          >
-            <div class="pb-2 flex flex-col">
-                <a routerLink="/about/abaad" (click)="toggleMobileMenu()" class="block pl-8 pr-4 py-2 text-base text-[#4A4A4A]/80 hover:text-[#4A3728] transition-colors border-l-2 border-transparent hover:border-[#4A3728] ml-4">
-                  {{ 'HOME.NAV.ABOUT_ABAAD' | translate }}
-                </a>
-                <a routerLink="/about/sama" (click)="toggleMobileMenu()" class="block pl-8 pr-4 py-2 text-base text-[#4A4A4A]/80 hover:text-[#4A3728] transition-colors border-l-2 border-transparent hover:border-[#4A3728] ml-4">
-                  {{ 'HOME.NAV.ABOUT_SAMA' | translate }}
-                </a>
-            </div>
-          </div>
-        </div>
-
-        <a routerLink="/consultants" (click)="toggleMobileMenu()" class="block px-4 py-3 text-lg font-medium text-[#4A4A4A] hover:bg-[#4A3728]/5 hover:text-[#4A3728] rounded-lg transition-colors">
-          {{ 'HOME.NAV.CONSULTANTS' | translate }}
-        </a>
-        
-        <a href="#" (click)="toggleMobileMenu()" class="block px-4 py-3 text-lg font-medium text-[#4A4A4A] hover:bg-[#4A3728]/5 hover:text-[#4A3728] rounded-lg transition-colors">
-          {{ 'HOME.NAV.EXECUTIONS' | translate }}
         </a>
 
         <!-- Mobile Projects Dropdown -->

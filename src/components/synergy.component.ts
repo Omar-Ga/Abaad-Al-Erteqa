@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { LucideAngularModule, Building2, ShieldAlert } from 'lucide-angular';
@@ -8,7 +9,7 @@ import { LucideAngularModule, Building2, ShieldAlert } from 'lucide-angular';
 @Component({
   selector: 'app-synergy',
   standalone: true,
-  imports: [CommonModule, TranslatePipe, LucideAngularModule, NgOptimizedImage],
+  imports: [CommonModule, TranslatePipe, LucideAngularModule, NgOptimizedImage, RouterLink],
   template: `
     <section class="relative pt-6 pb-16 md:py-16 overflow-hidden bg-[#1A1A1A]">
       <!-- Background Image with Dark Overlay -->
@@ -64,6 +65,13 @@ import { LucideAngularModule, Building2, ShieldAlert } from 'lucide-angular';
                   </li>
                 }
               </ul>
+
+              <!-- Contact Button -->
+              <div class="mt-8">
+                <a routerLink="/contact" class="inline-block px-8 py-3 bg-[#4A3728] text-white font-semibold rounded-lg hover:bg-[#3D2B1F] transition-colors shadow-lg hover:shadow-xl">
+                  {{ 'HOME.SYNERGY.CONTACT_BTN' | translate }}
+                </a>
+              </div>
             </div>
           </div>
 
@@ -94,6 +102,13 @@ import { LucideAngularModule, Building2, ShieldAlert } from 'lucide-angular';
                   </li>
                 }
               </ul>
+
+              <!-- Contact Button -->
+              <div class="mt-8">
+                <a routerLink="/contact" class="inline-block px-8 py-3 bg-[#EBC934] text-[#1A1A1A] font-semibold rounded-lg hover:bg-[#D4B52F] transition-colors shadow-lg hover:shadow-xl">
+                  {{ 'HOME.SYNERGY.CONTACT_BTN' | translate }}
+                </a>
+              </div>
             </div>
           </div>
 

@@ -5,7 +5,6 @@ import { ValuesComponent } from './values.component';
 import { PhilosophyComponent } from './philosophy.component';
 import { ServicesComponent } from './services.component';
 import { SynergyComponent } from './synergy.component';
-import { WorkflowComponent } from './workflow.component';
 import { StatisticsComponent } from './statistics.component';
 import { AboutComponent } from './about.component';
 import { PartnersMarqueeComponent } from './partners-marquee.component';
@@ -21,7 +20,6 @@ import { ClientsMarqueeComponent } from './clients-marquee.component';
         PhilosophyComponent,
         ServicesComponent,
         SynergyComponent,
-        WorkflowComponent,
         StatisticsComponent,
         AboutComponent,
         PartnersMarqueeComponent,
@@ -29,14 +27,13 @@ import { ClientsMarqueeComponent } from './clients-marquee.component';
     ],
     template: `
     <app-hero></app-hero>
-    <app-gateway></app-gateway>
     <app-statistics></app-statistics>
+    <app-gateway></app-gateway>
     <app-about></app-about>
     <app-services></app-services>
     <app-partners-marquee></app-partners-marquee>
     <app-clients-marquee></app-clients-marquee>
     <app-synergy></app-synergy>
-    <app-workflow></app-workflow>
     <app-values></app-values>
     <app-philosophy></app-philosophy>
   `,
