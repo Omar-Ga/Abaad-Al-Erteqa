@@ -23,14 +23,7 @@
         "SAMA": "SAMA",
         "NAV": {
             "HOME": "Home",
-            "ABOUT_US": "About Us",
-            "ABOUT_ABAAD": "Abaad Al-Erteqaa Office",
-            "ABOUT_ABAAD_DESC": "Engineering Consultations",
-            "ABOUT_SAMA": "Sama Contracting",
-            "ABOUT_SAMA_DESC": "Contracting & Safety",
-            "CONSULTANTS": "Consults",
             "PROJECTS": "Projects",
-            "EXECUTIONS": "Executions",
             "CONTACT": "Contact",
             "ABAAD_PROJECTS": "Abaad Projects",
             "ABAAD_DESC": "Engineering & Design",
@@ -186,7 +179,6 @@
             "BRAND_DESC": "Unifying architectural brilliance with safety assurance. We are your partners in building a secure future.",
             "LINKS": {
                 "HEADER": "Quick Links",
-                "ABOUT": "About Us",
                 "CAREERS": "Careers"
             },
             "SERVICES": {

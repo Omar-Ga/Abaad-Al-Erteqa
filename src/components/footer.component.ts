@@ -33,7 +33,7 @@ import { LucideAngularModule, MapPin, Phone, Mail } from 'lucide-angular';
                 <h4 class="text-lg font-semibold mb-6">{{ 'HOME.FOOTER.LINKS.HEADER' | translate }}</h4>
                 <ul class="space-y-3 text-sm text-gray-400">
                     <li><a href="#" class="hover:text-[#4A3728] transition-colors">{{ 'HOME.NAV.HOME' | translate }}</a></li>
-                    <li><a href="#" class="hover:text-[#4A3728] transition-colors">{{ 'HOME.FOOTER.LINKS.ABOUT' | translate }}</a></li>
+
                     <li><a href="#" class="hover:text-[#4A3728] transition-colors">{{ 'HOME.NAV.PROJECTS' | translate }}</a></li>
                     <li><a href="#" class="hover:text-[#4A3728] transition-colors">{{ 'HOME.FOOTER.LINKS.CAREERS' | translate }}</a></li>
                 </ul>
