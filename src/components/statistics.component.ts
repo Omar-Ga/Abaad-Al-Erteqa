@@ -94,6 +94,7 @@ export class StatisticsComponent implements AfterViewInit, OnDestroy {
       }
     }
   }
+  #omar
 
   ngOnDestroy() {
     if (this.observer) {
