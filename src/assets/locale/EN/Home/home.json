@@ -100,28 +100,6 @@
                 }
             }
         },
-        "WORKFLOW": {
-            "HEADER": "The Integrated Workflow",
-            "SUBHEADER": "From concept to completion.",
-            "STEPS": {
-                "STEP1": {
-                    "TITLE": "Surveying & Planning",
-                    "DESC": "Topographical surveys and real estate unit sorting (Farz) to establish the ground truth."
-                },
-                "STEP2": {
-                    "TITLE": "Design & Engineering",
-                    "DESC": "Architectural, structural, and MEP design for robust and efficient facilities."
-                },
-                "STEP3": {
-                    "TITLE": "Execution & Contracting",
-                    "DESC": "General contracting, sanitation works, and infrastructure implementation."
-                },
-                "STEP4": {
-                    "TITLE": "Operation & Maintenance",
-                    "DESC": "Facility management, building restoration, and high-end finishing."
-                }
-            }
-        },
         "SYNERGY": {
             "BADGE": "The Synergy",
             "HEADER": "Our Services",
