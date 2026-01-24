@@ -4,6 +4,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { LanguageSwitcherComponent } from './language-switcher.component';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { TranslationService } from '../services/translation.service';
+import { NavbarService } from '../services/navbar.service';
 import { inject } from '@angular/core';
 import { Router, NavigationEnd, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -55,7 +56,7 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
 
         <!-- Desktop Links -->
         <div class="hidden md:flex items-center gap-8">
-          <a routerLink="/" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">{{ 'HOME.NAV.HOME' | translate }}</a>
+          <a routerLink="/" (click)="scrollToTop()" class="text-sm font-medium hover:text-[#4A3728] transition-colors" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">{{ 'HOME.NAV.HOME' | translate }}</a>
           
 
 
@@ -64,14 +65,20 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
 
 
           <!-- Projects Dropdown -->
-          <div class="relative group h-full flex items-center">
-            <button class="flex items-center gap-1 text-sm font-medium hover:text-[#4A3728] transition-colors focus:outline-none" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">
+          <div class="relative h-full flex items-center" (mouseenter)="navbarService.openProjectsDropdown()" (mouseleave)="navbarService.closeProjectsDropdown()">
+            <button data-projects-dropdown (click)="navbarService.toggleProjectsDropdown()" class="flex items-center gap-1 text-sm font-medium hover:text-[#4A3728] transition-colors focus:outline-none" [class.text-white]="!showDarkText()" [class.text-[#4A4A4A]]="showDarkText()">
               {{ 'HOME.NAV.PROJECTS' | translate }}
-              <lucide-icon [name]="'chevron-down'" [size]="16" class="group-hover:rotate-180 transition-transform duration-200"></lucide-icon>
+              <lucide-icon [name]="'chevron-down'" [size]="16" [class.rotate-180]="navbarService.projectsDropdownOpen()" class="transition-transform duration-200"></lucide-icon>
             </button>
             
             <!-- Dropdown Menu -->
-            <div class="absolute top-12 left-1/2 -translate-x-1/2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top pt-4">
+            <div 
+              class="absolute top-12 left-1/2 -translate-x-1/2 w-56 transition-all duration-300 transform origin-top pt-4"
+              [class.opacity-100]="navbarService.projectsDropdownOpen()"
+              [class.visible]="navbarService.projectsDropdownOpen()"
+              [class.opacity-0]="!navbarService.projectsDropdownOpen()"
+              [class.invisible]="!navbarService.projectsDropdownOpen()"
+            >
               <div class="bg-white/95 backdrop-blur-md border border-[#4A3728]/20 rounded-md shadow-xl overflow-hidden flex flex-col">
                 <a routerLink="/projects/abaad" class="block px-4 py-3 text-sm text-[#4A4A4A] hover:bg-[#4A3728] hover:text-white transition-colors border-b border-gray-100">
                   <span class="block font-bold">{{ 'HOME.NAV.ABAAD_PROJECTS' | translate }}</span>
@@ -238,6 +245,7 @@ export class NavbarComponent {
 
   // Show dark text if scrolled OR not on homepage
   showDarkText = computed(() => !this.isHomePage() || this.isScrolled());
+  navbarService = inject(NavbarService);
 
   // Dynamic classes for the navbar container
   navClasses = computed(() => {
@@ -275,5 +283,9 @@ export class NavbarComponent {
 
   toggleMobileAbout() {
     this.mobileAboutOpen.update(v => !v);
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

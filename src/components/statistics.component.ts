@@ -29,6 +29,10 @@ import { TranslatePipe } from '../pipes/translate.pipe';
             {{ 'HOME.STATS.HEADER' | translate }}
           </h2>
           <div class="w-24 h-1.5 bg-[#EBC934] mx-auto rounded-full"></div>
+          <!-- Description Text -->
+          <p class="text-white/90 text-lg md:text-xl leading-relaxed max-w-5xl mx-auto font-light mt-8">
+            {{ 'HOME.STATS.DESCRIPTION' | translate }}
+          </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center text-white">

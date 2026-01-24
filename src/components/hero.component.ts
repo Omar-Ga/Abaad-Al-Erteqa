@@ -1,6 +1,6 @@
 
-import { Component, ChangeDetectionStrategy, signal, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { Component, ChangeDetectionStrategy, signal, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { TranslatePipe } from '../pipes/translate.pipe';
 
 @Component({
@@ -18,7 +18,7 @@ import { TranslatePipe } from '../pipes/translate.pipe';
             [class.opacity-100]="i === activeIndex()"
             [class.opacity-0]="i !== activeIndex()"
           >
-             <img [ngSrc]="img" fill priority alt="Hero Background" class="object-cover w-full h-full">
+             <img [ngSrc]="img" fill priority alt="Hero Background" class="object-cover w-full h-full hero-image-enhanced">
           </div>
         }
       </div>
@@ -33,20 +33,23 @@ import { TranslatePipe } from '../pipes/translate.pipe';
       <div class="absolute bottom-0 left-0 w-full h-64 z-20 bg-gradient-to-b from-transparent to-[#121212]"></div>
 
       <!-- Content -->
-      <div class="relative z-30 text-start max-w-5xl px-6 md:px-20 animate-fade-in-up mt-24">
-        <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 leading-tight drop-shadow-lg" [innerHTML]="'HOME.TITLE' | translate">
+      <div class="relative z-30 text-start max-w-6xl px-6 md:px-20 animate-fade-in-up mt-24">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-8 leading-[1.1] drop-shadow-2xl hero-title" [innerHTML]="'HOME.TITLE' | translate">
         </h1>
-        <p class="text-lg md:text-xl text-white/90 max-w-3xl font-light leading-relaxed drop-shadow-md">
+        <p class="text-lg md:text-2xl text-white/95 max-w-4xl font-medium leading-relaxed drop-shadow-lg mb-10">
           {{ 'HOME.SUBTITLE' | translate }}
         </p>
         
-        <div class="mt-10 flex flex-col md:flex-row gap-4 justify-start">
-             <button class="px-8 py-3 bg-[#4A3728] text-white font-semibold rounded-sm hover:bg-[#3D2B1F] transition-colors shadow-lg hover:shadow-xl">
-                {{ 'HOME.SERVICES_BTN' | translate }}
-             </button>
-             <button class="px-8 py-3 bg-[#EBC934] border border-[#EBC934] text-black font-semibold rounded-sm hover:bg-[#D4B52F] transition-colors shadow-lg">
-                {{ 'HOME.PORTFOLIO_BTN' | translate }}
-             </button>
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button (click)="scrollToSynergy()" class="group px-8 py-4 bg-[#4A3728] text-white font-bold text-lg rounded-lg hover:bg-[#5d4632] transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center gap-3 cursor-pointer">
+            {{ 'HOME.SERVICES_BTN' | translate }}
+            <span class="group-hover:translate-x-1 transition-transform duration-300">←</span>
+          </button>
+          <button (click)="scrollToSynergy()" class="group px-8 py-4 bg-[#EBC934] text-[#1A1A1A] font-bold text-lg rounded-lg hover:bg-[#d4b42e] transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center gap-3 cursor-pointer">
+            {{ 'HOME.PORTFOLIO_BTN' | translate }}
+            <span class="group-hover:translate-x-1 transition-transform duration-300">←</span>
+          </button>
         </div>
       </div>
 
@@ -54,24 +57,55 @@ import { TranslatePipe } from '../pipes/translate.pipe';
   `,
   styles: [`
     @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
+        from { opacity: 0; transform: translateY(30px); }
         to { opacity: 1; transform: translateY(0); }
     }
+    @keyframes shimmer {
+        0% { background-position: -200% center; }
+        100% { background-position: 200% center; }
+    }
     .animate-fade-in-up {
-        animation: fadeInUp 1s ease-out forwards;
+        animation: fadeInUp 1.2s ease-out forwards;
+    }
+    .hero-title {
+        text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(0, 0, 0, 0.3);
+        letter-spacing: -0.02em;
+    }
+    .hero-image-enhanced {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        filter: contrast(1.05) saturate(1.1) brightness(1.02);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        transform: translateZ(0) scale(1.01);
     }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroComponent implements OnInit, OnDestroy {
   images = [
-    'assets/images/architecture_hero.png',
-    'assets/images/engineering_blueprint.png',
-    'assets/images/urban_landscape.png',
+    'assets/images/swrhome1/Gemini_Generated_Image_rw4incrw4incrw4i.png',
+    'assets/images/swrhome1/Gemini_Generated_Image_woe7t5woe7t5woe7 (1).png',
+    'assets/images/swrhome1/Gemini_Generated_Image_oilf2goilf2goilf.png',
+    'assets/images/swrhome1/Gemini_Generated_Image_b04zjib04zjib04z.png',
   ];
 
   activeIndex = signal(0);
   intervalId: any;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  scrollToSynergy() {
+    if (isPlatformBrowser(this.platformId)) {
+      const element = document.getElementById('synergy');
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start'
+        });
+      }
+    }
+  }
 
   ngOnInit() {
     this.intervalId = setInterval(() => {

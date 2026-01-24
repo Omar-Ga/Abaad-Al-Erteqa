@@ -25,8 +25,8 @@ import { ClientsMarqueeComponent } from './clients-marquee.component';
   ],
   template: `
     <app-hero></app-hero>
-    <app-gateway></app-gateway>
     <app-statistics></app-statistics>
+    <app-gateway></app-gateway>
     <app-services></app-services>
     <app-partners-marquee></app-partners-marquee>
     <app-clients-marquee></app-clients-marquee>

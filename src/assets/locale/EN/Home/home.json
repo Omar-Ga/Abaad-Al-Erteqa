@@ -9,12 +9,13 @@
         "HERO": {
             "CTA": "Start Your Project"
         },
-        "TITLE": "Integrated Engineering Excellence & <br/> Advanced Safety Solutions",
-        "SUBTITLE": "From architectural vision to operational safety. We provide comprehensive engineering consultation and certified fire protection systems under one roof.",
-        "SERVICES_BTN": "Explore Engineering Services",
-        "PORTFOLIO_BTN": "Explore Safety Solutions",
+        "TITLE": "We Design <span class='text-[#8B7355]'>Engineering</span> with Precision, <br/> and Build <span class='text-[#EBC934]'>Safety</span> with Confidence",
+        "SUBTITLE": "From design to operation, we provide integrated engineering consultancy and certified fire protection systems… all under one roof.",
+        "SERVICES_BTN": "Discover Engineering Services",
+        "PORTFOLIO_BTN": "Safety Solutions We Provide",
         "STATS": {
             "HEADER": "Why Us",
+            "DESCRIPTION": "Abaad Al-Erteqaa Engineering Consultancy is a leading engineering entity embodying excellence in the world of integrated engineering. Through it, we lead the design and supervision of major projects with a professional vision and global standards. We provide advanced solutions for safety and fire protection systems with the highest levels of efficiency and reliability, relying on extensive experience, specialized engineering competencies, and modern technologies to create sustainable value that builds trust and transforms projects into long-term successful partnerships.",
             "PROJECTS": "Projects Completed",
             "CLIENTS": "Happy Clients",
             "DESIGNS": "Unique Designs"
@@ -104,6 +105,7 @@
             "BADGE": "The Synergy",
             "HEADER": "Our Services",
             "SUBHEADER": "Discover how Abaad Al-Erteqaa's engineering expertise and Sama's safety solutions work together to deliver comprehensive project excellence.",
+            "CONTACT_BTN": "Contact Us",
             "ABAAD": {
                 "TITLE": "Engineering & Consulting",
                 "SUBTITLE": "Abaad Al-Erteqaa",
