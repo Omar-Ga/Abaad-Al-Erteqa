@@ -53,25 +53,25 @@ import { combineLatest } from 'rxjs';
               
               <dl class="space-y-3 text-sm flex-1">
                 <!-- Owner -->
-                <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                <div *ngIf="project.ownerName" class="flex justify-between items-center border-b border-gray-100 pb-2">
                   <dt class="font-medium text-gray-500">{{ config.labelOwner }}</dt>
                   <dd class="font-semibold text-gray-900">{{ project.ownerName }}</dd>
                 </div>
                 
                 <!-- Location -->
-                <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                <div *ngIf="project.location" class="flex justify-between items-center border-b border-gray-100 pb-2">
                   <dt class="font-medium text-gray-500">{{ config.labelLocation }}</dt>
                   <dd class="font-semibold text-gray-900">{{ project.location }}</dd>
                 </div>
 
                 <!-- Size -->
-                <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                <div *ngIf="project.size" class="flex justify-between items-center border-b border-gray-100 pb-2">
                   <dt class="font-medium text-gray-500">{{ config.labelSize }}</dt>
                   <dd class="font-semibold text-gray-900">{{ project.size }}</dd>
                 </div>
 
                 <!-- Price -->
-                <div class="flex justify-between items-center pt-1">
+                <div *ngIf="project.price" class="flex justify-between items-center pt-1">
                   <dt class="font-medium text-gray-500">{{ config.labelPrice }}</dt>
                   <dd class="font-bold text-[#4A3728] text-lg">{{ project.price }}</dd>
                 </div>
