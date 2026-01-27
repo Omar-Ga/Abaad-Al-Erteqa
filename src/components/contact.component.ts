@@ -77,12 +77,15 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin, Check, AlertCi
                   (click)="resetForm()"
                   class="px-8 py-3 bg-[#4A3728] text-white font-bold rounded-xl hover:bg-[#3A2B20] transition-colors"
                 >
-                  Send Another Message
+                  {{ 'CONTACT_PAGE.FORM.SEND_ANOTHER' | translate }}
                 </button>
               </div>
             } @else {
-              <form (submit)="onSubmit($event)" class="space-y-6">
-                <!-- Error Message -->
+84→              <form (submit)="onSubmit($event)" class="space-y-6">
+85→                <!-- Honeypot field for spam protection -->
+86→                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+87→
+88→                <!-- Error Message -->
                 @if (submissionStatus() === 'error') {
                   <div class="p-4 rounded-xl bg-red-50 border border-red-200 flex items-center gap-3 animate-in fade-in slide-in-from-top-2">
                     <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center shrink-0">
@@ -186,6 +189,28 @@ export class ContactComponent {
 
   async onSubmit(e: Event) {
     e.preventDefault();
+
+    // --- Rate Limiting Logic ---
+    const now = Date.now();
+    const lastSubmission = localStorage.getItem('contact_last_submission');
+    const submissionCount = parseInt(localStorage.getItem('contact_submission_count') || '0');
+    const lastSubmissionDate = localStorage.getItem('contact_last_submission_date');
+    const today = new Date().toDateString();
+
+    // 1. Cooldown between submissions (3 minutes)
+    if (lastSubmission && (now - parseInt(lastSubmission) < 180000)) {
+      this.submissionStatus.set('error');
+      this.errorMessage.set(this.translationService.translate('CONTACT_PAGE.FORM.RATE_LIMIT_ERROR'));
+      return;
+    }
+
+    // 2. Daily limit (3 submissions)
+    if (lastSubmissionDate === today && submissionCount >= 3) {
+      this.submissionStatus.set('error');
+      this.errorMessage.set(this.translationService.translate('CONTACT_PAGE.FORM.DAILY_LIMIT_ERROR'));
+      return;
+    }
+
     const form = e.target as HTMLFormElement;
     
     const formData = new FormData(form);
@@ -205,6 +230,11 @@ export class ContactComponent {
       const data = await response.json();
 
       if (response.ok) {
+        // Update rate limiting data on success
+        localStorage.setItem('contact_last_submission', now.toString());
+        localStorage.setItem('contact_last_submission_date', today);
+        localStorage.setItem('contact_submission_count', (lastSubmissionDate === today ? submissionCount + 1 : 1).toString());
+
         this.submissionStatus.set('success');
         form.reset();
       } else {

@@ -15,7 +15,7 @@ import {
   Zap, ShieldCheck, Cpu, Clock,
   PencilRuler, Map, Hammer, Trees,
   Building2, ShieldAlert,
-  Globe, Users, Flame, Bell, Wrench, FileText
+  Globe, Users, Flame, Bell, Wrench, FileText, Check, AlertCircle
 } from 'lucide-angular';
 
 // Factory function for APP_INITIALIZER
@@ -42,7 +42,7 @@ bootstrapApplication(AppComponent, {
         Zap, ShieldCheck, Cpu, Clock,
         PencilRuler, Map, Hammer, Trees,
         Building2, ShieldAlert,
-        Globe, Users, Flame, Bell, Wrench, FileText
+        Globe, Users, Flame, Bell, Wrench, FileText, Check, AlertCircle
       })
     )
   ]

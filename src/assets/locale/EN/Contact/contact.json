@@ -24,8 +24,11 @@
       "SUBMIT": "Send Message",
       "SUCCESS": "Your message has been sent successfully!",
       "SUCCESS_MESSAGE": "Thank you for contacting us. We will get back to you shortly.",
+      "SEND_ANOTHER": "Send Another Message",
       "ERROR_PREFIX": "Error: ",
       "GENERIC_ERROR": "Something went wrong. Please try again.",
+      "RATE_LIMIT_ERROR": "Please wait a moment before sending another message.",
+      "DAILY_LIMIT_ERROR": "You have reached the daily limit for messages. Please try again tomorrow.",
       "SUBTITLE": "Fill out the form below and our team will get back to you within 24 hours."
     }
   }
