@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '../services/translation.service';
 import { TranslatePipe } from '../pipes/translate.pipe';
@@ -36,13 +36,13 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
           </a>
 
           <!-- Email -->
-          <a href="mailto:engineering@abaadsama.com" class="block group">
+          <a href="mailto:oomarolayan.gamal@gmail.com" class="block group">
             <div class="bg-white p-8 rounded-2xl shadow-sm border border-[#4A3728]/10 hover:border-[#4A3728]/30 hover:shadow-xl transition-all duration-300 h-full flex flex-col items-center text-center group-hover:-translate-y-1">
               <div class="w-16 h-16 rounded-full bg-[#EBC934]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <lucide-icon [name]="'mail'" [size]="32" class="text-[#D4AF37]"></lucide-icon>
               </div>
               <h3 class="text-xl font-bold text-[#4A3728] mb-2">{{ 'CONTACT_PAGE.EMAIL.TITLE' | translate }}</h3>
-              <p class="text-[#4A4A4A] font-medium mb-4 break-all">engineering@abaadsama.com</p>
+              <p class="text-[#4A4A4A] font-medium mb-4 break-all">oomarolayan.gamal@gmail.com</p>
               <span class="text-[#4A3728] font-semibold group-hover:underline decoration-1 underline-offset-4">{{ 'CONTACT_PAGE.EMAIL.ACTION' | translate }}</span>
             </div>
           </a>
@@ -66,10 +66,8 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
             <h2 class="text-2xl font-bold text-[#4A3728] mb-2">{{ 'CONTACT_PAGE.FORM.TITLE' | translate }}</h2>
             <p class="text-[#4A4A4A]/70 mb-8">{{ 'CONTACT_PAGE.FORM.SUBTITLE' | translate }}</p>
             
-            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
-              <!-- Web3Forms Access Key will go here -->
-              <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-
+            <form (submit)="onSubmit($event)" class="space-y-6">
+              
               <div class="space-y-2">
                 <label class="block text-sm font-semibold text-[#4A3728]">{{ 'CONTACT_PAGE.FORM.NAME' | translate }}</label>
                 <input 
@@ -117,9 +115,10 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
 
               <button 
                 type="submit"
-                class="w-full py-4 bg-[#4A3728] text-white font-bold rounded-xl hover:bg-[#3A2B20] transition-colors shadow-lg shadow-[#4A3728]/20 transform hover:scale-[1.02] active:scale-[0.98]"
+                [disabled]="isSubmitting()"
+                class="w-full py-4 bg-[#4A3728] text-white font-bold rounded-xl hover:bg-[#3A2B20] transition-colors shadow-lg shadow-[#4A3728]/20 transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                {{ 'CONTACT_PAGE.FORM.SUBMIT' | translate }}
+                {{ isSubmitting() ? 'Sending...' : ('CONTACT_PAGE.FORM.SUBMIT' | translate) }}
               </button>
             </form>
           </div>
@@ -149,8 +148,40 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
 })
 export class ContactComponent {
   private translationService = inject(TranslationService);
+  isSubmitting = signal(false);
 
   constructor() {
     this.translationService.loadModule('Contact');
+  }
+
+  async onSubmit(e: Event) {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    
+    const formData = new FormData(form);
+    formData.append("access_key", "dab0a64d-9b4b-4f9a-8653-74bf6035df36");
+
+    this.isSubmitting.set(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Success! Your message has been sent.");
+        form.reset();
+      } else {
+        alert("Error: " + data.message);
+      }
+
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+    } finally {
+      this.isSubmitting.set(false);
+    }
   }
 }
