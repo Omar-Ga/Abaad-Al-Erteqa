@@ -72,7 +72,7 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin, Check, AlertCi
                   <lucide-icon [name]="'check'" [size]="40" class="text-green-600"></lucide-icon>
                 </div>
                 <h3 class="text-2xl font-bold text-[#4A3728] mb-3">{{ 'CONTACT_PAGE.FORM.SUCCESS' | translate }}</h3>
-                <p class="text-[#4A4A4A] mb-8">Thank you for contacting us. We will get back to you shortly.</p>
+                <p class="text-[#4A4A4A] mb-8">{{ 'CONTACT_PAGE.FORM.SUCCESS_MESSAGE' | translate }}</p>
                 <button 
                   (click)="resetForm()"
                   class="px-8 py-3 bg-[#4A3728] text-white font-bold rounded-xl hover:bg-[#3A2B20] transition-colors"
