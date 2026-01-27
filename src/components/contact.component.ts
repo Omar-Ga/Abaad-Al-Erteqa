@@ -66,9 +66,36 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin, Check, AlertCi
             <h2 class="text-2xl font-bold text-[#4A3728] mb-2">{{ 'CONTACT_PAGE.FORM.TITLE' | translate }}</h2>
             <p class="text-[#4A4A4A]/70 mb-8">{{ 'CONTACT_PAGE.FORM.SUBTITLE' | translate }}</p>
             
-            <form (submit)="onSubmit($event)" class="space-y-6">
+            @if (submissionStatus() === 'success') {
+              <div class="text-center py-12 animate-in fade-in zoom-in-95 duration-300">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <lucide-icon [name]="'check'" [size]="40" class="text-green-600"></lucide-icon>
+                </div>
+                <h3 class="text-2xl font-bold text-[#4A3728] mb-3">{{ 'CONTACT_PAGE.FORM.SUCCESS' | translate }}</h3>
+                <p class="text-[#4A4A4A] mb-8">Thank you for contacting us. We will get back to you shortly.</p>
+                <button 
+                  (click)="resetForm()"
+                  class="px-8 py-3 bg-[#4A3728] text-white font-bold rounded-xl hover:bg-[#3A2B20] transition-colors"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            } @else {
+              <form (submit)="onSubmit($event)" class="space-y-6">
+                <!-- Error Message -->
+                @if (submissionStatus() === 'error') {
+                  <div class="p-4 rounded-xl bg-red-50 border border-red-200 flex items-center gap-3 animate-in fade-in slide-in-from-top-2">
+                    <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center shrink-0">
+                      <lucide-icon [name]="'alert-circle'" [size]="20" class="text-red-600"></lucide-icon>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-red-800">{{ 'CONTACT_PAGE.FORM.ERROR_PREFIX' | translate }}</h4>
+                      <p class="text-sm text-red-600">{{ errorMessage() || ('CONTACT_PAGE.FORM.GENERIC_ERROR' | translate) }}</p>
+                    </div>
+                  </div>
+                }
               
-              <div class="space-y-2">
+                <div class="space-y-2">
                 <label class="block text-sm font-semibold text-[#4A3728]">{{ 'CONTACT_PAGE.FORM.NAME' | translate }}</label>
                 <input 
                   type="text" 
@@ -121,6 +148,7 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin, Check, AlertCi
                 {{ isSubmitting() ? 'Sending...' : ('CONTACT_PAGE.FORM.SUBMIT' | translate) }}
               </button>
             </form>
+            }
           </div>
 
           <!-- Map Section -->
@@ -179,8 +207,6 @@ export class ContactComponent {
       if (response.ok) {
         this.submissionStatus.set('success');
         form.reset();
-        // Reset success message after 5 seconds
-        setTimeout(() => this.submissionStatus.set('idle'), 5000);
       } else {
         this.submissionStatus.set('error');
         this.errorMessage.set(data.message);
@@ -191,5 +217,10 @@ export class ContactComponent {
     } finally {
       this.isSubmitting.set(false);
     }
+  }
+
+  resetForm() {
+    this.submissionStatus.set('idle');
+    this.errorMessage.set('');
   }
 }
