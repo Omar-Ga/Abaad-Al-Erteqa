@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '../services/translation.service';
 import { TranslatePipe } from '../pipes/translate.pipe';
-import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-angular';
+import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin, Check, AlertCircle } from 'lucide-angular';
 
 @Component({
   selector: 'app-contact',
@@ -149,6 +149,8 @@ import { LucideAngularModule, Phone, Mail, MessageCircle, MapPin } from 'lucide-
 export class ContactComponent {
   private translationService = inject(TranslationService);
   isSubmitting = signal(false);
+  submissionStatus = signal<'idle' | 'success' | 'error'>('idle');
+  errorMessage = signal('');
 
   constructor() {
     this.translationService.loadModule('Contact');
@@ -159,9 +161,12 @@ export class ContactComponent {
     const form = e.target as HTMLFormElement;
     
     const formData = new FormData(form);
+    // TODO: Replace with your own access key from https://web3forms.com/
     formData.append("access_key", "dab0a64d-9b4b-4f9a-8653-74bf6035df36");
 
     this.isSubmitting.set(true);
+    this.submissionStatus.set('idle');
+    this.errorMessage.set('');
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -172,14 +177,17 @@ export class ContactComponent {
       const data = await response.json();
 
       if (response.ok) {
-        alert("Success! Your message has been sent.");
+        this.submissionStatus.set('success');
         form.reset();
+        // Reset success message after 5 seconds
+        setTimeout(() => this.submissionStatus.set('idle'), 5000);
       } else {
-        alert("Error: " + data.message);
+        this.submissionStatus.set('error');
+        this.errorMessage.set(data.message);
       }
 
     } catch (error) {
-      alert("Something went wrong. Please try again.");
+      this.submissionStatus.set('error');
     } finally {
       this.isSubmitting.set(false);
     }

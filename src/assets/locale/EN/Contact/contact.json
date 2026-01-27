@@ -23,6 +23,8 @@
       "MESSAGE": "Your Message",
       "SUBMIT": "Send Message",
       "SUCCESS": "Your message has been sent successfully!",
+      "ERROR_PREFIX": "Error: ",
+      "GENERIC_ERROR": "Something went wrong. Please try again.",
       "SUBTITLE": "Fill out the form below and our team will get back to you within 24 hours."
     }
   }
