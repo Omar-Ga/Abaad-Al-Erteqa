@@ -10,6 +10,7 @@ export interface AbaadPageConfig {
   labelLocation: string;
   labelSize: string;
   labelPrice: string;
+  labelOfficeRole: string;
 }
 
 export interface AbaadCategory {
@@ -25,6 +26,7 @@ export interface AbaadProject {
   location: string;
   size: string;
   price: string;
+  officeRole: string;
   category?: { sys: { id: string } };
 }
 
@@ -105,7 +107,8 @@ export class ContentfulService {
             labelOwner: fields.labelOwner,
             labelLocation: fields.labelLocation,
             labelSize: fields.labelSize,
-            labelPrice: fields.labelPrice
+            labelPrice: fields.labelPrice,
+            labelOfficeRole: fields.labelOfficeRole
           };
         }
         return null;
@@ -183,6 +186,7 @@ export class ContentfulService {
             location: fields.location,
             size: fields.size,
             price: fields.price,
+            officeRole: fields.officeRole,
             category: fields.category
           };
         });

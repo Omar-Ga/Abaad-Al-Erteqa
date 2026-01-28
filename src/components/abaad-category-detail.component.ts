@@ -70,6 +70,12 @@ import { combineLatest } from 'rxjs';
                   <dd class="font-semibold text-gray-900">{{ project.size }}</dd>
                 </div>
 
+                <!-- Office Role -->
+                <div *ngIf="project.officeRole" class="flex justify-between items-center border-b border-gray-100 pb-2">
+                  <dt class="font-medium text-gray-500">{{ config.labelOfficeRole }}</dt>
+                  <dd class="font-semibold text-gray-900">{{ project.officeRole }}</dd>
+                </div>
+
                 <!-- Price -->
                 <div *ngIf="project.price" class="flex justify-between items-center pt-1">
                   <dt class="font-medium text-gray-500">{{ config.labelPrice }}</dt>
