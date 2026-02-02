@@ -27,6 +27,7 @@ export interface AbaadProject {
   size: string;
   price: string;
   officeRole: string;
+  officeRoleTemp: string;
   category?: { sys: { id: string } };
 }
 
@@ -187,6 +188,7 @@ export class ContentfulService {
             size: fields.size,
             price: fields.price,
             officeRole: fields.officeRole,
+            officeRoleTemp: fields.officeRoleTemp,
             category: fields.category
           };
         });

@@ -72,8 +72,14 @@ import { combineLatest } from 'rxjs';
 
                 <!-- Office Role -->
                 <div *ngIf="project.officeRole" class="flex justify-between items-center border-b border-gray-100 pb-2">
-                  <dt class="font-medium text-gray-500">{{ config.labelOfficeRole }}</dt>
+                  <dt class="font-medium text-gray-500">{{ config.labelOfficeRole }} (Old)</dt>
                   <dd class="font-semibold text-gray-900">{{ project.officeRole }}</dd>
+                </div>
+
+                <!-- Office Role (Temp) -->
+                <div *ngIf="project.officeRoleTemp" class="flex flex-col border-b border-gray-100 pb-2">
+                  <dt class="font-medium text-gray-500">{{ config.labelOfficeRole }} (New - Long Text)</dt>
+                  <dd class="font-semibold text-gray-900 mt-1">{{ project.officeRoleTemp }}</dd>
                 </div>
 
                 <!-- Price -->
