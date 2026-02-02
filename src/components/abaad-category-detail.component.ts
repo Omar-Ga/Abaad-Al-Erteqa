@@ -51,41 +51,47 @@ import { combineLatest } from 'rxjs';
             <div class="p-6 flex-1 flex flex-col">
               <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ project.title }}</h3>
               
-              <dl class="space-y-3 text-sm flex-1">
+              <dl class="space-y-0 text-sm flex-1 border-t border-gray-100">
                 <!-- Owner -->
-                <div *ngIf="project.ownerName" class="flex justify-between items-center border-b border-gray-100 pb-2">
-                  <dt class="font-medium text-gray-500">{{ config.labelOwner }}</dt>
-                  <dd class="font-semibold text-gray-900">{{ project.ownerName }}</dd>
+                <div *ngIf="project.ownerName" class="grid grid-cols-[140px_1px_1fr] py-3 border-b border-gray-100">
+                  <dt class="font-medium text-gray-500 flex items-center">{{ config.labelOwner }}</dt>
+                  <div class="h-full bg-gray-200"></div>
+                  <dd class="font-semibold text-gray-900 px-4 flex items-center">{{ project.ownerName }}</dd>
                 </div>
                 
                 <!-- Location -->
-                <div *ngIf="project.location" class="flex justify-between items-center border-b border-gray-100 pb-2">
-                  <dt class="font-medium text-gray-500">{{ config.labelLocation }}</dt>
-                  <dd class="font-semibold text-gray-900">{{ project.location }}</dd>
+                <div *ngIf="project.location" class="grid grid-cols-[140px_1px_1fr] py-3 border-b border-gray-100">
+                  <dt class="font-medium text-gray-500 flex items-center">{{ config.labelLocation }}</dt>
+                  <div class="h-full bg-gray-200"></div>
+                  <dd class="font-semibold text-gray-900 px-4 flex items-center">{{ project.location }}</dd>
                 </div>
 
                 <!-- Size -->
-                <div *ngIf="project.size" class="flex justify-between items-center border-b border-gray-100 pb-2">
-                  <dt class="font-medium text-gray-500">{{ config.labelSize }}</dt>
-                  <dd class="font-semibold text-gray-900">{{ project.size }}</dd>
+                <div *ngIf="project.size" class="grid grid-cols-[140px_1px_1fr] py-3 border-b border-gray-100">
+                  <dt class="font-medium text-gray-500 flex items-center">{{ config.labelSize }}</dt>
+                  <div class="h-full bg-gray-200"></div>
+                  <dd class="font-semibold text-gray-900 px-4 flex items-center">{{ project.size }}</dd>
                 </div>
 
                 <!-- Office Role -->
-                <div *ngIf="project.officeRole" class="flex justify-between items-center border-b border-gray-100 pb-2">
-                  <dt class="font-medium text-gray-500">{{ config.labelOfficeRole }} (Old)</dt>
-                  <dd class="font-semibold text-gray-900">{{ project.officeRole }}</dd>
+                <div *ngIf="project.officeRole" class="grid grid-cols-[140px_1px_1fr] py-3 border-b border-gray-100">
+                  <dt class="font-medium text-gray-500 flex items-center">{{ config.labelOfficeRole }} (Old)</dt>
+                  <div class="h-full bg-gray-200"></div>
+                  <dd class="font-semibold text-gray-900 px-4 flex items-center">{{ project.officeRole }}</dd>
                 </div>
 
                 <!-- Office Role (Temp) -->
-                <div *ngIf="project.officeRoleTemp" class="flex flex-col border-b border-gray-100 pb-2">
-                  <dt class="font-medium text-gray-500">{{ config.labelOfficeRole }} (New - Long Text)</dt>
-                  <dd class="font-semibold text-gray-900 mt-1">{{ project.officeRoleTemp }}</dd>
+                <div *ngIf="project.officeRoleTemp" class="grid grid-cols-[140px_1px_1fr] py-3 border-b border-gray-100">
+                  <dt class="font-medium text-gray-500 flex items-center">{{ config.labelOfficeRole }} (New)</dt>
+                  <div class="h-full bg-gray-200"></div>
+                  <dd class="font-semibold text-gray-900 px-4 flex items-center">{{ project.officeRoleTemp }}</dd>
                 </div>
 
                 <!-- Price -->
-                <div *ngIf="project.price" class="flex justify-between items-center pt-1">
-                  <dt class="font-medium text-gray-500">{{ config.labelPrice }}</dt>
-                  <dd class="font-bold text-[#4A3728] text-lg">{{ project.price }}</dd>
+                <div *ngIf="project.price" class="grid grid-cols-[140px_1px_1fr] py-3 border-b border-gray-100">
+                  <dt class="font-medium text-gray-500 flex items-center">{{ config.labelPrice }}</dt>
+                  <div class="h-full bg-gray-200"></div>
+                  <dd class="font-bold text-[#4A3728] text-lg px-4 flex items-center">{{ project.price }}</dd>
                 </div>
               </dl>
             </div>
