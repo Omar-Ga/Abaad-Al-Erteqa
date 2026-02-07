@@ -14,6 +14,7 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
         <img 
             ngSrc="assets/images/stats_bg_v2.png" 
             fill 
+            priority
             class="object-cover w-full h-full grayscale brightness-50"
             alt="Engineering Detail"
         >
@@ -27,26 +28,26 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
         
         <div class="text-center mb-16">
           <h2 
-            appScrollReveal="curtain"
+            appScrollReveal="fade-up"
             class="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight drop-shadow-md">
             {{ 'HOME.STATS.HEADER' | translate }}
           </h2>
           <div 
-            appScrollReveal="wipe" 
-            delay="300ms"
+            appScrollReveal="scale-up" 
+            delay="200ms"
             class="w-24 h-1.5 bg-[#EBC934] mx-auto rounded-full"></div>
           <!-- Description Text -->
           <p 
-            appScrollReveal="blur-motion" 
-            delay="500ms"
+            appScrollReveal="fade-up" 
+            delay="300ms"
             class="text-white/90 text-lg md:text-xl leading-relaxed max-w-5xl mx-auto font-light mt-8">
             {{ 'HOME.STATS.DESCRIPTION' | translate }}
           </p>
         </div>
 
         <div 
-          appScrollReveal="blur-motion" 
-          delay="600ms"
+          appScrollReveal="fade-up" 
+          delay="400ms"
           class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center text-white">
         
           @for (stat of stats; track stat.key) {

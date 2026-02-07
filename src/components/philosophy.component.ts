@@ -14,23 +14,23 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
         
         <!-- Anchor Line -->
         <div 
-          appScrollReveal="wipe"
+          appScrollReveal="scale-up"
           class="w-px h-16 bg-[#4A3728] mx-auto mb-8"></div>
         
         <h5 
-          appScrollReveal="curtain" 
+          appScrollReveal="fade-up" 
           delay="200ms"
           class="text-sm font-bold tracking-widest text-[#4A3728] uppercase mb-4">{{ 'HOME.PHILOSOPHY.LABEL' | translate }}</h5>
         
         <h2 
-          appScrollReveal="curtain" 
+          appScrollReveal="fade-up" 
           delay="300ms"
           class="text-3xl md:text-5xl font-serif text-[#1A1A1A] leading-tight mb-8">
           "{{ 'HOME.PHILOSOPHY.QUOTE' | translate }}"
         </h2>
         
         <p 
-          appScrollReveal="blur-motion" 
+          appScrollReveal="fade-up" 
           delay="400ms"
           class="text-[#4A4A4A] text-lg font-light max-w-2xl mx-auto">
           {{ 'HOME.PHILOSOPHY.TEXT' | translate }}

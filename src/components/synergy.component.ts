@@ -17,6 +17,7 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
         <img 
           ngSrc="assets/images/stats_bg_v2.png" 
           fill
+          priority
           alt="" 
           class="object-cover opacity-50"
         />

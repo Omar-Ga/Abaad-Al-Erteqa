@@ -35,82 +35,21 @@
         background: #6d4a2f; 
       }
       
-      /* Scroll Reveal Animations - Optimized */
+      /* Scroll Reveal Animations */
       [class*="reveal-"] {
         opacity: 0;
         transition: opacity var(--reveal-duration, 1s) cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s),
-                    transform var(--reveal-duration, 1s) cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s),
-                    clip-path var(--reveal-duration, 1s) cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s),
-                    filter var(--reveal-duration, 1s) cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s);
-        will-change: opacity, transform, clip-path, filter;
-        
-        /* GPU Promotion & Anti-aliasing */
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-        transform-style: preserve-3d;
-        -webkit-font-smoothing: antialiased;
+                    transform var(--reveal-duration, 1s) cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s);
+        will-change: opacity, transform;
       }
-      
-      /* Accessibility: Reduced Motion */
-      @media (prefers-reduced-motion: reduce) {
-        [class*="reveal-"] {
-          opacity: 1 !important;
-          transform: none !important;
-          clip-path: none !important;
-          filter: none !important;
-          transition: none !important;
-          animation: none !important;
-        }
-      }
-      
-      /* Standard Fades */
       .reveal-fade-up { transform: translateY(60px); }
       .reveal-fade-in { }
       .reveal-scale-up { transform: scale(0.92); }
       .reveal-slide-left { transform: translateX(-60px); }
       .reveal-slide-right { transform: translateX(60px); }
-
-      /* ULTRA Animations */
-      .reveal-curtain {
-        clip-path: inset(0 0 100% 0);
-        transform: translateY(40px);
-      }
-      .reveal-blur-motion {
-        filter: blur(20px);
-        transform: scale(0.95);
-        opacity: 0; /* Reinforced */
-      }
-      .reveal-skew-up {
-        transform: translateY(60px) skewY(3deg);
-        transform-origin: left bottom;
-      }
-      .reveal-wipe {
-        clip-path: inset(0 100% 0 0);
-      }
-
-      /* Mobile: Simplify to Fade-In Only */
-      @media (max-width: 768px) {
-        .reveal-curtain,
-        .reveal-blur-motion,
-        .reveal-skew-up,
-        .reveal-wipe,
-        .reveal-fade-up,
-        .reveal-scale-up,
-        .reveal-slide-left,
-        .reveal-slide-right {
-          transform: none !important;
-          clip-path: none !important;
-          filter: none !important;
-          /* Opacity is handled by the base class, transitioning from 0 to 1 */
-        }
-      }
-
-      /* Visible States */
       .reveal-visible {
         opacity: 1;
-        transform: translate(0) scale(1) skew(0) rotate(0);
-        clip-path: inset(0 0 0 0);
-        filter: blur(0);
+        transform: translate(0) scale(1);
       }
     </style>
   <script type="importmap">

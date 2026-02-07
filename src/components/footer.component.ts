@@ -22,7 +22,7 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16 pb-10 border-b border-white/10">
             <!-- Col 1: Brand -->
             <div 
-                appScrollReveal="skew-up"
+                appScrollReveal="fade-up"
                 class="md:col-span-1">
                 <div class="flex items-center gap-3 mb-5">
                     <img ngSrc="assets/Logos/logo.png" alt="Logo" width="56" height="56" class="h-14 w-auto brightness-0 invert" />
@@ -50,7 +50,7 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
 
             <!-- Col 2: Quick Links -->
             <div 
-                appScrollReveal="skew-up" 
+                appScrollReveal="fade-up" 
                 delay="200ms">
                 <h4 class="text-lg font-semibold mb-5 text-white relative inline-block">
                     {{ 'HOME.FOOTER.LINKS.HEADER' | translate }}
@@ -80,7 +80,7 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
 
             <!-- Col 3: Contact -->
             <div 
-                appScrollReveal="skew-up" 
+                appScrollReveal="fade-up" 
                 delay="400ms">
                 <h4 class="text-lg font-semibold mb-5 text-white relative inline-block">
                     {{ 'HOME.FOOTER.CONTACT.HEADER' | translate }}

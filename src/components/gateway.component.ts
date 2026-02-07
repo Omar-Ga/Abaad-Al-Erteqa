@@ -14,7 +14,7 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
     <section class="relative z-30 px-6 pt-24 pb-24 mt-0 bg-[#121212]">
       <div class="max-w-7xl mx-auto mb-16 text-center">
         <h2 
-          appScrollReveal="curtain"
+          appScrollReveal="fade-up"
           class="text-3xl md:text-5xl font-bold text-white tracking-wide">
           {{ 'HOME.GATEWAY.HEADLINE' | translate }}
         </h2>
@@ -23,7 +23,7 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
         
         <!-- Card A: Abaad Al-Erteqaa (Blue/Technical Tone) -->
         <div 
-          appScrollReveal="skew-up" 
+          appScrollReveal="fade-up" 
           delay="200ms"
           #card routerLink="/projects/abaad" 
           class="group relative h-[450px] overflow-hidden rounded-md shadow-2xl cursor-pointer">
@@ -32,7 +32,6 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
             <img 
                 ngSrc="assets/images/engineering_blueprint.png" 
                 fill 
-                priority
                 class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-110 group-[.in-view]:scale-110"
                 alt="Architecture Office"
             >
@@ -61,7 +60,7 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
 
         <!-- Card B: Sama Al-Mamaria (Warm Yellow/Construction Tone) -->
         <div 
-          appScrollReveal="skew-up" 
+          appScrollReveal="fade-up" 
           delay="400ms"
           #card routerLink="/projects/sama" 
           class="group relative h-[450px] overflow-hidden rounded-md shadow-2xl cursor-pointer">

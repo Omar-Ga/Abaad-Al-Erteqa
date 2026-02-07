@@ -17,7 +17,7 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
           
           @for (value of values; track value.key; let i = $index) {
             <div 
-              appScrollReveal="skew-up"
+              appScrollReveal="fade-up"
               [delay]="(i * 100) + 'ms'"
               class="flex flex-col items-start group">
               <div class="mb-4 text-[#4A3728] group-hover:scale-110 transition-transform duration-300">

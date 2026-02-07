@@ -1,25 +1,18 @@
-import { Directive, ElementRef, Input, OnInit, OnDestroy, Renderer2, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Directive, ElementRef, Input, OnInit, OnDestroy, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appScrollReveal]',
   standalone: true
 })
 export class ScrollRevealDirective implements OnInit, OnDestroy {
-  @Input('appScrollReveal') animationType: 'fade-up' | 'fade-in' | 'scale-up' | 'slide-left' | 'slide-right' | 'curtain' | 'blur-motion' | 'skew-up' | 'wipe' = 'fade-up';
+  @Input('appScrollReveal') animationType: 'fade-up' | 'fade-in' | 'scale-up' | 'slide-left' | 'slide-right' = 'fade-up';
   @Input() delay: string = '0ms';
   @Input() duration: string = '1000ms';
   @Input() threshold: number = 0.2;
 
-  // Shared IntersectionObserver (Singleton Pattern)
-  private static observer: IntersectionObserver | null = null;
-  private static observedElements = new Map<Element, ScrollRevealDirective>();
+  private observer: IntersectionObserver | undefined;
 
-  constructor(
-    private el: ElementRef, 
-    private renderer: Renderer2,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit() {
     // Initial style setup
@@ -30,62 +23,26 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
     this.renderer.setStyle(this.el.nativeElement, '--reveal-delay', this.delay);
     this.renderer.setStyle(this.el.nativeElement, '--reveal-duration', this.duration);
 
-    if (isPlatformBrowser(this.platformId)) {
-      this.observeElement();
-    } else {
-      // Server-side rendering fallback: show immediately
-      this.reveal();
-    }
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.renderer.addClass(this.el.nativeElement, 'reveal-visible');
+          this.renderer.removeClass(this.el.nativeElement, 'reveal-hidden');
+          // Optional: Stop observing once revealed
+          this.observer?.unobserve(this.el.nativeElement);
+        }
+      });
+    }, {
+      threshold: this.threshold,
+      rootMargin: '0px 0px -50px 0px' // Trigger slightly before the element is fully in view
+    });
+
+    this.observer.observe(this.el.nativeElement);
   }
 
   ngOnDestroy() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.unobserveElement();
+    if (this.observer) {
+      this.observer.disconnect();
     }
-  }
-
-  private observeElement() {
-    // Initialize shared observer if it doesn't exist
-    if (!ScrollRevealDirective.observer) {
-      ScrollRevealDirective.observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const directive = ScrollRevealDirective.observedElements.get(entry.target);
-            if (directive) {
-              directive.reveal();
-              // Stop observing this element once revealed
-              ScrollRevealDirective.observer?.unobserve(entry.target);
-              ScrollRevealDirective.observedElements.delete(entry.target);
-            }
-          }
-        });
-      }, {
-        threshold: 0.15, // Unified threshold for better performance
-        rootMargin: '0px 0px -50px 0px'
-      });
-    }
-
-    // Register this element
-    ScrollRevealDirective.observedElements.set(this.el.nativeElement, this);
-    ScrollRevealDirective.observer.observe(this.el.nativeElement);
-  }
-
-  private unobserveElement() {
-    ScrollRevealDirective.observedElements.delete(this.el.nativeElement);
-    ScrollRevealDirective.observer?.unobserve(this.el.nativeElement);
-  }
-
-  private reveal() {
-    this.renderer.addClass(this.el.nativeElement, 'reveal-visible');
-    this.renderer.removeClass(this.el.nativeElement, 'reveal-hidden');
-    
-    // Optimization: Remove will-change after animation completes to free GPU memory
-    // Parse duration to milliseconds + buffer
-    const durationMs = parseInt(this.duration) || 1000;
-    const delayMs = parseInt(this.delay) || 0;
-    
-    setTimeout(() => {
-      this.renderer.setStyle(this.el.nativeElement, 'will-change', 'auto');
-    }, durationMs + delayMs + 100); 
   }
 }

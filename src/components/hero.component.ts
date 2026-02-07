@@ -36,22 +36,22 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
       <!-- Content -->
       <div class="relative z-30 text-start max-w-6xl px-6 md:px-20 mt-24">
         <h1 
-          appScrollReveal="curtain" 
+          appScrollReveal="fade-up" 
           delay="200ms"
           class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-8 leading-[1.1] drop-shadow-2xl hero-title" 
           [innerHTML]="'HOME.TITLE' | translate">
         </h1>
         <p 
-          appScrollReveal="blur-motion" 
-          delay="500ms"
+          appScrollReveal="fade-up" 
+          delay="400ms"
           class="text-lg md:text-2xl text-white/95 max-w-4xl font-medium leading-relaxed drop-shadow-lg mb-10">
           {{ 'HOME.SUBTITLE' | translate }}
         </p>
         
         <!-- CTA Buttons -->
         <div 
-          appScrollReveal="skew-up" 
-          delay="800ms"
+          appScrollReveal="fade-up" 
+          delay="600ms"
           class="flex flex-col sm:flex-row gap-4">
           <button (click)="scrollToSynergy()" class="group px-8 py-4 bg-[#4A3728] text-white font-bold text-lg rounded-lg hover:bg-[#5d4632] transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center gap-3 cursor-pointer">
             {{ 'HOME.SERVICES_BTN' | translate }}
