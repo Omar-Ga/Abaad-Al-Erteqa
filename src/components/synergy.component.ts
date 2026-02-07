@@ -15,7 +15,7 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
       <!-- Background Image with Dark Overlay -->
       <div class="absolute inset-0 z-0">
         <img 
-          ngSrc="assets/images/stats_background.png" 
+          ngSrc="assets/images/stats_bg_v2.png" 
           fill
           alt="" 
           class="object-cover opacity-50"
@@ -27,17 +27,17 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
         <!-- Section Header -->
         <div class="text-center mb-12">
           <h2 
-            appScrollReveal="curtain"
+            appScrollReveal="fade-up"
             class="text-4xl md:text-5xl font-bold text-white mb-6">
             {{ 'HOME.SYNERGY.HEADER' | translate }}
           </h2>
           <div 
-            appScrollReveal="wipe" 
+            appScrollReveal="scale-up" 
             delay="200ms"
             class="w-32 h-1 bg-gradient-to-r from-[#4A3728] via-[#EBC934] to-[#4A3728] mx-auto"></div>
           <p 
-            appScrollReveal="blur-motion" 
-            delay="400ms"
+            appScrollReveal="fade-up" 
+            delay="300ms"
             class="text-[#A0A0A0] mt-6 max-w-3xl mx-auto text-lg leading-relaxed">
             {{ 'HOME.SYNERGY.SUBHEADER' | translate }}
           </p>
@@ -48,8 +48,8 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
           
           <!-- Abaad Column -->
           <div 
-            appScrollReveal="skew-up" 
-            delay="500ms"
+            appScrollReveal="fade-up" 
+            delay="400ms"
             class="group relative">
             <div class="absolute inset-0 bg-gradient-to-br from-[#4A3728]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             <div class="relative bg-[#1A1A1A]/60 backdrop-blur-md border border-[#4A3728]/30 rounded-2xl p-8 h-full hover:border-[#4A3728]/60 transition-all duration-500">
@@ -91,8 +91,8 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
 
           <!-- Sama Column -->
           <div 
-            appScrollReveal="skew-up" 
-            delay="700ms"
+            appScrollReveal="fade-up" 
+            delay="600ms"
             class="group relative">
             <div class="absolute inset-0 bg-gradient-to-br from-[#EBC934]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             <div class="relative bg-[#1A1A1A]/60 backdrop-blur-md border border-[#EBC934]/30 rounded-2xl p-8 h-full hover:border-[#EBC934]/60 transition-all duration-500">
