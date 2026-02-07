@@ -1,14 +1,13 @@
-import { Component, ChangeDetectionStrategy, ElementRef, ViewChild, AfterViewInit, OnDestroy, ChangeDetectorRef, Inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { TranslatePipe } from '../pipes/translate.pipe';
-import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
 
 @Component({
   selector: 'app-statistics',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, TranslatePipe, ScrollRevealDirective],
+  imports: [CommonModule, NgOptimizedImage, TranslatePipe],
   template: `
-    <section class="relative py-24 overflow-hidden" #statsSection>
+    <section class="relative py-24 overflow-hidden">
       <!-- Background Image with Parallax-like fixity (optional) or just cover -->
       <div class="absolute inset-0 z-0">
         <img 
@@ -28,26 +27,19 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
         
         <div class="text-center mb-16">
           <h2 
-            appScrollReveal="fade-up"
             class="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight drop-shadow-md">
             {{ 'HOME.STATS.HEADER' | translate }}
           </h2>
           <div 
-            appScrollReveal="scale-up" 
-            delay="200ms"
             class="w-24 h-1.5 bg-[#EBC934] mx-auto rounded-full"></div>
           <!-- Description Text -->
           <p 
-            appScrollReveal="fade-up" 
-            delay="300ms"
             class="text-white/90 text-lg md:text-xl leading-relaxed max-w-5xl mx-auto font-light mt-8">
             {{ 'HOME.STATS.DESCRIPTION' | translate }}
           </p>
         </div>
 
         <div 
-          appScrollReveal="fade-up" 
-          delay="400ms"
           class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center text-white">
         
           @for (stat of stats; track stat.key) {
@@ -78,74 +70,10 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
   `],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class StatisticsComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('statsSection') sectionRef!: ElementRef;
-
+export class StatisticsComponent {
   stats = [
-    { target: 348, displayValue: 0, prefix: '+', key: 'PROJECTS', color: 'text-[#EBC934]', bar: 'bg-white/30' },
-    { target: 545, displayValue: 0, prefix: '+', key: 'CLIENTS', color: 'text-white', bar: 'bg-[#EBC934]/70' },
-    { target: 500, displayValue: 0, prefix: '+', key: 'DESIGNS', color: 'text-[#EBC934]', bar: 'bg-white/30' },
+    { target: 348, displayValue: 348, prefix: '+', key: 'PROJECTS', color: 'text-[#EBC934]', bar: 'bg-white/30' },
+    { target: 545, displayValue: 545, prefix: '+', key: 'CLIENTS', color: 'text-white', bar: 'bg-[#EBC934]/70' },
+    { target: 500, displayValue: 500, prefix: '+', key: 'DESIGNS', color: 'text-[#EBC934]', bar: 'bg-white/30' },
   ];
-
-  private observer: IntersectionObserver | null = null;
-  private hasAnimated = false;
-
-  constructor(
-    private cdr: ChangeDetectorRef,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) { }
-
-  ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !this.hasAnimated) {
-            this.startAnimation();
-            this.hasAnimated = true;
-          }
-        });
-      }, { threshold: 0.2 });
-
-      if (this.sectionRef) {
-        this.observer.observe(this.sectionRef.nativeElement);
-      }
-    }
-  }
-
-  ngOnDestroy() {
-    if (this.observer) {
-      this.observer.disconnect();
-    }
-  }
-
-  private startAnimation() {
-    const duration = 2000; // 2 seconds
-    const startTime = performance.now();
-
-    const step = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-
-      // Ease out quart
-      const ease = 1 - Math.pow(1 - progress, 4);
-
-      this.stats.forEach(stat => {
-        stat.displayValue = Math.floor(stat.target * ease);
-      });
-
-      this.cdr.markForCheck();
-
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        // Ensure final values
-        this.stats.forEach(stat => {
-          stat.displayValue = stat.target;
-        });
-        this.cdr.markForCheck();
-      }
-    };
-
-    requestAnimationFrame(step);
-  }
 }
