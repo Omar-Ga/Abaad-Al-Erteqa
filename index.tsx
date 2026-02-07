@@ -2,7 +2,7 @@
 import '@angular/compiler';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
-import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { AppComponent } from './src/app.component';
 import { provideZonelessChangeDetection, importProvidersFrom, APP_INITIALIZER, inject } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -28,7 +28,7 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideZonelessChangeDetection(),
     provideHttpClient(),
-    provideRouter(routes, withComponentInputBinding(), withViewTransitions()),
+    provideRouter(routes, withComponentInputBinding()),
     provideAnimations(),
     {
       provide: APP_INITIALIZER,

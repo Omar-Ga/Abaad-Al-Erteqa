@@ -3,7 +3,6 @@ import { HeroComponent } from './hero.component';
 import { GatewayComponent } from './gateway.component';
 import { ValuesComponent } from './values.component';
 import { PhilosophyComponent } from './philosophy.component';
-import { ServicesComponent } from './services.component';
 import { SynergyComponent } from './synergy.component';
 import { StatisticsComponent } from './statistics.component';
 import { PartnersMarqueeComponent } from './partners-marquee.component';
@@ -17,7 +16,6 @@ import { ClientsMarqueeComponent } from './clients-marquee.component';
     GatewayComponent,
     ValuesComponent,
     PhilosophyComponent,
-    ServicesComponent,
     SynergyComponent,
     StatisticsComponent,
     PartnersMarqueeComponent,
@@ -27,7 +25,6 @@ import { ClientsMarqueeComponent } from './clients-marquee.component';
     <app-hero></app-hero>
     <app-statistics></app-statistics>
     <app-gateway></app-gateway>
-    <app-services></app-services>
     <app-partners-marquee></app-partners-marquee>
     <app-clients-marquee></app-clients-marquee>
     <app-synergy></app-synergy>

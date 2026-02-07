@@ -1,7 +1,7 @@
 {
     "HOME": {
-        "BADGE": "Abaad & Sama",
-        "LOGO": "Abaad | Sama",
+        "BADGE": "Abaad & Samma",
+        "LOGO": "Abaad | Samma",
         "LOGO_TEXT": {
             "TITLE": "Abaad Al-Erteqaa",
             "SUBTITLE": "Engineering Consultations & Executions"
@@ -21,14 +21,14 @@
             "DESIGNS": "Unique Designs"
         },
         "ABAAD": "ABAAD",
-        "SAMA": "SAMA",
+        "SAMA": "Samma Al Mammaria",
         "NAV": {
             "HOME": "Home",
             "PROJECTS": "Projects",
             "CONTACT": "Contact",
-            "ABAAD_PROJECTS": "Abaad Projects",
+            "ABAAD_PROJECTS": "Abaad Al-Erteqaa Projects",
             "ABAAD_DESC": "Engineering & Design",
-            "SAMA_PROJECTS": "Sama Projects",
+            "SAMA_PROJECTS": "Samma Al Mammaria Projects",
             "SAMA_DESC": "Safety & Execution"
         },
         "GATEWAY": {
@@ -40,8 +40,8 @@
                 "BTN": "Explore Projects"
             },
             "SAMA": {
-                "TITLE": "Sama Contracting & Safety",
-                "SUBTITLE": "Sama Al-Mamaria",
+                "TITLE": "Samma Contracting & Safety",
+                "SUBTITLE": "Samma Al Mammaria",
                 "DESC": "Construction, Finishing & Maintenance. Executing visions with rigorous safety standards.",
                 "BTN": "Explore Projects"
             }
@@ -52,7 +52,7 @@
             "DESC": "We are a premier alliance dedicated to the development and protection of Saudi Arabia’s infrastructure.",
             "ABAAD_TITLE": "Abaad Al-Erteqaa",
             "ABAAD_DESC": "World-class engineering consultation, urban planning, and certified safety designs.",
-            "SAMA_TITLE": "Sama Safety",
+            "SAMA_TITLE": "Samma Al Mammaria",
             "SAMA_DESC": "Leader in supply, installation, and maintenance of cutting-edge firefighting systems.",
             "BTN": "Learn About Our Alliance"
         },
@@ -79,32 +79,10 @@
             "QUOTE": "Since 2000, our goal has been to upgrade the level of engineering services by combining technical accuracy with speed in performance.",
             "TEXT": "We invest continuously in our technical assets to maintain the highest standards of engineering excellence."
         },
-        "SERVICES": {
-            "HEADER": "Our Core Capabilities",
-            "SUBHEADER": "We combine <span class=\"text-[#4A3728] font-bold\">Abaad's</span> engineering precision with <span class=\"text-[#EBC934] font-bold text-darker\">Sama's</span> execution excellence.",
-            "ITEMS": {
-                "ABAAD_DESIGN": {
-                    "TITLE": "Architectural & MEP Design",
-                    "DESC": "Comprehensive structural, electrical, and mechanical planning for complex facilities."
-                },
-                "ABAAD_SURVEY": {
-                    "TITLE": "Surveying & Unit Sorting",
-                    "DESC": "Precision land surveying and <strong>Real Estate Unit Sorting (Farz)</strong> for property development."
-                },
-                "SAMA_CONTRACTING": {
-                    "TITLE": "General Contracting",
-                    "DESC": "Execution of public and private buildings, including water and sanitation <strong>infrastructure</strong>."
-                },
-                "SAMA_RESTORATION": {
-                    "TITLE": "Restoration & Landscaping",
-                    "DESC": "Building restoration, interior finishing, and the development of gardens and parks."
-                }
-            }
-        },
         "SYNERGY": {
             "BADGE": "The Synergy",
             "HEADER": "Our Services",
-            "SUBHEADER": "Discover how Abaad Al-Erteqaa's engineering expertise and Sama's safety solutions work together to deliver comprehensive project excellence.",
+            "SUBHEADER": "Discover how Abaad Al-Erteqaa's engineering expertise and Samma Al Mammaria's safety solutions work together to deliver comprehensive project excellence.",
             "CONTACT_BTN": "Contact Us",
             "ABAAD": {
                 "TITLE": "Engineering & Consulting",
@@ -134,7 +112,7 @@
             },
             "SAMA": {
                 "TITLE": "Safety Systems & Implementation",
-                "SUBTITLE": "SAMA",
+                "SUBTITLE": "Samma Al Mammaria",
                 "SERVICES": {
                     "FIREFIGHTING": {
                         "TITLE": "Fire Fighting Systems",
@@ -176,7 +154,7 @@
                 "PHONE": "+966 11 000 0000",
                 "EMAIL": "oomarolayan.gamal@gmail.com"
             },
-            "COPYRIGHT": "© 2024 Abaad Al-erteqaa Engineering & Sama Safety. All rights reserved.",
+            "COPYRIGHT": "© 2024 Abaad Al-erteqaa Engineering & Samma Al Mammaria. All rights reserved.",
             "TAGLINE": "Designed for Excellence."
         },
         "PARTNERS": {

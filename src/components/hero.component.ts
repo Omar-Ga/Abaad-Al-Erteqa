@@ -84,10 +84,10 @@ import { TranslatePipe } from '../pipes/translate.pipe';
 })
 export class HeroComponent implements OnInit, OnDestroy {
   images = [
-    'assets/images/swrhome1/Gemini_Generated_Image_rw4incrw4incrw4i.png',
-    'assets/images/swrhome1/Gemini_Generated_Image_woe7t5woe7t5woe7 (1).png',
-    'assets/images/swrhome1/Gemini_Generated_Image_oilf2goilf2goilf.png',
-    'assets/images/swrhome1/Gemini_Generated_Image_b04zjib04zjib04z.png',
+    'assets/images/swrhome1/1.webp',
+    'assets/images/swrhome1/2.webp',
+    'assets/images/swrhome1/3.webp',
+    'assets/images/swrhome1/4.webp',
   ];
 
   activeIndex = signal(0);
