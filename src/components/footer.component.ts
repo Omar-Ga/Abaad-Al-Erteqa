@@ -5,12 +5,13 @@ import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { LucideAngularModule, MapPin, Phone, Mail } from 'lucide-angular';
 import { NavbarService } from '../services/navbar.service';
+import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
 
 
 @Component({
     selector: 'app-footer',
     standalone: true,
-    imports: [CommonModule, TranslatePipe, LucideAngularModule, NgOptimizedImage, RouterLink],
+    imports: [CommonModule, TranslatePipe, LucideAngularModule, NgOptimizedImage, RouterLink, ScrollRevealDirective],
     template: `
     <footer class="relative overflow-hidden text-white pt-16 pb-8 bg-[#121212]">
       <!-- Decorative Top Border -->
@@ -20,7 +21,9 @@ import { NavbarService } from '../services/navbar.service';
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16 pb-10 border-b border-white/10">
             <!-- Col 1: Brand -->
-            <div class="md:col-span-1">
+            <div 
+                appScrollReveal="skew-up"
+                class="md:col-span-1">
                 <div class="flex items-center gap-3 mb-5">
                     <img ngSrc="assets/Logos/logo.png" alt="Logo" width="56" height="56" class="h-14 w-auto brightness-0 invert" />
                     <div class="flex flex-col leading-tight">
@@ -46,7 +49,9 @@ import { NavbarService } from '../services/navbar.service';
             </div>
 
             <!-- Col 2: Quick Links -->
-            <div>
+            <div 
+                appScrollReveal="skew-up" 
+                delay="200ms">
                 <h4 class="text-lg font-semibold mb-5 text-white relative inline-block">
                     {{ 'HOME.FOOTER.LINKS.HEADER' | translate }}
                     <span class="absolute -bottom-1 left-0 w-8 h-0.5 bg-[#EBC934]"></span>
@@ -74,7 +79,9 @@ import { NavbarService } from '../services/navbar.service';
             </div>
 
             <!-- Col 3: Contact -->
-            <div>
+            <div 
+                appScrollReveal="skew-up" 
+                delay="400ms">
                 <h4 class="text-lg font-semibold mb-5 text-white relative inline-block">
                     {{ 'HOME.FOOTER.CONTACT.HEADER' | translate }}
                     <span class="absolute -bottom-1 left-0 w-8 h-0.5 bg-[#EBC934]"></span>
@@ -105,7 +112,10 @@ import { NavbarService } from '../services/navbar.service';
         </div>
 
         <!-- Bottom Bar -->
-        <div class="pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div 
+            appScrollReveal="fade-in" 
+            delay="600ms"
+            class="pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="text-sm text-gray-500">{{ 'HOME.FOOTER.COPYRIGHT' | translate }}</p>
             <p class="text-sm text-[#EBC934] font-medium">{{ 'HOME.FOOTER.TAGLINE' | translate }}</p>
         </div>

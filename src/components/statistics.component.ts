@@ -1,17 +1,18 @@
 import { Component, ChangeDetectionStrategy, ElementRef, ViewChild, AfterViewInit, OnDestroy, ChangeDetectorRef, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { TranslatePipe } from '../pipes/translate.pipe';
+import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
 
 @Component({
   selector: 'app-statistics',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, TranslatePipe],
+  imports: [CommonModule, NgOptimizedImage, TranslatePipe, ScrollRevealDirective],
   template: `
     <section class="relative py-24 overflow-hidden" #statsSection>
       <!-- Background Image with Parallax-like fixity (optional) or just cover -->
       <div class="absolute inset-0 z-0">
         <img 
-            ngSrc="assets/images/synergy-bg.png" 
+            ngSrc="assets/images/stats_bg_v2.png" 
             fill 
             class="object-cover w-full h-full grayscale brightness-50"
             alt="Engineering Detail"
@@ -25,17 +26,28 @@ import { TranslatePipe } from '../pipes/translate.pipe';
       <div class="relative z-20 max-w-7xl mx-auto px-6">
         
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight drop-shadow-md">
+          <h2 
+            appScrollReveal="curtain"
+            class="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight drop-shadow-md">
             {{ 'HOME.STATS.HEADER' | translate }}
           </h2>
-          <div class="w-24 h-1.5 bg-[#EBC934] mx-auto rounded-full"></div>
+          <div 
+            appScrollReveal="wipe" 
+            delay="300ms"
+            class="w-24 h-1.5 bg-[#EBC934] mx-auto rounded-full"></div>
           <!-- Description Text -->
-          <p class="text-white/90 text-lg md:text-xl leading-relaxed max-w-5xl mx-auto font-light mt-8">
+          <p 
+            appScrollReveal="blur-motion" 
+            delay="500ms"
+            class="text-white/90 text-lg md:text-xl leading-relaxed max-w-5xl mx-auto font-light mt-8">
             {{ 'HOME.STATS.DESCRIPTION' | translate }}
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center text-white">
+        <div 
+          appScrollReveal="blur-motion" 
+          delay="600ms"
+          class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center text-white">
         
           @for (stat of stats; track stat.key) {
             <div class="flex flex-col items-center group">

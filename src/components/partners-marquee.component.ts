@@ -1,16 +1,19 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../pipes/translate.pipe';
+import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
 
 @Component({
   selector: 'app-partners-marquee',
   standalone: true,
-  imports: [CommonModule, TranslatePipe],
+  imports: [CommonModule, TranslatePipe, ScrollRevealDirective],
   template: `
     <section class="py-16 bg-[#F9F8F6] overflow-hidden" dir="ltr">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
-        <div class="text-center mb-12">
+        <div 
+          appScrollReveal="fade-up"
+          class="text-center mb-12">
           <h2 class="text-3xl md:text-4xl font-bold text-[#4A3728]">
             {{ 'HOME.PARTNERS.TITLE' | translate }}
           </h2>
@@ -23,7 +26,10 @@ import { TranslatePipe } from '../pipes/translate.pipe';
       </div>
 
       <!-- Marquee Container -->
-      <div class="marquee-wrapper">
+      <div 
+        appScrollReveal="fade-in" 
+        delay="300ms"
+        class="marquee-wrapper">
         <div class="marquee-track">
           @for (logo of logos; track $index) {
             <div class="marquee-item">
@@ -84,21 +90,21 @@ import { TranslatePipe } from '../pipes/translate.pipe';
 })
 export class PartnersMarqueeComponent {
   logos = [
-    'img122.jpg',
-    'img123.jpg',
-    'img124.jpg',
-    'img126.jpg',
-    'img128.jpg',
-    'img130.jpg',
-    'img132.jpg',
-    'img134.jpg',
-    'img136.jpg',
-    'img138.jpg',
-    'img140.jpg',
-    'img142.jpg',
-    'img144.jpg',
-    'img146.jpg',
-    'img148.jpg',
-    'img150.jpg'
+    'img122.webp',
+    'img123.webp',
+    'img124.webp',
+    'img126.webp',
+    'img128.webp',
+    'img130.webp',
+    'img132.webp',
+    'img134.webp',
+    'img136.webp',
+    'img138.webp',
+    'img140.webp',
+    'img142.webp',
+    'img144.webp',
+    'img146.webp',
+    'img148.webp',
+    'img150.webp'
   ];
 }

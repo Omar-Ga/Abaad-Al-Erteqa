@@ -3,12 +3,13 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { LucideAngularModule, Building2, ShieldAlert } from 'lucide-angular';
+import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
 
 
 @Component({
   selector: 'app-synergy',
   standalone: true,
-  imports: [CommonModule, TranslatePipe, LucideAngularModule, NgOptimizedImage, RouterLink],
+  imports: [CommonModule, TranslatePipe, LucideAngularModule, NgOptimizedImage, RouterLink, ScrollRevealDirective],
   template: `
     <section id="synergy" class="relative pt-6 pb-16 md:py-16 overflow-hidden bg-[#1A1A1A]">
       <!-- Background Image with Dark Overlay -->
@@ -25,11 +26,19 @@ import { LucideAngularModule, Building2, ShieldAlert } from 'lucide-angular';
       <div class="max-w-7xl mx-auto px-6 relative z-10">
         <!-- Section Header -->
         <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 
+            appScrollReveal="curtain"
+            class="text-4xl md:text-5xl font-bold text-white mb-6">
             {{ 'HOME.SYNERGY.HEADER' | translate }}
           </h2>
-          <div class="w-32 h-1 bg-gradient-to-r from-[#4A3728] via-[#EBC934] to-[#4A3728] mx-auto"></div>
-          <p class="text-[#A0A0A0] mt-6 max-w-3xl mx-auto text-lg leading-relaxed">
+          <div 
+            appScrollReveal="wipe" 
+            delay="200ms"
+            class="w-32 h-1 bg-gradient-to-r from-[#4A3728] via-[#EBC934] to-[#4A3728] mx-auto"></div>
+          <p 
+            appScrollReveal="blur-motion" 
+            delay="400ms"
+            class="text-[#A0A0A0] mt-6 max-w-3xl mx-auto text-lg leading-relaxed">
             {{ 'HOME.SYNERGY.SUBHEADER' | translate }}
           </p>
         </div>
@@ -38,7 +47,10 @@ import { LucideAngularModule, Building2, ShieldAlert } from 'lucide-angular';
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
           
           <!-- Abaad Column -->
-          <div class="group relative">
+          <div 
+            appScrollReveal="skew-up" 
+            delay="500ms"
+            class="group relative">
             <div class="absolute inset-0 bg-gradient-to-br from-[#4A3728]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             <div class="relative bg-[#1A1A1A]/60 backdrop-blur-md border border-[#4A3728]/30 rounded-2xl p-8 h-full hover:border-[#4A3728]/60 transition-all duration-500">
               <!-- Company Header -->
@@ -78,7 +90,10 @@ import { LucideAngularModule, Building2, ShieldAlert } from 'lucide-angular';
           </div>
 
           <!-- Sama Column -->
-          <div class="group relative">
+          <div 
+            appScrollReveal="skew-up" 
+            delay="700ms"
+            class="group relative">
             <div class="absolute inset-0 bg-gradient-to-br from-[#EBC934]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             <div class="relative bg-[#1A1A1A]/60 backdrop-blur-md border border-[#EBC934]/30 rounded-2xl p-8 h-full hover:border-[#EBC934]/60 transition-all duration-500">
               <!-- Company Header -->

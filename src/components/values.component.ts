@@ -3,19 +3,23 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { LucideAngularModule, Zap, ShieldCheck, Cpu, Clock } from 'lucide-angular';
+import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
 
 
 @Component({
   selector: 'app-values',
   standalone: true,
-  imports: [CommonModule, TranslatePipe, LucideAngularModule],
+  imports: [CommonModule, TranslatePipe, LucideAngularModule, ScrollRevealDirective],
   template: `
     <section class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           
-          @for (value of values; track value.key) {
-            <div class="flex flex-col items-start group">
+          @for (value of values; track value.key; let i = $index) {
+            <div 
+              appScrollReveal="skew-up"
+              [delay]="(i * 100) + 'ms'"
+              class="flex flex-col items-start group">
               <div class="mb-4 text-[#4A3728] group-hover:scale-110 transition-transform duration-300">
                 <lucide-icon [name]="value.icon" [size]="32" [strokeWidth]="1.5"></lucide-icon>
               </div>

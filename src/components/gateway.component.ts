@@ -4,27 +4,35 @@ import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/comm
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, ArrowRight } from 'lucide-angular';
+import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
 
 @Component({
   selector: 'app-gateway',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, TranslatePipe, LucideAngularModule, RouterLink],
+  imports: [CommonModule, NgOptimizedImage, TranslatePipe, LucideAngularModule, RouterLink, ScrollRevealDirective],
   template: `
     <section class="relative z-30 px-6 pt-24 pb-24 mt-0 bg-[#121212]">
       <div class="max-w-7xl mx-auto mb-16 text-center">
-        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-wide">
+        <h2 
+          appScrollReveal="curtain"
+          class="text-3xl md:text-5xl font-bold text-white tracking-wide">
           {{ 'HOME.GATEWAY.HEADLINE' | translate }}
         </h2>
       </div>
       <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <!-- Card A: Abaad Al-Erteqaa (Blue/Technical Tone) -->
-        <div #card routerLink="/projects/abaad" class="group relative h-[450px] overflow-hidden rounded-md shadow-2xl cursor-pointer">
+        <div 
+          appScrollReveal="skew-up" 
+          delay="200ms"
+          #card routerLink="/projects/abaad" 
+          class="group relative h-[450px] overflow-hidden rounded-md shadow-2xl cursor-pointer">
           <!-- Background Image -->
           <div class="absolute inset-0 w-full h-full">
             <img 
                 ngSrc="assets/images/engineering_blueprint.png" 
                 fill 
+                priority
                 class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-110 group-[.in-view]:scale-110"
                 alt="Architecture Office"
             >
@@ -52,12 +60,17 @@ import { LucideAngularModule, ArrowRight } from 'lucide-angular';
         </div>
 
         <!-- Card B: Sama Al-Mamaria (Warm Yellow/Construction Tone) -->
-        <div #card routerLink="/projects/sama" class="group relative h-[450px] overflow-hidden rounded-md shadow-2xl cursor-pointer">
+        <div 
+          appScrollReveal="skew-up" 
+          delay="400ms"
+          #card routerLink="/projects/sama" 
+          class="group relative h-[450px] overflow-hidden rounded-md shadow-2xl cursor-pointer">
            <!-- Background Image -->
            <div class="absolute inset-0 w-full h-full">
             <img 
                 ngSrc="assets/images/safety_construction.png" 
                 fill 
+                priority
                 class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-110 group-[.in-view]:scale-110"
                 alt="Safety Construction"
             >

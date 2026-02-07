@@ -150,7 +150,7 @@ import { LucideAngularModule, Menu, X, ChevronDown } from 'lucide-angular';
       <div class="h-20 flex items-center justify-between px-6 border-b border-[#4A3728]/10 bg-white">
         <div class="flex items-center gap-2">
            <!-- Optional: Mobile Logo -->
-           <img ngSrc="assets/Logos/logo.png" alt="Logo" width="32" height="32" class="h-8 w-auto" />
+           <img ngSrc="assets/Logos/logo.png" alt="Logo" width="32" height="32" priority class="h-8 w-auto" />
            <span class="font-bold text-[#4A3728] text-lg">{{ 'HOME.LOGO_TEXT.TITLE' | translate }}</span>
         </div>
         <button 
