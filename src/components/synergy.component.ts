@@ -53,7 +53,7 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
             delay="400ms"
             class="group relative">
             <div class="absolute inset-0 bg-gradient-to-br from-[#4A3728]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div class="relative bg-[#1A1A1A]/60 backdrop-blur-md border border-[#4A3728]/30 rounded-2xl p-8 h-full hover:border-[#4A3728]/60 transition-all duration-500">
+            <div class="relative bg-[#1A1A1A]/60 backdrop-blur-md border border-[#4A3728]/30 rounded-2xl p-8 h-full hover:border-[#4A3728]/60 transition-all duration-500 flex flex-col">
               <!-- Company Header -->
               <div class="flex items-center gap-4 mb-6 pb-4 border-b border-[#4A3728]/30">
                 <div class="w-14 h-14 bg-gradient-to-br from-[#4A3728] to-[#6B4D3B] rounded-xl flex items-center justify-center shadow-lg shadow-[#4A3728]/30">
@@ -79,7 +79,7 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
               </ul>
 
               <!-- Contact Button -->
-              <div class="mt-8 flex justify-start">
+              <div class="mt-auto pt-8 flex justify-start">
                 <a 
                   routerLink="/contact" 
                   class="inline-block px-8 py-4 bg-[#4A3728] text-white font-bold text-lg rounded-xl hover:bg-[#5d4632] transition-all duration-300 shadow-lg shadow-[#4A3728]/30 hover:shadow-xl hover:shadow-[#4A3728]/40 hover:-translate-y-1"
@@ -96,7 +96,7 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
             delay="600ms"
             class="group relative">
             <div class="absolute inset-0 bg-gradient-to-br from-[#EBC934]/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div class="relative bg-[#1A1A1A]/60 backdrop-blur-md border border-[#EBC934]/30 rounded-2xl p-8 h-full hover:border-[#EBC934]/60 transition-all duration-500">
+            <div class="relative bg-[#1A1A1A]/60 backdrop-blur-md border border-[#EBC934]/30 rounded-2xl p-8 h-full hover:border-[#EBC934]/60 transition-all duration-500 flex flex-col">
               <!-- Company Header -->
               <div class="flex items-center gap-4 mb-6 pb-4 border-b border-[#EBC934]/30">
                 <div class="w-14 h-14 bg-gradient-to-br from-[#EBC934] to-[#B89C28] rounded-xl flex items-center justify-center shadow-lg shadow-[#EBC934]/30">
@@ -122,7 +122,7 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
               </ul>
 
               <!-- Contact Button -->
-              <div class="mt-8 flex justify-start">
+              <div class="mt-auto pt-8 flex justify-start">
                 <a 
                   routerLink="/contact" 
                   class="inline-block px-8 py-4 bg-[#EBC934] text-[#1A1A1A] font-bold text-lg rounded-xl hover:bg-[#d4b42e] transition-all duration-300 shadow-lg shadow-[#EBC934]/30 hover:shadow-xl hover:shadow-[#EBC934]/40 hover:-translate-y-1"
