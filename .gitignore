@@ -13,9 +13,18 @@ dist
 dist-ssr
 .angular/
 .agent/
+.agents/
+.trae/
 .vite/
 .kilocode/
 .gemini/
+
+# Local scripts and temp files
+upload.js
+upload_all.ps1
+upload_results.json
+readme_content.txt
+mcp-servers/
 
 # Environment and Secrets
 .env

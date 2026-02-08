@@ -92,9 +92,9 @@
                         "TITLE": "Architectural & Interior Design",
                         "DESC": "Creative concepts for residential, commercial, and hospitality projects."
                     },
-                    "SAFETY_DESIGN": {
-                        "TITLE": "Safety Engineering Design",
-                        "DESC": "Creating security and safety plans compliant with Civil Defense regulations (Safety 1 & 2)."
+                    "CONSULTING": {
+                        "TITLE": "Consulting Services",
+                        "DESC": "Providing integrated strategic solutions to ensure project success with high efficiency."
                     },
                     "SUPERVISION": {
                         "TITLE": "Supervision & Project Management",
@@ -103,10 +103,6 @@
                     "URBAN": {
                         "TITLE": "Urban Planning & Surveying",
                         "DESC": "Topographical surveys, infrastructure planning, and contour mapping."
-                    },
-                    "TRAFFIC": {
-                        "TITLE": "Traffic & Environmental Studies",
-                        "DESC": "Specialized impact studies for major developments."
                     }
                 }
             },

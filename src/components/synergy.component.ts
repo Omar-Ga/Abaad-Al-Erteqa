@@ -148,10 +148,9 @@ import { ScrollRevealDirective } from '../directives/scroll-reveal.directive';
 export class SynergyComponent {
   abaadServices = [
     { key: 'ARCHITECTURAL' },
-    { key: 'SAFETY_DESIGN' },
+    { key: 'CONSULTING' },
     { key: 'SUPERVISION' },
     { key: 'URBAN' },
-    { key: 'TRAFFIC' },
   ];
 
   samaServices = [
